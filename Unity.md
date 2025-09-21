@@ -120,8 +120,104 @@ nowValue = GUI.verticalSlider(new Rect)(0,150,50,100),nowValue，0,1)
 public Rect     texPos;
 public Texture  tex;
 
-GUI.DrawTexture(texPcs,tex)
+
+//ScaleMode
+//ScaleAndCrop:通过宽高比来计算图片 但是会进行裁剪
+//ScaleToFit:自动根据宽高比进行计算 不会拉变形 会一直保持图片完全显示的状态
+//StretchToFill:始终填充满你传入的Rect范围
+
+//alpha 是用来 控制 图片是否开启透明通道的
+
+//imageAspect 自定义宽高比 如果不填 默认为0 就会使用 图片原始宽高
+
+GUI.DrawTexture(texPcs,tex,mode,alpha,wh)
 
 ```
 
+### 二、框绘制
 
+```C#
+public Rect texPos;
+
+public Texture BoxTexure
+
+GUI.Box(texPos," ") //简单文本显示框
+
+GUI.Box(texPos,BoxTexure)//显示带纹理的框
+
+GUI.Box(texPos,"自定义样式",style)//自定义框的外观
+```
+
+## 工具栏和选择网格
+
+### 一、工具栏 
+
+```C#
+private int toolbarIndex = 0;
+private string[] toolbarInfos = new string[]{"选项一"，"选项二"，"选项三"};
+
+toolbarIndex = GUI.Toolbar(new Rect(0,0,300,30), toolbarIndex,toolbarInfos)
+//工具栏可以帮助我们根据不同的返回索引 来处理不同的逻辑
+
+switch(toolbarIndex)
+{
+case 0 :
+    break;
+case 1 :
+    break;
+case 2 :
+    break;
+}
+```
+
+### 二、选择网格
+
+```C#
+private int selGridIndex = 0;
+private string[] toolbarInfos = new string[]{"选项一"，"选项二"，"选项三"};
+
+//相对toolbar多了一个参数 xCount 代表 水平方向最多显示的按钮数量
+GUI.SelectionGrid(new Rect(0,50,200,30),selGridIndex,toolbarInfos，3)
+```
+
+## 滚动列表和分组
+
+### 一、分组
+
+```C#
+//用于批量控制组件位置
+//可以理解为 包裹着的控件加了一个父对象
+//可以通过控制分组来控制包裹控件的位置
+public Rect groupPos;
+
+
+GUI.BeginGroup(groups);
+GUI.Button(new Rect(0,0,100,50),"测试按钮")
+GUI.EndGroup();
+
+
+
+```
+
+### 滚动列表
+
+``` C#
+public  Rect  scPos;
+public  Rect  showPos;
+private Vector2  nowPos;
+
+public static Vector2 BeginScrollView(Rect position, Vector2 scrollPosition, Rect viewRect, bool alwaysShowHorizontal, bool alwaysShowVertical, GUIStyle horizontalScrollbar, GUIStyle verticalScrollbar);
+
+//position : 屏幕上用于滚动视图的矩形区域。
+ 
+//scrollPosition: 视图在 X 和 Y 方向上滚动的像素距离。   
+//viewRect: 在滚动视图内使用的矩形区域。  
+//horizontalScrollbar 和 verticalScrollbar: （可选）用于水平和垂直滚动条的 GUIStyle。如果省略，则使用当前 GUISkin 的样式。 
+//alwaysShowHorizontal 和 alwaysShowVertical: （可选）指示是否始终显示水平和垂直滚动条。
+
+
+nowPos = GUI.BeginScrollView(scPsos,nowPos,showPos)
+
+
+GUI.EndScrollView();
+```
