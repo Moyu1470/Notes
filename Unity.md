@@ -221,3 +221,116 @@ nowPos = GUI.BeginScrollView(scPsos,nowPos,showPos)
 
 GUI.EndScrollView();
 ```
+
+## 窗口
+
+### 一、窗口的基本使用 
+
+```C#
+
+public static [Rect] Window (int id, [Rect] clientRect, [GUI.WindowFunction] func, [string] text, [GUIStyle] style
+public static [Rect] Window (int id, [Rect] clientRect, [GUI.WindowFunction] func, [Texture] image, [GUIStyle] style
+public static [Rect] Window (int id, [Rect] clientRect, [GUI.WindowFunction] func, [GUIContent] title, [GUIStyle] style;
+
+| Style      | （可选）用于窗口的样式。如果省略，则使用当前 GUISkin 的 window 样式。 
+|------------|--------------------------------------------------------------
+| id         | 窗口的 ID 编号（只要保证唯一，可以使用任意值）。                
+| clientRect | 表示窗口位置和大小的屏幕矩形。                             
+| func       | 显示窗口内容的脚本函数。                                
+| text       | 要在窗口内呈现的文本。                                 
+| image      | 要在窗口内呈现的图像。                                 
+| content    | 要在窗口内呈现的 GUIContent。                        
+| style      | 窗口的样式信息。                                    
+| title      | 窗口标题栏中显示的文本。                                
+
+//第一个参数 id 是窗口的唯一ID 不要和别的窗口重复
+//委托参数 是用于 绘制窗口用的函数 传入即可
+GUI.Window(1,new Rect(100,100,200,150),DrawWindow,"测试窗口")
+//id 有一个重要作用 除了区分不同窗口 还可以在一个函数中去处理多个窗口的逻辑
+GUI.Window(2,new Rect(100,100,200,150),DrawWindow,"测试窗口")
+private void DrawWindow
+{
+    switch(id)
+    {
+        case 1:
+        GUI.Button(new Rect(0,30,30,20),"1")
+        break;
+        
+        case 2:
+        GUI.Button(new Rect(0,30,30,20),"2")
+        break;
+        
+        case 3:
+        GUI.Button(new Rect(0,30,30,20),"3")
+        break;
+        
+        case 4:
+        //该API 写在窗口函数中调用 可以让窗口被拖动
+        //传入Rect参数的重载 作用是 决定窗口中哪一部分位置可以被拖动
+        //默认不填就是无参重载 默认窗口的所有位置都能被拖动
+        GUI.Dragwindow（）;
+        break;
+    } 
+}
+```
+
+### 二、模态窗口 
+
+![](static/Unity_images_1.png)
+
+```C#
+//模态窗口 可以让其它控件不再有用
+//可以理解成该窗口在最上层 其他按钮都点击不到 
+//只能点击该窗口上的控件
+
+GUI.ModalWindow(1,new Rect(300m100m200m150),DrawWindow,"模态窗口")
+```
+
+### 三、拖动窗口
+
+```C#
+
+private Rect drawWinPos = new Rect(400,400,200,150);
+
+//位置赋值 只是前提  (具体case 4 看窗口的基本使用的Drawwindow函数)
+dragWinPos = GUI.Window(4,dragWinPos,DrawWindow,拖动窗口)
+```
+
+## 自定义皮肤
+
+### 一、全局颜色
+
+```C#
+//全局的着色颜色 影响背景和文本颜色
+GUI.color = Color.red;
+//文本着色颜色  会和全局颜色相乘
+GUI.contentColor = Color.yellow;
+//背景元素着色元素 会和全局颜色相乘
+GUI.backgroundColor = Color.red;
+```
+
+### 二、整体皮肤样式
+
+```C#
+public GUISkins skin;
+
+GUI.skin = skin;
+//虽然设置了皮肤 但是绘制时 如果使用GUIStyle参数 皮肤就没有
+
+//它可以帮助我们整套的设置 自定义样式
+//相对单个控件设置Style要方便一些
+```
+
+## GUIlayout自动布局
+
+### 一、GUIlayout 自动布局
+
+```C#
+
+```
+
+### 二、GUIlayoutOption
+
+```C#
+
+```
