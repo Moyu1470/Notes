@@ -192,7 +192,11 @@ public Rect groupPos;
 
 
 GUI.BeginGroup(groups);
+
+
 GUI.Button(new Rect(0,0,100,50),"测试按钮")
+
+
 GUI.EndGroup();
 
 
@@ -326,11 +330,295 @@ GUI.skin = skin;
 ### 一、GUIlayout 自动布局
 
 ```C#
+//主要用于进行编辑器开发 若果用它来做游戏UI不太合适
+GUILayout.BeginGroup(new Rect(100,100,100,100));
+GUILayout.BeginHorizontal(); /GUILayout.BeginVertical();
 
+GUILayout.Button("123");
+GUILayout.Button("234");
+GUILayout.Button("345",GUILayout.ExoandWidth(false));
+
+GUILayout.EndHorizontal(); /GUILayout.EndVertical();
+GUILayout.EndGroup();
 ```
 
 ### 二、GUIlayoutOption
 
 ```C#
+//控件的固定宽高
+GUILayout.Width(300);
+GUILayout.Height(200);
+
+//允许控件的最小宽高
+GUILayout.MinWidth(50);
+GUILayout.MinHeight(50);
+
+//允许控件的最大宽高
+GUI.Layout.MaxWidth(100);
+GUI.Layout.MaxHeight(100);
+//允许或禁止水平拓展
+GUILayout.ExpandWidth（true）;允许
+GUILayout.ExpandWidth(false);禁止
+GUILayout.ExpandHeight(true);允许
+GUILayout.ExpandHeight(false);禁止
+```
+
+## 编辑器模式下执行脚本
+```C#
+[ExecuteAlways]
+```
+
+## 控制位置信息类
+
+```C# 
+//对齐方式枚举
+public enum  E_Alignment_Type 
+    {
+        Up,
+        Down,
+        Left,
+        Right,
+        Center,
+        Left_Up,
+        Left_Down,
+        Right_Up,
+        Right_Down,
+    }
+
+[System.Serializable]
+public class CustomGUIPos
+{
+    
+    //该位置信息 用来返回给外部 用于绘制控件
+    private Rect rpos = new Rect(0,0,100,100)
+    
+    //屏幕九宫格对齐方式
+    public E_Alignment_Type screen_Alignment_Type;
+    //控件中心对齐方式
+    public E_Alignment_Type control_Alignment_Type;
+    //偏移位置
+    public Vector2 pos;
+    //宽高
+    public float width = 100;
+    public float height = 50;
+    //用于计算的 中心点 成员变量
+    private Vector2 centerPos;
+    
+    //计算中心点偏移的方法
+    private void CalcCenterPos()
+        {
+            switch(control_Alignment_Type)
+            {
+                case E_Alignment_Type.Up:
+                    centerPos.x = -width/2;
+                    centerPos.y = 0;
+                    break;
+                    
+                case E_Alignment_Type.Down:
+                    centerPos.x = -width/2;
+                    centerPos.y = -height;
+                    break;
+                    
+                case E_Alignment_Type.Left:
+                    centerPos.x = 0;
+                    centerPos.y =-height/2;
+                    break;
+                    
+                case E_Alignment_Type.Right:
+                    centerPos.x = -width;
+                    centerPos.y = -height/2;
+                    break;
+                    
+                case E_Alignment_Type.Center:
+                    centerPos.x = -width/2;
+                    centerPos.y = -height/2;
+                    break;
+                    
+                case E_Alignment_Type.Left_Up:
+                    centerPos.x = 0;
+                    centerPos.y = 0;
+                    break;
+                    
+                case E_Alignment_Type.Left_Down:
+                    centerPos.x = 0;
+                    centerPos.y = -height;
+                    break;
+                    
+                case E_Alignment_Type.Right_Up:
+                    centerPos.x = -width;
+                    centerPos.y = 0;
+                    break;
+                    
+                case E_Alignment_Type.Right_Down:
+                    centerPos.x = -width;
+                    centerPos.y = - height;  
+                    break;  
+                    
+            }
+        }
+    
+    //计算最终相对坐标位置的方法
+    private void CalPos()
+        {
+            switch(screen_Alignment_Type)
+            {
+                case E_Alignment_Type.Up:
+                    rPos.x = Screen.width/2 + centerPos.x + pos.x;
+                    rPos.y = 0 + centerPos.y + pos.y;
+                    break;
+                
+                case E_Alignment_Type.Down:
+                    rPos.x = Screen.width/2 + centerPos.x + pos.x;
+                    rPos.y = Screen.height + centerPos.y - pos.y;
+                   break;
+                   
+                case E_Alignment_Type.Left:
+                    rPos.x = 0 + centerPos.x + pos.x;
+                    rPos.y = Screen.height/2 + centerPos.y + pos.y;
+                   break;
+                   
+                case E_Alignment_Type.Right:
+                    rPos.x = Screen.width + centerPos.x - pos.x;
+                    rPos.y = Screen.height/2 + centerPos.y + pos.y;
+                    break;
+                    
+                case E_Alignment_Type.Center:
+                    rPos.x = Screen.width/2 + centerPos.x + pos.x;
+                    rPos.y = Screen.height/2 + centerPos.y + pos.y;
+                   break;
+                   
+                case E_Alignment_Type.Left_Up:
+                    rPos.x = 0 + centerPos.x + pos.x;
+                    rPos.y = 0 + centerPos.y + pos.y;
+                    break;
+                    
+                case E_Alignment_Type.Left_Down:
+                    rPos.x = 0 + centerPos.x + pos.x;
+                    rPos.y = Screen.height + centerPos.y - pos.y;
+                   break;
+                   
+                case E_Alignment_Type.Right_Up:
+                    rPos.x = Screen.width + centerPos.x - pos.x;
+                    rPos.y = 0 + centerPos.y + pos.y;
+                   break;
+                   
+                case E_Alignment_Type.Right_Down:
+                    rPos.x = Screen.width + centerPos.x - pos.x;
+                    rPos.y = Screen.height + centerPos.y - pos.y;
+                    break;  
+                      
+            }
+        }
+    
+    //得到最终绘制的位置和宽高
+    public Rect Pos
+        {
+            get
+            {
+                //进行计算
+                //计算中心点偏移
+                CalcCenterPos();
+                //计算 相对屏幕坐标点
+                CalcPos();
+                //宽高直接赋值 发回给外部 别人直接使用来绘制控件
+                rPos.width = width;
+                rPos.height = height;
+                return rPos ;   
+            }
+        }
+
+}
+```
+
+## 控件父类
+```C#
+
+public enum E_Style_OnOff
+{
+    On,
+    Off,
+}
+
+//提取控件的共同表现
+//位置信息
+public CustomGUIPos guiPos;
+//显示内容信息
+public GUIContent content;
+//自定义样式
+public GUIstyle style;
+//自定义样式是否启用的开关
+public E_Style_OnOff styleOnOrOff = E_Style_OnOff.off;
+
+private void OnGUI()
+{
+    case E_Style_OnOff.On:
+        StyleOnDraw();
+        break;
+    case E_Style_OnOff.Off:
+       StyleOffDraw();
+        break;
+}
+
+protected virtual void StyleOnDraw
+{
+    GUI.Button(guiPos.Pos, content, style);
+}
+
+protected virtual void StyleOffDraw
+{
+     GUI.Button(guiPos.Pos, content);
+}
+```
+
+## 所见即所得的绘制顺序
+
+```C#
+
+
+private void OnGUI()                    public void DrawGUI()            
+{                                       {
+    case E_Style_OnOff.On:                case E_Style_OnOff.On:
+        StyleOnDraw();                      StyleOnDraw();
+        break;                 ==>          break;  
+    case E_Style_OnOff.Off:               case E_Style_OnOff.Off:
+       StyleOffDraw();                      StyleOffDraw();
+        break;                              break;
+}                                       }
+
+protected virtual void StyleOnDraw
+{
+    GUI.Button(guiPos.Pos, content, style);
+}
+
+protected virtual void StyleOffDraw
+{
+     GUI.Button(guiPos.Pos, content);
+}
+
+//上述代码节选自 控件父类
+
+[ExecuteAlways]
+public class CustonGUIRoot : MonoBehaviour
+{
+    //用于存储子对象 所有GUI控件的容器
+    private CustomguiControl allControls;
+    
+    void Start
+    {
+    
+    
+    }
+    
+    private void OnGUI()
+    {
+        //通过每一次绘制前 得到所有子对象控件的 父类脚本
+        allControls = this.GetComponentsInChildren<CustomguiControl>;
+        
+        
+    
+    }
+
+}
+
 
 ```
