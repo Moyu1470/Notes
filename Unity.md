@@ -42,6 +42,7 @@ Debug.Log("长按按钮被点击);
 ```
 ## 多选框和单选框
 ### 一、多选框
+![](static/Unity_images_1.png)
 
 ```c#
 private bool isSel;    //私有申明一个siSel标志符 而不是直接写死bool值
@@ -63,17 +64,17 @@ private int nowSelIndex = 1;
 
 //单选框的实现  基于多选框
 //关键： 通过一个Int标识用来决定是否选中
-if(GUI.Toggle(new Rect(0,100,100,30),true,"选项一"))
+if(GUI.Toggle(new Rect(0,100,100,30),nowSelIndex == 1,"选项一"))
 {
 nowSelIndex = 1;
 }
 
-if(GUI.Toggle(new Rect(0,140,100,30),true,"选项二"))
+if(GUI.Toggle(new Rect(0,140,100,30),nowSelIndex == 2,"选项二"))
 {
 nowSelIndex = 2;
 }
 
-if(GUI.Toggle(new Rect(0,180,100,30),true,"选项三"))
+if(GUI.Toggle(new Rect(0,180,100,30),nowSelIndex == 3,"选项三"))
 {
 nowSelIndex = 3;
 }
@@ -97,6 +98,7 @@ inputPW = GUI.PasswordField(new Rect(0,50,100,30),inputPW,'*')
 ### 二、拖动条
 
 #### 水平拖动条
+![](static/Unity_images_2.png)
 ``` C#
 private float nowValue = 0.5f;
 
@@ -107,6 +109,7 @@ nowValue = GUI.HorizontalSlider(new Rect)(0,100,100,50),nowValue，0,1)
 ```
 
 #### 竖直拖动条
+![](static/Unity_images_3.png)
 ```C#
 
 nowValue = GUI.verticalSlider(new Rect)(0,150,50,100),nowValue，0,1)
@@ -280,7 +283,7 @@ private void DrawWindow
 
 ### 二、模态窗口 
 
-![](static/Unity_images_1.png)
+![](static/Unity_images_4.png)
 
 ```C#
 //模态窗口 可以让其它控件不再有用
@@ -363,12 +366,13 @@ GUILayout.ExpandHeight(true);允许
 GUILayout.ExpandHeight(false);禁止
 ```
 
-## 编辑器模式下执行脚本
+## 实践部分
+### 一、编辑器模式下执行脚本
 ```C#
 [ExecuteAlways]
 ```
 
-## 控制位置信息类
+### 二、控制位置信息类
 
 ```C# 
 //对齐方式枚举
@@ -530,47 +534,50 @@ public class CustomGUIPos
 }
 ```
 
-## 控件父类
+### 三、控件父类(GUIControl)
 ```C#
 
-public enum E_Style_OnOff
-{
-    On,
-    Off,
-}
+    public enum E_Style_OnOff
+    {
+        On,
+        Off,
+    }
+    public class CustomGUIControl : MonoBehaviour
+    {
+        //提取控件的共同表现
+        //位置信息
+        public CustomGUIPos guiPos;
+        //显示内容信息
+        public GUIContent content;
+        //自定义样式
+        public GUIstyle style;
+        //自定义样式是否启用的开关
+        public E_Style_OnOff styleOnOrOff = E_Style_OnOff.off;
+        
+        private void OnGUI()
+        {
+            case E_Style_OnOff.On:
+                StyleOnDraw();
+                break;
+            case E_Style_OnOff.Off:
+               StyleOffDraw();
+                break;
+        }
+        
+        protected virtual void StyleOnDraw
+        {
+            GUI.Button(guiPos.Pos, content, style);
+        }
+        
+        protected virtual void StyleOffDraw
+        {
+             GUI.Button(guiPos.Pos, content);
+        }
+    }
 
-//提取控件的共同表现
-//位置信息
-public CustomGUIPos guiPos;
-//显示内容信息
-public GUIContent content;
-//自定义样式
-public GUIstyle style;
-//自定义样式是否启用的开关
-public E_Style_OnOff styleOnOrOff = E_Style_OnOff.off;
-
-private void OnGUI()
-{
-    case E_Style_OnOff.On:
-        StyleOnDraw();
-        break;
-    case E_Style_OnOff.Off:
-       StyleOffDraw();
-        break;
-}
-
-protected virtual void StyleOnDraw
-{
-    GUI.Button(guiPos.Pos, content, style);
-}
-
-protected virtual void StyleOffDraw
-{
-     GUI.Button(guiPos.Pos, content);
-}
 ```
 
-## 所见即所得的绘制顺序
+### 四、所见即所得的绘制顺序)(GUIRoot)
 
 ```C#
 
@@ -601,19 +608,26 @@ protected virtual void StyleOffDraw
 public class CustonGUIRoot : MonoBehaviour
 {
     //用于存储子对象 所有GUI控件的容器
-    private CustomguiControl allControls;
+    private CustomGUIControl allControls;
     
     void Start
     {
-    
-    
+        allControls = this.GetComponentsInChildren<CustomGUIControl>（）;
     }
     
     private void OnGUI()
     {
         //通过每一次绘制前 得到所有子对象控件的 父类脚本
-        allControls = this.GetComponentsInChildren<CustomguiControl>;
-        
+        //这句代码会浪费性能 因为每次GUI都会获取所有控件对应的脚本
+        //编辑状态下 才会一直运行
+        if(!Application.isPlaying)
+        {
+            allControls = this.GetComponentsInChildren<CustomGUIControl>（）;
+        }
+        for(int i =0; i< allControls.Length;i++)
+        {
+            allControls[i].DrawGUI();
+        }
         
     
     }
@@ -621,4 +635,306 @@ public class CustonGUIRoot : MonoBehaviour
 }
 
 
+```
+
+### 五、自定义文本和控件按钮 (GUILabel)
+
+```C#
+public abstract class CustomGUIControl : MonoBehaviour
+    {
+        //提取控件的共同表现
+        //位置信息
+        public CustomGUIPos guiPos;
+        //显示内容信息
+        public GUIContent content;
+        //自定义样式
+        public GUIstyle style;
+        //自定义样式是否启用的开关
+        public E_Style_OnOff styleOnOrOff = E_Style_OnOff.off;
+        
+        private void OnGUI()
+        {
+            case E_Style_OnOff.On:
+                StyleOnDraw();
+                break;
+            case E_Style_OnOff.Off:
+               StyleOffDraw();
+                break;
+        }
+        
+        protected abstract void StyleOnDraw
+        {
+        }
+        
+        protected abstract void StyleOffDraw
+        {
+        }
+}
+
+
+public class CustomGUILabel : CustomGUIControl 
+{
+    protected override void StyleOffDraw()
+    {
+        GUI.Label(guiPos.Pos,Content)
+    }
+    
+    protected override void StyleOnDraw()
+    {
+        GUI.Label(guiPos.Pos,content,style)
+    }
+}
+
+public  class CustomGUIButton :CustomGUIControl
+{
+    //提供给外部 用于响应 按钮点击的实践 只要在外部给予了响应函数 就会执行
+    public event UnityAction clickEvent
+    
+    protected override void StyleOffDraw()
+    {
+        if(GUI.Label(guiPos.Pos,Content))
+        {
+            clickEvent?.Invoke();
+        }
+    }
+    
+    protected override void StyleOnDraw()
+    {
+        if(GUI.Label(guiPos.Pos,content,style))
+        {
+            clickEvent?.Invoke;
+        }
+    }
+}
+
+```
+
+### 六、自定义多选框控件
+
+```C#
+public class CustomGUIToggle : CustomGUIControl
+{
+    public bool isSel;
+    
+    public event UnityAction<bool> changeValue;
+    
+    private bool isOldSel;
+    
+    protected override void StyleOffDraw()
+        {
+            isSel = GUI.Toggle(guiPos.Pos,isSel,content);
+            //只有变化时 才告诉外部去执行函数 否则没有必要一直告诉同一个值
+            if(isOldSel != isSel)
+            {
+                changeValue?.Invoke(isSel)
+                isOldSel = isSel;
+            }
+        }
+        
+        protected override void StyleOnDraw()
+        {
+           isSel = GUI.Toggle(guiPos.Pos,isSel,content.style)
+        }
+}
+
+
+```
+
+### 七、自定义单选框控件
+![](static/Unity_images_5.png)
+![](static/Unity_images_6.png)
+```C#
+public class CustomGUIToggleGroup :MonoBehaviour
+{
+    public CustomGUIToggle[] toggles;
+    
+    //记录上一次为true的 toggle
+    private CustomGUIToggle frontToggle;
+    
+    void Start()
+    {
+        if(toggles.Length == 0)
+        {
+            return;
+        }
+        
+        //通过遍历 来为多个 多选框 天界 监听事件函数
+        //当函数中做处理
+        //当一个为true时 另外两个变成false
+        fof(int i = 0; i<toggles.Length; i++)
+        {
+            CustomGUIToggle toggle = toggles[i];
+            toggle.changValue += (value) =>
+            {
+                    //当传入的 value 是true时 需要把另外两个变成false
+                    if（value）
+                    {
+                        for(int j = 0; j<toggles.Length; j++)
+                        {
+                                //这里有闭包 toggle就是上一个函数中神明的变量
+                                //改变了它的生命周期
+                            if(toggles[j] != toggle)
+                            {
+                                toggles[j].isSel = false; 
+                            }
+                        }
+                        //记录上一次为true的toggle
+                        frontToggle = toggle;
+                    }
+                    else if(toggle == frontToggle)
+                    {
+                        toggle.isSel = true;
+                    }
+            }
+        }
+    }
+}
+```
+
+### 八、自定义输入框和拖动条控件
+
+```C#
+//自定义输入框
+public class CustomGUIInput : CustomGUIControl
+{
+    
+    public event UnityAction<string> textChang;
+    
+    private string oldStr = "";
+    
+    protected override void StyleOffDraw()
+        {
+           content.text = GUI.TextField(guiPos.Pos,content.txt);
+           if（oldStr != content.text）
+           {
+               textChange?.Invoke(oldStr);
+               oldStr = content .text;
+           }
+        }
+        
+        protected override void StyleOnDraw()
+        {
+           content.text = GUI.TextField(guiPos.Pos,content.txt,style);
+           if（oldStr != content.text）
+           {
+               textChange?.Invoke(oldStr);
+               oldStr = content .text;
+           }
+        }
+}
+```
+
+```C#
+//拖动条
+public enum E_Slider_Type.Up
+{
+    horizontal,
+    Vertical;
+}
+
+public class CustomGUISlider : CustomGUIControl
+{
+    //最小值
+    public float minValue = 0;
+    //最大值
+    public float maxValue = 0;
+    //当前值
+    public float nowCalue = 0;
+    //水平还是竖直样式
+    public E_Slider_Type type = E_Slifer_Type.Horizontal;
+    
+    public event UnityAction<float>  changeValue;
+    
+    private float oldValue = 0;
+    
+    punblic GUIStyle styleThumb;
+    //小按钮的style
+    protected override void StyleOffDraw()
+        {
+            switch(type)
+            {
+                case E_Slifer_Type.Horizontal:
+                    nowValue =GUI.HorizontalSlider(guiPos.Pos,nowValue,minValue,maxValue)
+                case E_Slifer_Type.Vertical;
+                    nowValue =GUI.VerticalSlider(guiPos.Pos,nowValue,minValue,maxValue)
+            }
+            
+           if(oldValue != nowValue)
+           {
+               changeValue?.Invoke(nowValue);
+               oldValue = nowValue;
+           }
+        }
+        
+        protected override void StyleOnDraw()
+        {
+           switch(type)
+            {
+                case E_Slifer_Type.Horizontal:
+                    nowValue =GUI.HorizontalSlider(guiPos.Pos,nowValue,minValue,maxValue,style,styleThumb)
+                case E_Slifer_Type.Vertical;
+                    nowValue =GUI.VerticalSlider(guiPos.Pos,nowValue,minValue,maxValue,style,styleThumb)
+            }
+            
+            if(oldValue != nowValue)
+           {
+               changeValue?.Invoke(nowValue);
+               oldValue = nowValue;
+           }
+        }
+    
+}
+
+```
+
+### 九、自定义图片绘制和面板功能演示
+
+```C#
+
+public class CustomGUITexture : CustomGUIControl
+{
+    public ScaleMode scaleMode = ScaleMode.StretchToFill;
+    protected override void StyleOffDraw()
+        {
+               GUI.DrawTexture(guiPos.Pos,content.image,ScaleMode);
+        }
+        
+        protected override void StyleOnDraw()
+        {
+           
+            
+            if(oldValue != nowValue)
+           {
+               GUI.DrawTexture(guiPos.Pos,content.image,ScaleMode,style);
+           }
+        }
+    
+}
+```
+
+```C#
+public class TestBeginPanel :MonoBehaviour
+{
+    public CustomGUIButton btnBegin;
+    public CustomGUIButton btnEnd;
+    public CustomGUIButton btnClose;
+    
+    void Start()
+    {
+        btnBegin.clickEvent += () =>
+        {
+            Debug.Log("点击开始按钮")
+        }
+        
+        btnEnd.clickEvent += () =>
+        {
+            Debug.Log("结束按钮点击")
+        }
+        
+        btnClose.clickEvent += () =>
+        {
+            Debug.Log("关闭按钮")
+        }
+    }
+}
 ```
