@@ -938,3 +938,28 @@ public class TestBeginPanel :MonoBehaviour
     }
 }
 ```
+
+
+
+
+# UGUI
+
+## 六大基础组件概述
+![](static/Unity_images_7.png)
+
+## 一、Canvas——渲染模式的控制
+
+**Canvas** 负责渲染所有的子UI，不在Canvas的UI渲染不了，场景上允许有多个Canvas以设置不同的渲染和分辨率适应，但是一般情况只有一个。参数如下：  
+RenderMode渲染模式
+
+- 默认ScreenSpaceOverlay屏幕空间，UI始终在前。WorldSpace世界空间3D模式（VRAR常用，游戏不常用）
+    - PixelPerfect无锯齿精确渲染，性能换效果(图集够清楚就不用)
+    - SortOrder控制多个Canvas的渲染顺序，越小的在越前
+- ScreenSpaceCamera屏幕空间摄像机模式，3D物体可以显示在UI之前。
+    - RenderCamera使用屏幕空间时的参数。
+        - 一般 ==不推荐使用主摄像机，使用单独UI摄像机ClearFlags->DepthOnly，CullingMask->UI，去掉音频监听，主摄像机CullingMask不渲染UI层，以便控制UI和3D物体先后顺序==
+        - 3D物体和粒子想要显示在前面就直接扔UI摄像机下面，改变大小，粒子有单独的OrderInLayer。或者使用右键Create->**RenderTexture**，设置好摄像机，挂载到RawImage。
+    - PlaneDistance控制UI层离摄像机远近
+    - SortingLayer+SortingOrder层和层内Order对多个Canvas排序（回忆一下层排序的方法
+- WorldSpace 作为一个对象存在场景内，很多时候在世界中做跟随角色血条用
+    - 使用世界空间的时候，既处理元素与其他元素的位置，又要处理相对摄像机视角位置，不同设备分辨率又不一样很麻烦
