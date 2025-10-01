@@ -1223,11 +1223,30 @@ Anchor锚点，默认为(0.5,0.5),PosX和PosY的距离是中心点Pivot相对于
 **坐标转换** 使用这函数可以制作摇杆`RectTransformUtility.ScreenPointToLocalPointInRectangle`,此函数的作用是把屏幕上的点转换为以某元素为原点的点，下例
 
 制作摇杆
+```c#
+private void JoyDrag(BaseEventData data)
+{
+    PointerEventData eventData = data as PointerData;
+    //通过加上鼠标偏移位置让图标动起来
+    imJoy.Poisition += new Vector3(erventData.delta.x, eventData.delta.y,0)
+    //有专门的参数 得到相对于锚点的点
+    if(imgJoy.anchoredPosition.magnitude > 170)
+    {
+        //单位向量 * 长度 = 临界位置
+        imgJoy.anchoredPosition = imgJoy.anchoredPosition.normalized * 170;
+    }
+    
+    player.Move(imgJoy.anchoredPosition)
+}
+```
+
+
+
 
 ```C# 
 using UnityEngine.EventSystems;
 
-    public class Lesson20 : MonoBehaviour
+    public class Lesson20 : MonoBehaviour，IDragHandler
     {
         void Start()
         {
@@ -1242,10 +1261,32 @@ using UnityEngine.EventSystems;
             //参数四： 最终得到的点
             //一般配合拖拽事件使用
             
-            RectTransformUtility.ScreenPointToLocalPointInRectangle（）
+            
         }
         
+        public void OnDrag(PointerEventData eventData)
+        {
+            Vector2 nowPos;
+            
+            RectTransformUtility.ScreenPointToLocalPointInRectangle（
+            this,transform as RectTransform
+            eventData.postion,
+            eventData.enterEventCamera,
+            out nowPos
+            ）;
+            
+            this.transform.localPosition = nowPos;
+            
+            if(imgJoy.anchoredPosition.magnitude > 170)
+            {
+            //单位向量 * 长度 = 临界位置
+                imgJoy.anchoredPosition = imgJoy.anchoredPosition.normalized * 170;
+            }
+    
+            player.Move(imgJoy.anchoredPosition);
+        
     }
+    
 ```
 
 **遮罩** 一般是和Image配合使用，在父对象上挂载Mask组件，想要被遮罩的Image勾上Maskable，子UI对象都会被遮罩。此时带Mask对象的Image组件关联的图片，透明的地方被遮罩，不透明的地方显示。  
