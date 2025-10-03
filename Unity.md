@@ -1452,3 +1452,68 @@ UI动态生成的思路。一个经典的权衡问题，提示框弹出来的时
     
  
  
+### 坐标系
+
+- **知识点一** 世界坐标系
+    原点：世界的中心点
+    轴向：世界坐标系的==三个轴向是固定==的
+    //世界坐标相关
+    `this.transform.position;`  世界坐标位置
+    `this.transform.rotation;`  世界坐标旋转（四元数）
+    `this.transform.eulerAngles;`  世界坐标欧拉角
+    `this.transform.lossyScale;`世界坐标缩放
+- **知识点二** 物体坐标系
+    原点：物体的中心点（建模时决定）
+    轴向：
+    物体==右方==为==X==轴正方向
+    物体==上方==为==Y==轴正方向
+    物体==前方==为==Z==轴正方向
+    //相对父对象坐标 本地坐标  相对坐标
+    `this.transform.localPosition;`  本地坐标位置
+    `this.transform.localEulerAngles;`  本地坐标欧拉角
+    `this.transform.localRotation;`  本地坐标旋转（四元数）
+    `this.transform.localScale;`  本地坐标缩放
+
+- **知识点三** 屏幕坐标系
+    原点：屏幕左下角
+    轴向：
+    ==向右==为==X==轴正方向
+    ==向上==为==Y==轴正方向
+    最大宽高：
+    `Screen.width;` 屏幕宽度
+    `Screen.height;` 屏幕高度
+    `Input.mousePositon;` 鼠标位置
+    
+- **知识点四** 视口坐标系
+    原点：屏幕左下角
+    轴向：
+    ==向右==为==X==轴正方向
+    ==向上==为==Y==轴正方向
+    特点：
+    ==左下角为（0,0）==
+    ==右上角为（1,1）==
+    和屏幕坐标类似，将坐标单位化
+- # 坐标转换 
+    
+    ## 1.世界转本地
+    ### this.transform.InverseTransformDirection;
+    ### this.transform.InverseTransformPoint;
+    ### this.transform.InverseTransformVector;
+    
+    ## 2.本地转世界
+    ### this.transform.TransformDirection;
+    ### this.transform.TransformPoint;
+    ### this.transform.TransformVector;
+    
+    ## 3.世界转屏幕
+    ### Camera.main.WorldToScreenPoint;
+    ## 4.屏幕转世界
+    ### Camera.main.ScreenToWroldPoint;
+    ## 5.世界转视口
+    ### Camera.main.WorldToViewportPoint;
+    ## 6.视口转世界
+    ### Camera.main.ViewportToWorldPoint;
+    ## 7.视口转屏幕
+    ### Camera.main.ViewportToScreenPoint;
+    ## 8.屏幕转视口
+    ### Camera.main.ScreenToViewportPoint;
