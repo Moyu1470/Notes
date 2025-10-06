@@ -42,7 +42,7 @@ Debug.Log("长按按钮被点击);
 ```
 ## 多选框和单选框
 ### 一、多选框
-![](static/Unity_images_1.png)
+![](static/UGUI_images_1.png)
 
 ```c#
 private bool isSel;    //私有申明一个siSel标志符 而不是直接写死bool值
@@ -98,7 +98,7 @@ inputPW = GUI.PasswordField(new Rect(0,50,100,30),inputPW,'*')
 ### 二、拖动条
 
 #### 水平拖动条
-![](static/Unity_images_2.png)
+![](static/UGUI_images_2.png)
 ``` C#
 private float nowValue = 0.5f;
 
@@ -109,7 +109,7 @@ nowValue = GUI.HorizontalSlider(new Rect)(0,100,100,50),nowValue，0,1)
 ```
 
 #### 竖直拖动条
-![](static/Unity_images_3.png)
+![](static/UGUI_images_3.png)
 ```C#
 
 nowValue = GUI.verticalSlider(new Rect)(0,150,50,100),nowValue，0,1)
@@ -283,7 +283,7 @@ private void DrawWindow
 
 ### 二、模态窗口 
 
-![](static/Unity_images_4.png)
+![](static/UGUI_images_4.png)
 
 ```C#
 //模态窗口 可以让其它控件不再有用
@@ -741,8 +741,8 @@ public class CustomGUIToggle : CustomGUIControl
 ```
 
 ### 七、自定义单选框控件
-![](static/Unity_images_5.png)
-![](static/Unity_images_6.png)
+![](static/UGUI_images_5.png)
+![](static/UGUI_images_6.png)
 ```C#
 public class CustomGUIToggleGroup :MonoBehaviour
 {
@@ -1213,7 +1213,7 @@ Anchor锚点，默认为(0.5,0.5),PosX和PosY的距离是中心点Pivot相对于
    ```
 
   **事件触发器**   **拖拽模式下**    需要先在组件对象上添加Eventtrigger组件 然后选择事件类型 再把组件依附对象上的脚本挂在上去 监听到的时候触发
-  ![](static/Unity_images_7.png)![](static/Unity_images_8.png)
+  ![](static/UGUI_images_7.png)![](static/UGUI_images_8.png)
 
 ## 四、零散知识点
 
@@ -1343,177 +1343,3 @@ UI动态生成的思路。一个经典的权衡问题，提示框弹出来的时
 >    做UI其实就三件事，**数据准备->拼界面->写逻辑**  
 >    在UI中一般都是用一个单独的根对象避免和其他的对象混合管理增加管理难度，命名最好有规范，比如`btnBegine`一看就知道这是啥，写C#写多了直接大驼峰罢
 
-# Unity基础
-
-## 一、 3D数学——基础
-
-### Mathf
-
-- **知识点一**  Mathf和Math
-    Math是C#中封装好的用于数学计算的**工具类** ———— 位于System命名空间中
-    Matthf是Unity中封装好的用于数学计算的工具**结构体**————位于UnityEngine命名空间中
-    他们都是提供来进行数学相关计算的
-- **知识点二**他们的==区别==
-    Mathf和Math中的相关方法几乎一样
-    Math是C#自带的工具类 主要提供一些数学相关计算方法
-    Mathf是Unity专门封装的，不仅包含Math中的方法，还多了一些适用于游戏开发的方法
-    所以在进行Unity游戏开发时 使用Mathf中的方法用于数学计算即可
-- **知识点三**Mathf中的==常用==方法———般计算一次
-    1. π - **PI**
-    `print（Mathf.P）;`
-    2. 取绝对值 - **Abs**
-    `print(Mathf.Abs(-10));`
-    3.  向上取整 - **CeilToInt**
-    `float f = 1.3f;`
-    `print(Mathf.CeilToInt(f));`
-    4. 向下取整 - **FloorToInt**
-    `print(Mathf.FloorToInt(1.3));`
-    5. 钳制函数 - **Clamp**
-    `print(Mathf.Clamp(10,11,20));`——**输出11**
-    `print(Mathf.Clamp(21,11,20));`——**输出20**
-    `print(Mathf.Clamp(15,11,20));`——**输出15**
-    6. 获取最大值 - **Max**
-    `print(Mathf.Max(1,2,3,4,5,6,7,8,9));`——**输出1**
-    7. 获取最小值 - **Min**
-    `print(Mathf.Min(1,2,3,4,5,6,7,8,9));`——**输出9**
-    8. 一个数的n次幂 - **Pow**
-    `print(Mathf.Pow(4,2));`——**输出16**
-    `print(Mathf.Pow(2,3));`——**输出8**
-    9. 四舍五入 - **RounToInt**
-    `print(Mathf.RoundToInt(1.3f));`——**输出1**
-    `print(Mathf.RoundToInt(1.5f));`——**输出2**
-    10. 返回一个数的平方根 - **Sqrt**
-    `print(Mathf.Sqrt(4));`——**输出2**
-    `print(Mathf.Sqrt(16));`——**输出4**
-    `print(Mathf.Sqrt(64));`——**输出8**
-    11. 判断一个数是否是2的n次方 - **IsPowerOfTwo**
-    `print(Mathf.IsPowerOfTwo(4));`——**True**
-    `print(Mathf.IsPowerOfTwo(8));`——**True**
-    `print(Mathf.IsPowerOfTwo(3));`——**False**
-    `print(Mathf.IsPowerOfTwo(1));`——**True**
-    12. 判断正负数 - **Sign**
-    `print(Mathf.Sign(0));`——**1**
-    `print(Mathf.Sign(10));`——**1**
-    `print(Mathf.Sign(-10));`——**-1**
-    `print(Mathf.Sign(3));`——**1**
-    `print(Mathf.Sign(-2));`——**-1**
-- **知识点四**Mathf中的常用方法———一般不停计算
-    `float start = 0;`
-    `float result = 0;`
-    `float time = 0;`
-    差值运算——Lerp  `result = Mathf.Lerp(start,end,t);`
-    t为差值系数，取值范围为 0~1  ==result = start + (end - start) * t==
-    差值运算用法一 ：每帧改变start的值 —— 变化速度先快后慢，位置无限接近，但是不会得到end位置
-    `start = Mathf.Lerp(start, 10, Time.deltaTime);`
-    差值运算用法二：每帧改变t的值—— 变化速度匀速，位置每帧接近，当他>=1时，得到结果
-    `time += Time.deltaTime;`
-    `result = Mathf.Lerp(start, 10, time);`
-    ![](static/Unity_images_9.png)
-### 三角函数
-角度和弧度的转换关系
-
-π rad = 180°
-==1 rad = (180/π)° => 1 rad = 180 / 3.14 ≈ 57.3°==
-==1° = （π、180）rad = 1° = 3.14 /180≈0.01745 rad==
-由此可以得出
-==弧度 * 57.3 = 对应角度==
-==角度 * 0.01745 = 对应弧度==
-
-- **知识点一** 弧度、角度相互转化      ==Rad== ——radian   ==Deg== ——degree
-    //==弧度转角度==
-    `float rad = 1；`
-    `float anger = rad * Mathf.Rad2Deg;`//Rad2Deg     弧度转角度
-    `print(anger);`
-    //==角度转弧度==
-    `anger = 1;`
-    `rad = anger * Mathf.Deg2Rad;`//Deg2Rad     角度转弧度
-    `print(rad);`
-- **知识点二**三角函数
-    正弦函数
-    ![](static/Unity_images_10.png)
-    ![](static/Unity_images_11.png)
-    ==Mathf中的三角函数相关函数，传入参数需要是弧度值==
-    
-    `print(Mathf.Sin(30 * Mathf * Deg2Rad));`
-    `print(Mathf.Cos(30 * Mathf * Deg2Rad));`
-- **知识点三**反三角函数
-    1. 反三角函数是初等函数之一
-    2. 包括反正弦函数、反余弦函数等
-    ==作用==：通过反三角函数计算正弦值或余弦值对应的弧度值
-    ==注意==：反三角函数得到的结果是 正弦或者余弦值对应的弧度
-    `rad = Mathf.Asin(0.5f);`//得到0.5这么大的值对应的正弦弧度
-    
-    `print(rad * Mathf.Rad2Deg);`
-    
-    `rad = Math.Acos(0.5f);`//得到0.5这么大的值对应的余弦弧度
-    
-    `print(rad * Mathf.Rad2Deg);`
-    ![](static/Unity_images_12.png)
-    
- 
- 
-### 坐标系
-
-- **知识点一** 世界坐标系
-    原点：世界的中心点
-    轴向：世界坐标系的==三个轴向是固定==的
-    //世界坐标相关
-    `this.transform.position;`  世界坐标位置
-    `this.transform.rotation;`  世界坐标旋转（四元数）
-    `this.transform.eulerAngles;`  世界坐标欧拉角
-    `this.transform.lossyScale;`世界坐标缩放
-- **知识点二** 物体坐标系
-    原点：物体的中心点（建模时决定）
-    轴向：
-    物体==右方==为==X==轴正方向
-    物体==上方==为==Y==轴正方向
-    物体==前方==为==Z==轴正方向
-    //相对父对象坐标 本地坐标  相对坐标
-    `this.transform.localPosition;`  本地坐标位置
-    `this.transform.localEulerAngles;`  本地坐标欧拉角
-    `this.transform.localRotation;`  本地坐标旋转（四元数）
-    `this.transform.localScale;`  本地坐标缩放
-
-- **知识点三** 屏幕坐标系
-    原点：屏幕左下角
-    轴向：
-    ==向右==为==X==轴正方向
-    ==向上==为==Y==轴正方向
-    最大宽高：
-    `Screen.width;` 屏幕宽度
-    `Screen.height;` 屏幕高度
-    `Input.mousePositon;` 鼠标位置
-    
-- **知识点四** 视口坐标系
-    原点：屏幕左下角
-    轴向：
-    ==向右==为==X==轴正方向
-    ==向上==为==Y==轴正方向
-    特点：
-    ==左下角为（0,0）==
-    ==右上角为（1,1）==
-    和屏幕坐标类似，将坐标单位化
-- # 坐标转换 
-    
-    ## 1.世界转本地
-    ### this.transform.InverseTransformDirection;
-    ### this.transform.InverseTransformPoint;
-    ### this.transform.InverseTransformVector;
-    
-    ## 2.本地转世界
-    ### this.transform.TransformDirection;
-    ### this.transform.TransformPoint;
-    ### this.transform.TransformVector;
-    
-    ## 3.世界转屏幕
-    ### Camera.main.WorldToScreenPoint;
-    ## 4.屏幕转世界
-    ### Camera.main.ScreenToWroldPoint;
-    ## 5.世界转视口
-    ### Camera.main.WorldToViewportPoint;
-    ## 6.视口转世界
-    ### Camera.main.ViewportToWorldPoint;
-    ## 7.视口转屏幕
-    ### Camera.main.ViewportToScreenPoint;
-    ## 8.屏幕转视口
-    ### Camera.main.ScreenToViewportPoint;
