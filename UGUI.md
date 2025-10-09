@@ -1269,7 +1269,7 @@ using UnityEngine.EventSystems;
             Vector2 nowPos;
             
             RectTransformUtility.ScreenPointToLocalPointInRectangle（
-            this,transform as RectTransform
+            this.transform as RectTransform
             eventData.postion,
             eventData.enterEventCamera,
             out nowPos
