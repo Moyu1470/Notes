@@ -543,3 +543,419 @@ Quaternion.LookRotation(面朝向量)
 
 - #### 3.取消延迟函数
 - #### 3-1 取消该脚本上的所有延迟函数执行
+- # CancelInvoke();
+
+- #### 3-2 指定函数名取消
+- # CancelInvoke("函数名");
+
+- #### 4.判断是否有延迟函数
+- # if(IsInvoking());
+- # if(IsInvoking("函数名"));
+
+````ad-danger
+失活脚本并不会导致延迟函数停止运行
+
+除非将对象销毁 或 将脚本移除
+````
+
+![](static/Unity基础_images_16.png)
+
+
+### 2.协同程序
+- **知识点一** Unity是否支持多线程？
+- ## Unity支持多线程
+- ## 只是新开线程无法访问Unity相关内容的内容
+````ad-warning
+
+Unity中的多线程 要记住关闭(否则编辑器运行情况下 即使停止运行编辑器 线程任然在运行)
+
+新线程无法访问Unity相关内容
+
+````
+![](static/Unity基础_images_17.png)
+
+- **知识点二 协同程序是什么？**
+- 简称"协程"  是"假"的多线程，不是多线程
+
+- ==主要作用==： 将代码分时执行，不卡主线程   即把可能会让主线程卡顿的耗时的逻辑分时分布执行
+
+- ==主要使用场景==： 
+
+- 1.异步加载文件
+- 2.异步下载文件 
+- 3.场景异步加载
+- 4.批量创建防止卡顿
+
+
+- **知识点三 协同程序和线程的==区别==**
+
+- 新开一个==线程==是==独立==的一个==管道==，和主线程 ==并行执行==
+- 新开一个==协程==是是在==原线程之上==开启，进行==逻辑分时分步执行==
+
+- **知识点四 协程的使用**
+- 继承MonoBehavior的类 都可以开启 协程函数
+- 第==一==步：==申明协程函数 ==
+- 2个关键点： 1-1 返回值为IEnumerator类型及其子类
+             1-2 函数中通过yield return 返回值；进行返回
+![](static/Unity基础_images_18.png)
+- 第==二==步：==开启协程函数==
+- ==协程函数不能直接执行==  MyCoroutine(1,"123"); 没有任何效果
+- ==常用开启方式==：
+- #### StartCoroutine(MyCoroutine(1,"123"))
+
+- #### IEnumerator ie = MyCoroutine(1,"123");
+- #### Start#### StartCoroutine(ie);
+
+
+
+
+- 第==三==步： ==关闭协程==
+- #### 关闭所有： StopAllCoroutines();
+- #### 关闭指定协程： StopCoroutine(c1);
+ ![](static/Unity基础_images_19.png)
+
+![](static/Unity基础_images_20.png)
+
+- **知识点六 协程受对象和组件失活销毁的影响**
+````ad-warning
+
+协程开启后
+
+组件和物体销毁： 协程不执行
+
+物体失活： 协程不执行 
+
+组件失活： 协程执行
+````
+
+
+## 五、Resources资源动态加载
+
+### 1.特殊文件夹
+
+- **知识点一 工程路径获取**
+- #### print(Application.dataPath);
+````ad-warning
+该方式获取到的路径 一般情况下只在 编辑模式下使用
+
+游戏发布后 该路径就不存在了
+
+````
+- **知识点二 Resources资源文件夹**
+
+- 路径获取：一般不获取
+- 只能使用Resources相关API进行加载
+- 硬要获取 可以用工程路径拼接
+- #### print(application.dataPath + "/Resources");
+
+- ==需要自己创建==
+- 作用：
+- 1-1 需要通过Resources相关API动态加载的资源需要放在其中
+- 1-2 该文件夹下所有文件都会被打包出去
+- 1-3 打包时Unity会对其压缩加密
+- 1-4 该文件夹打包后只读 只能通过Resources相关API加载
+
+- **知识点三 StreamingAssets 流动资源文件夹**
+- 路径获取：
+- print(Application.streamingAssetsPath);
+
+- ==需要自己创建==
+- 作用：
+- 流文件夹
+- 2-1 打包出去不会被压缩加密 
+- 2-2 ==移动==平台==只读==，==pc==平台==可读可写==
+- 2-3 可以放入一些需要自定义动态加载的初始资源
+
+- **知识点四 persistentDataPath 持久数据文件夹**
+- 路径获取：print(Application.persistentDataPath);
+
+- ==不需要自己创建==
+- 作用：
+- 固定数据文件夹
+- 3-1 所有平台抖可读可写
+- 3-2 一般用于动态下载或者动态创建的文件，游戏中创建或者获取的文件都放在其中
+
+- **知识点五 plugins 插件文件夹**
+- 路径获取：一般不获取
+
+- ==需要自己创建==
+- 作用
+- 插件文件夹
+- 4-1 不同平台的插件相关文件放在其中
+- 4-2 比如IOS和Android平台
+
+- **知识点六 Editor 编辑器文件夹**
+- 路径获取：一般不获取
+
+- ==需要自己创建==
+- 作用：
+- 编辑器文件夹
+- 5-1 开发Unity编辑器时，编辑器相关脚本放在该文件夹中
+- 5-2 该文件夹中内容不会被打包出去
+
+- **知识点七 默认资源文件夹 Standard Assets**
+- 路径获取：一般不获取
+
+- ==需要自己创建==
+- 作用：
+- 一般Unity自带资源都放在这个文件夹下
+- 代码和资源优先被编译
+
+### 2.Resources 资源同步加载
+- **知识点一 Resources资源动态加载的作用**
+- 1. 通过代码动态加载Resources文件夹下指定路径资源
+- 2.避免繁琐的拖曳操作
+
+- **知识点二 常用资源类型**
+- 1. 预设体对象——GameObject
+- 2. 音效文件——AudioClip
+- 3. 文本文件——TextAsset
+- 4. 图片文件——Texture
+- 5. 其他类型——需要什么用什么类型
+
+````ad-warning
+预设体对象加载需要实例化
+
+其他资源加载一般直接用
+````
+
+- **知识点三 资源同步加载 普通方法**
+- 在一个工程当中 Resources文件夹 可以有多个 通过API加载时 它会用这些同名的Resources文件夹中去找资源
+- 打包时 Resources文件夹 里的内容 都会打包在一起
+
+
+- 1.==预设体对象== 想要创建在场景上 记住实例化
+- 第一步：要去加载预设体的资源文件（本质上就是  加载  配置数据  在内存中）
+- #### Object obj = Resources.Load("Cube");
+- 第二步：如果想要场景上 创建预制体 一定是加载配置文件后 然后实例化
+- Instantiate(obj);
+
+- 2.==音效资源==
+- ```C#
+  public AudioSource audioS;
+  
+  第一步：加载数据
+  Object obj3 = Resources.Load(""Music/BKMusic);
+  
+  第二步：使用数据 我们不需要实例化音效切片 我们只需要把数据 赋值到正确的脚本上即可
+  audioS.clip = obj3 as AudioClip;
+  
+  ```
+
+- 3.==文本资源==
+- 文本资源支持的格式
+- .text
+- .xml
+- .bytes
+- .json
+- .html
+- .csv
+- ……
+
+- TextAsset ta = Resources.Load("Txt/Test") as TextAsset;
+
+- 文本内容
+- print(ta.text)；
+- 字节数据组
+- print(ta.bytes);
+
+- 4. ==图片==
+- public Texture tex;
+- tex = Resources.Load("Tex/TestJPG") as Texture;
+
+- private void OnGUI()
+- {
+-    GUI.DrawTexture(new Rect(0,0,100,100),tex);
+- }
+
+- 5.==其他类型== 需要什么类型 就用什么类型就行
+
+
+- 6.问题： ==资源同名怎么办？==
+- Resources.Load加载同名资源时 无法准确加载出你想要的内容
+
+- 可以使用另外的API
+- 6-1 加载执行类型的资源
+- public Texture tex;
+- public TextAsset ta;
+- tex = Resources.Load("Tex/TestJPG",typeof(Texture)) as Texture;
+- ta = Resources.Load("Tex/TestJPG",typeof(TextAsset)) as TextAsset;
+
+- 6-2加载指定类型的所有资源
+- Object[] objs = Resources.LoadAll("Tex/TestJPG");
+- foreach(Object item in objs)
+- {
+-   if(item is Texture)
+-     {
+- 
+-     }
+-   else if(item is TextAsset)
+-     {
+-     
+-     }
+- }
+
+- **知识点四 资源同步加载 泛型方法**
+- `TextAsset ta2 = Resources.Load<TextAsset>("Tex/TestJPG");`
+
+### 3.Resources资源异步加载
+
+- **知识点一 Resources异步加载是什么 **
+- 同步加载中 如果加载过大的资源可能会造成程序卡顿
+- 卡顿的原因是 从硬盘上把数据读取到内存中 是需要进行计算的
+- 越大的资源耗时越长，就会造成掉帧卡顿
+
+- Resources异步加载 就是内部新开一个线程进行资源加载 不会造成主线程卡顿
+
+- **知识点二 Resources异步加载方法**
+````ad-warning
+异步加载 不能马上得到加载的资源 至少要等一帧
+````
+
+- 1. 通过异步加载中的完成事件监听 使用加载的资源
+- 这句代码可以理解成 Unity内部开了一个线程进行资源下载
+- ResourceRequest rq = Resources.LoadAsync《Texture>("Tex/TestJPG");
+- 马上进行一个资源下载结束的一个事件函数监听
+- rq.conpleted += LoadOver;
+- print(Time.frameCount);
+````ad-warning
+刚刚执行了异步加载的执行代码 资源还没加载完毕 这样用是不对的
+一定要加载结束过后后才能用
+
+```
+rq.asset xxxxxxxxxx
+```
+````
+
+- ```C#
+  private void LoadOver(AsyncOperation rq)
+  {
+      print("加载结束");
+      asset 是资源对象 加载完毕后 就能得到它
+      tex = (rq as ResourcesRequest).asset as Texture;
+      print(Time.frameCount);
+  }
+  ```
+
+
+- 2.通过协程 使用加载的资源 
+StartCoroutine(Load());
+
+
+- ```C#
+  IEnumerator Load()
+  {
+      迭代器函数 当遇到yield return时 就会停止执行之后的代码
+      然后 协程协调器 通过得到 返回的值 去判断 下一次执行后面的步骤 将会是何时
+      
+      ResourceRequest rq = Resources.LoadAsync<Texture>("Tex/TestJPG");
+      //第一部分
+      //Unity自己知道 该返回值意味着你在异步加载资源
+      //yield return eq;
+      //Unity会自己判断 该资源是否加载完毕了 加载完毕过后 才会继续执行后面的代码
+      
+      //tex = rq.asset as Texture;
+      
+      //判断资源是否加载结束
+      while(!rq.isDone)
+      {
+          //打印当前进度
+          //该进度 不会特别准确 过度也不是特别明显
+          print(rq.progress);
+          yield return null; //每帧判断是否结束 打印进度
+      }
+      
+      yield return null;
+      //第二部分
+      yield return new waitForSeconds;
+      //第三部分
+      
+  }
+  ```
+  ![](static/Unity基础_images_21.png)
+
+````ad-tip
+# 总结
+
+1. 完成事件监听异步加载
+   ==好处== ： 写法简单
+   ==坏处== ： 只能在资源加载结束后 进行处理
+   "线性加载"
+
+2. 协程异步加载
+   ==好处== ： 可以在协程中处理复杂逻辑，比如同时加载多个资源，比如进度条更新
+   ==坏处== ： 写法稍麻烦
+   "并行加载"
+   
+   ==注意==：
+   理解为什么异步加载不能马上加载结束，为什么至少要等一帧
+   理解协程异步加载的原理
+````
+
+![](static/Unity基础_images_22.png)
+
+![](static/Unity基础_images_23.png)
+
+### 4.Resources卸载资源
+
+- **知识点一 Ressources重复加载资源会浪费内存吗？**
+- Resources加载一次资源过后 该资源就一直存放在内存中作为缓存
+- 第二次加载时发现缓存中存在该资源 会直接取出来进行使用
+- 所以==多次重复加载不会浪费内存== 但是==会浪费性能==（每次加载都会去查找取出 始终伴随一些性能消耗）
+
+- **知识点二 如何手动释放掉缓存中的内存**
+- 1. 卸载指定资源
+- Resources.UnloadAsset 方法
+
+````ad-warning
+该方法不能释放GameObject对象 因为它会用于实例化对象
+
+它只能用于一些 不需要实例化的内容 比如 图片 和 音效 文本等
+
+一般情况下很少单独使用它
+````
+
+- 2. 卸载未使用的资源
+````ad-warning
+一般在过场景和GC一起使用
+````
+
+Resources.UnloadUnusedAsset();
+GC.Collect();
+
+## 六、场景异步切换
+### 场景异步加载
+
+- **知识点一 回顾场景同步切换**
+- SceneManager.LoadScene("Test");
+- 在切换场景时
+- Unity会删除当前场景上所有对象
+- 并且去加载下一个场景的相关信息
+- 如果当前场景 对象过多或者下一个场景对象过多
+- 这个过程会非常的耗时 会让玩家感受到卡顿
+
+- 异步切换就是来解决该问题的
+
+- **知识点二 场景异步切换**
+- 场景异步加载和资源异步加载 几乎一致 有两种方式
+
+- 1. 通过事件回调函数 异步加载
+- AsyncOperation ao = SceneManager.LoadSceneAsync("Test");
+- 当场景异步加载结束后 就会自动调用该事件函数 我们如果希望在加载结束后 做一些事情 那么就可以在该函数中 写处理逻辑
+- ao.completed +=(a) =>
+- {
+-   print("LoadOver");
+- };
+
+
+- 2.通过协程异步加载
+- 需要注意的是 加载场景会把当前场景上 没有特别处理的对象 都删除了
+- 所以 协程中的部分逻辑 可能是执行不了的
+- 解决思路： 让处理场景加载的脚本依附的对象 过场景时 不被移出
+
+- StartCoroutine(LoadScene("Test"));
+
+
+
+
+- IEnumerator LoadScene(string name)
