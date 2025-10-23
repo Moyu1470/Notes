@@ -69,7 +69,7 @@
 
 π rad = 180°
 ==1 rad = (180/π)° => 1 rad = 180 / 3.14 ≈ 57.3°==
-==1° = （π、180）rad = 1° = 3.14 /180≈0.01745 rad==
+==1° = （π/180）rad = 1° = 3.14 /180≈0.01745 rad==
 由此可以得出
 ==弧度 * 57.3 = 对应角度==
 ==角度 * 0.01745 = 对应弧度==
@@ -89,8 +89,8 @@
     ![](static/Unity基础_images_3.png)
     ==Mathf中的三角函数相关函数，传入参数需要是弧度值==
     
-    `print(Mathf.Sin(30 * Mathf * Deg2Rad));`
-    `print(Mathf.Cos(30 * Mathf * Deg2Rad));`
+    `print(Mathf.Sin(30 * Mathf.Deg2Rad));`
+    `print(Mathf.Cos(30 * Mathf.Deg2Rad));`
 - **知识点三**反三角函数
     1. 反三角函数是初等函数之一
     2. 包括反正弦函数、反余弦函数等
@@ -107,7 +107,7 @@
     
  
  
-### 3. 坐标系
+  ### 3. 坐标系
 
 - **知识点一** 世界坐标系
     原点：世界的中心点
@@ -672,7 +672,7 @@ Unity中的多线程 要记住关闭(否则编辑器运行情况下 即使停止
 - ==不需要自己创建==
 - 作用：
 - 固定数据文件夹
-- 3-1 所有平台抖可读可写
+- 3-1 所有平台都可读可写
 - 3-2 一般用于动态下载或者动态创建的文件，游戏中创建或者获取的文件都放在其中
 
 - **知识点五 plugins 插件文件夹**
@@ -942,10 +942,22 @@ GC.Collect();
 - 1. 通过事件回调函数 异步加载
 - AsyncOperation ao = SceneManager.LoadSceneAsync("Test");
 - 当场景异步加载结束后 就会自动调用该事件函数 我们如果希望在加载结束后 做一些事情 那么就可以在该函数中 写处理逻辑
-- ao.completed +=(a) =>
-- {
--   print("LoadOver");
-- };
+- `ao.completed +=(a) =>`
+- `{`
+-   `print("LoadOver");`
+- `};`
+![](static/Unity基础_images_24.png)
+
+- ```C#
+  public void LoadScene(string name, UnityAction action)
+  {
+   AsyncOperation ao = SceneManager.LoadSceneAsync(name);
+   ao.completed +=(a) =>
+   {
+    action();
+   };
+  }
+  ```
 
 
 - 2.通过协程异步加载
@@ -958,4 +970,356 @@ GC.Collect();
 
 
 
-- IEnumerator LoadScene(string name)
+- ```C#
+  IEnumerator LoadScene(string name)
+  {
+   //第一步
+   //异步加载场景
+   AsyncOperation ao =SceneManager.LoadSceneAsync(name);
+   //Unity内部的 协程协调器 发现是异步加载类型的返回类型 那么就会等待
+   //携程的好处是 异步加载场景时 我们可以在加载的同时 做一些别的逻辑
+   yield return ao;
+  }
+  ```
+
+
+## 七、LineRenderer
+
+### LineRenderer
+
+- **知识点一 LineRenderer是什么**
+- LineRenderer是Unity提供的一个用于画线的组件
+- 使用它我们可以在场景中绘制线段
+- 一般可以用于
+- 1、绘制攻击范围
+- 2、武器红外线
+- 3、辅助功能
+- 4、其它画线功能
+
+- **LineRenderer参数相关**
+- ![](static/Unity基础_images_25.png)![](static/Unity基础_images_26.png)![](static/Unity基础_images_27.png)![](static/Unity基础_images_28.png)
+
+- **知识点三 LineRenderer代码相关**
+- //==动态添加一个线段==
+- GameObject line = new GameObject();
+- line.name = "Line";
+- LineRenderer lineRenderer = line.AddComponent《LieneRenderer>();
+
+- //==首尾相连==
+- LineRenderer.loop = true;
+
+- //==开始结束宽==
+- LineRenderer.startWidth = 0.02f;
+- LineRenderer.endWidth = 0.02f;
+
+- //==开始结束颜色==
+- LineRenderer.startColor = Color.white;
+- LineRenderer.endColor = Color.red;
+
+- //==设置材质==
+- ```C#
+  private Material m;
+  ```
+- m = Resources.Load<Material》("M");
+- lineRenderer.material = m;
+
+- //==设置点 ==
+- 一定要注意 设置点 要先设置点的个数
+- lineRenderer.positionCount = 4;
+- //接着就设置 对应每个点的位置
+- `lineRender.SetPositions(new Vector3[] {`new Vector3(0,0,0);
+-                                                      new Vector3(0,0,5);
+-                                                      new Vector3(5,0,5);`})`//设置多个点
+- lineRender.SetPosition(3, new Vector3(5,0,0));//按索引设置单个点
+
+- //==是否使用世界坐标系==
+- //决定了 是否随对象移动而移动
+- lineRenderer.useWorldSpace = false;
+
+- //==让线段受光影响 会接受光数据 进行着色器计算==
+- lineRenderer.generateLightingData = true;
+## 八、物理系统之范围检测
+
+### 范围检测
+
+- **知识回顾 物理系统之碰撞检测**
+- 碰撞产生的必要条件
+- 1. 至少一个物体有刚体
+- 2. 连个物体都必须有碰撞器
+
+- 碰撞和触发
+- //碰撞会产生实际的物理效果
+- //触发看起来不会产生碰撞但是可以通过函数监听触发
+
+- //碰撞检测主要用于实体物体之间产生物理效果时使用
+
+
+- **知识点一 什么是范围检测**
+- //游戏中瞬时的攻击范围判断一般会使用范围检测
+- 举例：
+- 1. 玩家在前方5m处释放一个地刺魔法，在此范围内的对象将收到地刺伤害
+- 2. 玩家攻击，在前方1米圆形范围内对象都受到伤害
+
+- 类似这种没有实体物体 只想要检测在某指定某一范围是否让敌方收到伤害时 便可以使用范围判断
+- 简而言之
+- 在指定位置 进行 范围判断 我们可以得到处于指定范围内的 对象
+- 目的是 对对象进行处理
+- 比如 受伤 减血 等等
+
+- **知识点二 如何进行范围检测**
+- 必备条件: 想要被检测范围检测到的对象 必须具备碰撞器
+````ad-warning
+
+1. 范围检测相关API 只有当执行该句代码时 进行一次范围检测 它是瞬时的
+   
+2. 范围检测相关API 并不会真正产生一个碰撞器 只是碰撞判断计算而已
+   
+
+
+````
+
+- 范围检测相关API
+
+- 1.盒装范围检测
+- //参数一：立方体中心点
+- //参数二：立方体三边大小(半尺寸 即x,y,z方向长度的一半)
+- //参数三：立方体角度
+- //参数四：检测指定层级（不填检测所有层）
+- //参数五：是否忽略触发器 UseGlobal-使用全局设置 Collide-检测触发器 Ignore-忽略触发器 不填使用UseGlobal
+- //返回值: 在该范围内的触发器（得到了对象触发器就可以得到对象的所有信息）
+- ### Collider[] colliders = Physics.OverlapBox(Vector3.zero,Vector3.one,1 <<LayerMask.NameToLayer("UI")|
+- ### 1 << LayerMask.NameToLayer("Default"),QueryTriggerInteration.UseGlobal);
+
+- ```C#
+  for(int i =0; i < collider.Length; i++)
+  {
+      print(colliders[i].gameObject.name);
+  }
+  ```
+
+````ad-tip
+唯独不检测某一个层级的方法：
+
+![](static/Pasted%20image%2020251021131720.png)
+````
+
+````ad-tip
+//重要知识点：
+
+//关于层级
+
+//通过名字得到层级编号 LayerMask.NameToLayer
+
+//我们需要通过编号左移构建二进制数
+
+//这样每一个编号的层级 都是对应为1的2进制数
+
+//我们通过 位运算 可以选择想要检测层级
+
+//好处是 一个int 就可以表示所有想要检测的层级信息
+
+//层级编号是 0~31 刚好32位
+
+//是一个int数
+
+//每一个编号 代表的 都是二进制的一位
+
+![](static/Pasted%20image%2020251021125310.png)
+
+````
+
+- //另一个API
+- //返回值：碰撞到的碰撞器数量
+- //参数：传入一个数组进行存储
+- physics.OverlapBoxNonAlloc()
+- if(physics.OverlapBoxNonAlloc(Vector3.zero,Vector3.one,Colliders) ! =0){};
+
+- 2.球形范围检测
+- //参数一：中心点
+- //参数二：球半径
+- //参数三：检测指定层级（不填检测所有层）
+- //参数四：是否忽略触发器 UseGlobal - 使用全局设置 Collide-检测触发器 Ignore-忽略触发器 不填使用UseGlobal
+- //返回值：在该范围的触发器（得到了对象触发器就可以得到对象的所有信息）
+- //physics.OverlapSphereNonAlloc(Vector3.zero,)
+
+- //另一个API
+- //返回值：碰撞到的碰撞器数量
+- //参数：传入一个数组进行存储
+- physics.OverlapSphereNonAlloc()
+- if(physics.OverlapSphereNonAlloc(Vector3.zero,5,Colliders) ! =0){};
+
+
+- 3.胶囊范围检测
+- //参数一：半圆一中心点
+- //参数二：半圆二中心点
+- //参数三：半圆半径
+- //参数四：检测指定层级（不填检测所有层）
+- //参数五：是否忽略触发器 UseGlobal - 使用全局设置 Collide-检测触发器 Ignore-忽略触发器 不填使用UseGlobal
+- //返回值：在该范围的触发器（得到了对象触发器就可以得到对象的所有信息）
+- //physics.OverlapCpasule(Vector3.zero,Vector3.up,1,1<<LayerMask.NameToLayer("UI"),QueryTriggerInteration.UseGlobal)
+
+- //另一个API
+- //返回值：碰撞到的碰撞器数量
+- //参数：传入一个数组进行存储
+- physics.OverlapCpasule()
+- if(physics.OverlapCpasuleNonAlloc(Vector3.zero,5,Colliders) ! =0){};
+
+## 九、物理系统之射线检测
+
+### 射线检测
+
+- **知识点一 什么是射线检测**
+- //物理系统中 //目前我们学习的物体相交判断
+- //1.碰撞检测——必备条件 1刚体2碰撞器
+- //2.范围检测——必备条件 碰撞器
+  
+- //如果想要做这样的碰撞检测呢？
+- //1.鼠标选择场景上一物体
+- //2.FPS射击游戏（无弹道-不产生实际的子弹对象进行移动）
+- //等等 需要判断一条线和物体的碰撞情况
+  
+- //射线检测 就是来解决这些问题的
+- //它可以在指定点发射一个指定方向的射线
+- //判断该射线与哪些碰撞器相交，得到对应对象
+
+- **知识点二 射线对象**
+- //1.3D世界中的射线
+- //假设有一条起点为坐标(1,0,0)
+- //方向为世界坐标Z轴正方向的射线 
+````ad-warning
+注意:
+  
+理解参数含义  
+  
+参数一：起点  
+  
+参数二：方向（一定记住 不是两点决定射线方向，第二个参数 直接就代表方向向量）  
+````
+  
+//目前只是申明了一个射线对象 对于我们来说 没有任何的用处
+- ### Ray r = new Ray(Vector3.right, Vector3.forward);
+  
+//==Ray中的参数==
+- #### print(r.origin);//==起点==
+- #### print(r.direction);//==方向==
+  
+- //2.摄像机发射出的射线
+- // 得到一条从屏幕位置作为起点 
+- // 摄像机视口方向为 方向的射线 
+- #### Ray r2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+  
+````ad-warning
+注意： 
+
+单独的射线对于我们来说没有实际的意义 
+
+我们需要用它结合物理系统进行射线碰撞判断
+````
+
+
+
+- **知识点三 碰撞检测函数**
+- //Physics类中提供了很多进行射线检测的静态函数 
+- //他们有很多种重载类型 我们只需要掌握核心的几个函数 其它函数自然就明白什么意思了 
+
+````ad-warning
+注意：
+
+ //射线检测也是瞬时的 
+ 
+//执行代码时进行一次射线检测 
+
+````
+
+  
+- //1.最原始的==射线检测==
+- // ==准备一条射线==
+- Ray r3 = new Ray(Vector3.zero, Vector3.forward);
+- // 进行射线检测 如果碰撞到对象 返回true 
+- //参数一：射线 
+- //参数二: 检测的最大距离 超出这个距离不检测 
+- //参数三：检测指定层级（不填检测所有层） 
+- //参数四：是否忽略触发器 UseGlobal-使用全局设置 Collide-检测触发器 Ignore-忽略触发器 不填使用UseGlobal 
+- //返回值：bool 当碰撞到对象时 返回 true 没有 返回false 
+- if (Physics.Raycast(r3, 1000, 1 << LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal)) 
+- { 
+-   print("碰撞到了对象"); 
+- } 
+
+- //还有一种重载 ==不用传入 射线== 直接==传入起点 和 方向== 也可以用于判断 
+- //就是把 第一个参数射线 变成了 射线的 两个点 一个起点 一个方向 
+- if (Physics.Raycast(Vector3.zero, Vector3.forward, 1000, 1 << LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal)) 
+- { 
+-   print("碰撞到了对象2"); 
+- } 
+
+- //2.==获取相交的单个物体信息 ==
+- //==物体信息类 RaycastHit==
+- RaycastHit hitInfo; 
+- //参数一：射线 
+- //参数二：RaycastHit是结构体 是值类型 Unity会通过out 关键在 在函数内部处理后 得到碰撞数据后返回到该参数中 
+- //参数三：距离 
+- //参数四：检测指定层级（不填检测所有层） 
+- //参数五：是否忽略触发器 UseGlobal-使用全局设置 Collide-检测触发器 Ignore-忽略触发器 不填使用UseGlobal 
+- if( Physics.Raycast(r3, ==out hitInfo==, 1000, 1<<LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal) ) 
+- { 
+- print("碰撞到了物体 得到了信息"); 
+  
+- //==碰撞器信息 ==
+- print("碰撞到物体的名字" + hitInfo.collider.gameObject.name); 
+- //碰撞到的==点 ==
+- print(hitInfo.point); 
+- //==法线==信息 
+- print(hitInfo.normal); 
+  
+- //得到碰撞到==对象的位置 ==
+- print(hitInfo.transform.position); 
+  
+- //得到碰撞到==对象== ==离自己的距离 ==
+- print(hitInfo.distance); 
+  
+- //RaycastHit 该类 对于我们的意义 
+- //它不仅可以得到我们碰撞到的对象信息 
+- //还可以得到一些 碰撞的点 距离 法线等等的信息 
+
+  
+- //还有一种重载 不用传入 射线 直接传入起点 和 方向 也可以用于判断 
+- if (Physics.Raycast(Vector3.zero, Vector3.forward, out hitInfo, 1000, 1 << LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal)) 
+- { 
+- } 
+  
+- //3.==获取相交的多个物体 ==
+- //可以得到碰撞到的多个对象 
+- //如果没有 就是容量为0的数组 
+- //参数一：射线 
+- //参数二：距离 
+- //参数三：检测指定层级（不填检测所有层） 
+- //参数四：是否忽略触发器 UseGlobal-使用全局设置 Collide-检测触发器 Ignore-忽略触发器 不填使用UseGlobal 
+- RaycastHit[] hits = ==Physics.RaycastAll==(r3, 1000, 1 << LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal); 
+- for (int i = 0; i < hits.Length; i++) 
+- { 
+-     print("碰到的所有物体 名字分别是" + hits[i].collider.gameObject.name); 
+- } 
+  
+- //还有一种重载 不用传入 射线 直接传入起点 和 方向 也可以用于判断 
+- //之前的参数一射线 通过两个点传入 
+- hits = Physics.RaycastAll(Vector3.zero, Vector3.forward, 1000, 1 << LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal); 
+
+- //还有一种函数 返回的碰撞的数量 通过out得到数据 
+- if(Physics.RaycastNonAlloc(r3, hits, 1000, 1 << LayerMask.NameToLayer("Monster"), QueryTriggerInteraction.UseGlobal) > 0 ) 
+- { 
+  
+- } 
+
+
+  
+- **知识点四 使用时注意的问题** 
+- //注意： 
+- //距离、层级两个参数 都是int类型 
+- //当我们传入参数时 一定要明确传入的参数代表的是距离还是层级 
+- //举例 
+- //这样写是错误的 因为第二个参数 代表的是距离 不是层级 
+- if(Physics.Raycast(r3, 1000, 1 << LayerMask.NameToLayer("Monster"))) 
+- { 
+  
+- }
