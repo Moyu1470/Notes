@@ -1,16 +1,16 @@
 ## 一、模型制作流程
-````ad-tip
+
 第一步：建模
-![](static/Pasted%20image%2020251022134754.png)
+![](static/Unity核心_images_1.png)
 第二步：展UV
-![](static/Pasted%20image%2020251022134819.png)
+![](static/Unity核心_images_2.png)
 第三步：材质和纹理贴图
-![](static/Pasted%20image%2020251022134842.png)
+![](static/Unity核心_images_3.png)
 第四步：骨骼绑定
-![](static/Pasted%20image%2020251022134852.png)
+![](static/Unity核心_images_4.png)
 第五步：动画制作
-![](static/Pasted%20image%2020251022134901.png)
-````
+![](static/Unity核心_images_5.png)
+
 
 
 
@@ -121,7 +121,7 @@
 
 
 - **知识点四 认识Animaiton窗口功能**
-- ![](static/Unity核心_images_2.png)![](static/Unity核心_images_3.png)
+- ![](static/Unity核心_images_6.png)![](static/Unity核心_images_7.png)
 
 #### 2. 创建编辑Animation动画
 
@@ -131,7 +131,7 @@
 - 3.选择动画文件将要保存到的位置
 
 ##### 知识点二 窗口上的变化
-- ![](static/Unity核心_images_4.png)
+- ![](static/Unity核心_images_8.png)
 
 ````ad-tip
 
@@ -141,15 +141,15 @@
 
 
 ##### 知识点三 关键帧模式下编辑动画
-![](static/Unity核心_images_5.png)
+![](static/Unity核心_images_9.png)
 
 ##### 知识点四 曲线模式下编辑动画
-![](static/Unity核心_images_6.png)
+![](static/Unity核心_images_10.png)
 
-![](static/Unity核心_images_7.png)
+![](static/Unity核心_images_11.png)
 ##### 知识点五 动画文件界面参数
-- ![](static/Unity核心_images_8.png)
-- ![](static/Unity核心_images_9.png)
+- ![](static/Unity核心_images_12.png)
+- ![](static/Unity核心_images_13.png)
 
 #### 3.代码控制动画（老动画系统）
 
@@ -166,7 +166,7 @@
 - 这时制作出的动画和之前的动画格式是有区别的 
   
 - Animation参数
-![](static/Unity核心_images_10.png)
+![](static/Unity核心_images_14.png)
 
 ##### 知识点三 代码控制播放
 
@@ -221,7 +221,7 @@
 ##### 知识点四 动画事件
 - 动画事件主要用于处理 当动画播放到某一时刻想要触发某些逻辑  
 - 比如进行伤害检测、发射子弹、特效播放等等
-- ![](static/Unity核心_images_11.png)![](static/Unity核心_images_12.png)![](static/Unity核心_images_13.png)
+- ![](static/Unity核心_images_15.png)![](static/Unity核心_images_16.png)![](static/Unity核心_images_17.png)
 - *public void AnimationEvent()* 
 - *{* 
 -   *print("动画事件触发");* 
@@ -287,27 +287,27 @@
 ##### 知识点一 创建动画状态机
 - 1.通过为场景中物体创建动画时自动创建 
 - 2.手动创建动画状态机文件
-- ![](static/Unity核心_images_14.png)
+- ![](static/Unity核心_images_18.png)
 ##### 知识点二 基础使用——初识动画状态机窗口
- ![](static/Unity核心_images_15.png)
-![](static/Unity核心_images_16.png)
+ ![](static/Unity核心_images_19.png)
+![](static/Unity核心_images_20.png)
 
 
 ##### 知识点三 基础使用——添加动画
 - 自动添加——为对象创建动画后会自动将动画添加到状态机中 
 - 手动添加1——将动画文件拖入到状态机中（注意：老动画拖入会有警告） 
 - 手动添加2——右键创建状态，再关联动画
--![](static/Unity核心_images_17.png)
+-![](static/Unity核心_images_21.png)
 
 ##### 知识点四 基础使用——添加切换连线
-![](static/Unity核心_images_18.png)
+![](static/Unity核心_images_22.png)
 ##### 知识点五 基础使用——添加切换条件
 - 在左侧面板点击参数页签 
 - 可以在这里添加4中类型的切换条件
- ![](static/Unity核心_images_19.png)
+ ![](static/Unity核心_images_23.png)
 ##### 知识点六 基础使用——设置动画间切换条件
 
-![](static/Unity核心_images_20.png)![](static/Unity核心_images_21.png)![](static/Unity核心_images_22.png)
+![](static/Unity核心_images_24.png)![](static/Unity核心_images_25.png)![](static/Unity核心_images_26.png)
 ````ad-tip
 
 trigger在切换成功之后会自动变成不激活状态
@@ -320,7 +320,7 @@ trigger在切换成功之后会自动变成不激活状态
 
 ##### 知识点一 关键组件Animator
 
-![](static/Unity核心_images_23.png)
+![](static/Unity核心_images_27.png)
 ##### 知识点二 Animator中的API
 - 我们用代码控制状态机切换主要使用的就是Animator提供给我们的API 
 - 我们知道一共有四种切换条件 int float bool trigger//所以对应的API也是和这四种类型有关系的 
@@ -335,14 +335,13 @@ trigger在切换成功之后会自动变成不激活状态
 - *animator.GetFloat("条件名");* 
 - *animator.GetInteger("条件名");* 
 - *animator.GetBool("条件名");* 
-  ![](static/Unity核心_images_24.png)
+  ![](static/Unity核心_images_28.png)
 
 ````ad-tip
 
 ![](static/Pasted%20image%2020251102175838.png)
 
-如果不取消勾选 会延迟到动画结束才切换状态
-
+如果不取消勾选 会延迟到动画结束才
 ````
 - 2.直接切换动画 除非特殊情况 不然一般不使用 
 - *animator.Play("状态名");*
