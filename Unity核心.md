@@ -337,11 +337,11 @@ trigger在切换成功之后会自动变成不激活状态
 - *animator.GetBool("条件名");* 
   ![](static/Unity核心_images_28.png)
 
+
+
+![](static/Unity核心_images_29.png)
 ````ad-tip
-
-![](static/Pasted%20image%2020251102175838.png)
-
-如果不取消勾选 会延迟到动画结束才
+如果不取消勾选 会延迟到动画结束才切换状态
 ````
 - 2.直接切换动画 除非特殊情况 不然一般不使用 
 - *animator.Play("状态名");*
