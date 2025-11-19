@@ -1003,7 +1003,7 @@ GC.Collect();
 - //==动态添加一个线段==
 - GameObject line = new GameObject();
 - line.name = "Line";
-- LineRenderer lineRenderer = line.AddComponent《LieneRenderer>();
+- LineRenderer lineRenderer = line.AddComponent\<LieneRenderer>();
 
 - //==首尾相连==
 - LineRenderer.loop = true;
@@ -1020,7 +1020,7 @@ GC.Collect();
 - ```C#
   private Material m;
   ```
-- m = Resources.Load<Material》("M");
+- m = Resources.Load\<Material>("M");
 - lineRenderer.material = m;
 
 - //==设置点 ==
