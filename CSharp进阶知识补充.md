@@ -622,6 +622,797 @@
 - 虽然Unity自带的一些异步加载原本是不支持 异步方法关键字的 
 - 但是可以利用别人写好的第三方工具 让他们支持 大家可以根据自己的需求 选择性使用
 
+### ③ C#6功能和语法
+
+#### 静态导入、异常筛选器、nameof等
+
+##### 知识点一 C#6的新增功能和语法有哪些 
+
+- 1.=>运算符（C#进阶套课——特殊语法 =>） 
+- 2.Null 传播器（C#进阶套课——特殊语法 ?） 
+- 3.字符串内插（C#进阶套课——特殊语法 $） 
+- 4.静态导入 
+- 5.异常筛选器 
+- 6.nameof运算符
+
+##### 知识点二 补充讲解——静态导入 
+
+- 用法：在引用命名空间时，在using关键字后面加入static关键词 
+- 作用：无需指定类型名称即可访问其静态成员和嵌套类型 
+- 好处：节约代码量，可以写出更简洁的代码 
+  ![](static/CSharp进阶知识补充_images_47.png)
+- *Max(10, 20);* 
+- *TTT();* 
+- *Test4 t = new Test4()*
+![](static/CSharp进阶知识补充_images_48.png)
+##### 知识点三 补充讲解——异常筛选器 
+
+- 用法：在异常捕获语句块中的Catch语句后通过加入when关键词来筛选异常 
+-       when（表达式）该表达式返回值必须为bool值，如果为ture则执行异常处理，如果为false，则不执行  
+- 作用：用于筛选异常 
+- 好处：帮助我们更准确的排查异常，根据异常类型进行对应的处理 
+  
+- *try* 
+- *{* 
+-     用于检查异常的语句块 
+- *}*
+- *catch (System.Exception e) when(e.Message.Contains("301"))* 
+- *{* 
+-     当错误编号为301时  作什么处理 
+-     *print(e.Message);* 
+- *}* 
+- *catch (System.Exception e) when (e.Message.Contains("404"))* 
+- *{* 
+-     当错误编号为404时  作什么处理 
+-     *print(e.Message);* 
+- *}* 
+- *catch (System.Exception e) when (e.Message.Contains("21"))* 
+- *{* 
+-     当错误编号为21时  作什么处理 
+-     *print(e.Message);* 
+- *}* 
+- *catch (System.Exception e)* 
+- *{* 
+-     当错误编号为其它时  作什么处理 
+-     *print(e.Message);* 
+- *}*
+
+##### 知识点四 补充讲解——nameof运算符 
+
+- 用法：nameof(变量、类型、成员)通过该表达式，可以将他们的名称转为字符串 
+- 作用：可以得到变量、类、函数等信息的具体字符串名称 
+- *print(nameof(i));* 
+
+- *print(nameof(List\<int>));* 
+- *print(nameof(List\<int>.Add));* 
+
+- *print(nameof(UnityEngine.AI));* 
+
+- *List\<int> list = new List\<int>() { 1,2,3,4};* 
+- *print(nameof(list));* 
+- *print(nameof(list.Count));* 
+- *print(nameof(list.Add));*
+
+##### 总结 
+
+- C#6中的新内容 
+- 我认为 =>运算符、Null传播其、字符串内插对于我们来说是可以常用的 
+- 其它补充的几个知识点使用情景不多，了解即可
+
+### ④ C#7功能和语法
+
+#### 1. 字面值改进、out和red新功能、本地函数等 
+
+##### 知识点一 C#7对应的Unity版本 
+
+- Unity 2018.3支持C# 7
+- Unity 2019.4支持C# 7.3 
+- 7.1, 7.2, 7.3相关内容都是基于 7的一些改进
+
+##### 知识点二 C#7的新增功能和语法有哪些 
+
+- 1.字面值改进 
+- 2.out 参数相关 和 弃元知识点 
+- 3.ref 返回值 
+- 4.本地函数 
+  
+- 5.抛出表达式 
+- 6.元组 
+- 7.模式匹配
+
+##### 知识点三 字面值改进 
+
+- 基本概念：在声明数值变量时，为了方便查看数值 
+-          可以在数值之间插入_作为分隔符 
+- 主要作用：方便数值变量的阅读 
+- int i = 9_9123_1239; 
+- print(i); 
+- int i2 = 0xAB_CD_17; 
+- print(i2);
+##### 知识点四 out变量的快捷使用 和 弃元 
+
+- 用法：不需要再使用带有out参数的函数之前，声明对应变量 
+- 作用：简化代码，提高开发效率 
+  
+- 1.以前使用带out函数的写法 
+- *int a;* 
+- *int b;* 
+- *Calc(out a, out b);* 
+  
+- 2.现在的写法 
+- *Calc(out int x, out int y);* 
+- *print(x);* 
+- *print(y);* 
+  
+- 3.结合var类型更简便(但是这种写法在存在重载时不能正常使用,必须明确调用的是谁) 
+- *Calc(out int a, out var b);* 
+- *print(a);* 
+- *print(b);* 
+  
+- 4.可以使用 \_弃元符号 省略不想使用的参数 
+  
+- *Calc(out int c, out \_);* 
+- *print(c);*
+
+##### 知识点五 ref修饰临时变量和返回值 
+
+- 基本概念：使用ref修饰临时变量和函数返回值，可以让赋值变为引用传递 
+- 作用：用于修改数据对象中的某些值类型变量 
+- 1.修饰值类型临时变量 
+- *int testI = 100;* 
+- *ref int testI2 = ref testI;* 
+- *testI2 = 900;* 
+- *print(testI);* 
+  
+- *TestRef r = new TestRef(5,5);* 
+- *ref TestRef r2 = ref r;* 
+- *r2.atk = 10;* 
+- *print(r.atk);* 
+  
+- 2.获取对象中的参数 
+- *ref int atk = ref r.atk;* 
+- *atk = 99;* 
+- *print(r.atk);* 
+  
+- 3.函数返回值 
+- *int[] numbers = new int[] { 1, 2, 3, 45, 5, 65, 4532, 12 };* 
+- *ref int number = ref FindNumber(numbers, 5);* 
+- *number = 98765;* 
+- *print(numbers\[4]);*
+
+##### 知识点六 本地函数 
+
+- 基本概念：在函数内部声明一个临时函数 
+- 注意： 
+- 本地函数只能在声明该函数的函数内部使用 
+- 本地函数可以使用声明自己的函数中的变量 
+- 作用：方便逻辑的封装 
+- 建议：把本地函数写在主要逻辑的后面，方便代码的查看 
+  
+- *print(TestTst(10));*
+
+##### 总结 
+
+- C#7的新语法更新重点主要是 代码简化 
+- 今天学习的out和ref新用法，弃元、本地函数都是相对比较重要的内容 
+- 可以给我们带来很多便捷性
+
+
+![](static/CSharp进阶知识补充_images_49.png)
+
+#### 2.元组、模式匹配、抛出表达式
+
+##### 知识点一 抛出表达式 
+
+- throw 知识回顾 
+- 抛出表达式，就是指抛出一个错误 
+- 一般的使用方式 都是 throw后面 new 一个异常类 
+  
+- 异常基类：Exception 
+  
+- *throw new NullReferenceException("1231231");*
+
+````ad-tip
+C#自带异常类  
+- 常见  
+- IndexOutOfRangeException：当一个==数组的下标超出范围==时运行时引发。  
+- NullReferenceException：当一个==空对象被引用==时运行时引发。  
+- ArgumentException：方法的==参数是非法==的  
+- ArgumentNullException： 一个==空参数传递给方法，该方法不能接受该参数==  
+- ArgumentOutOfRangeException： ==参数值超出范围== 
+- SystemException：==其他用户可处理==的异常的基本类  
+- OutOfMemoryException：==内存空间不够== 
+- StackOverflowException ==堆栈溢出==  
+  
+- ArithmeticException：出现==算术上溢或者下溢==  
+- ArrayTypeMismatchException：试图在数组中==存储错误类型的对象==  
+- BadImageFormatException：==图形==的==格式错误==  
+- DivideByZeroException：==除零异常==  
+- DllNotFoundException：==找不到引用的DLL==  
+- FormatException：参数==格式错误==
+- InvalidCastException：使用==无效的类== 
+- InvalidOperationException：方法的==调用时间错误== 
+- MethodAccessException：==试图访问私有或者受保护的方法==
+- MissingMemberException：访问一个==无效版本的DLL==
+- NotFiniteNumberException：==对象不是一个有效的成员==  
+- NotSupportedException：==调用的方法在类中没有实现==  
+- InvalidOperationException：当==对方法的调用对对象的当前状态无效==时，由某些方法引发。
+````
+- 在C# 7中，可以在更多的表达式中进行错误抛出 
+- 好处：更节约代码量 
+  
+- 1.空合并操作符后用throw 
+- InitInfo("123"); 
+- 2.三目运算符后面用throw 
+- GetInfo("1,2,3", 4); 
+- 3.=>符号后面直接throw 
+- Action action = () => throw new Exception("错了，不准用这个委托"); 
+- action();
+
+##### 知识点二 元组 
+
+- ==基本概念==：多个值的集合，相当于是一种快速构建数据结构类的方式 
+-          一般在函数存在多返回值时可以使用元组 (返回值1类型,返回值2类型,....) 来声明返回值 
+-          在函数内部返回具体内容时通过 (返回值1,返回值2,....)  进行返回 
+- ==主要作用==：提升开发效率，更方便的处理多返回值等需要用到多个值时的需求 
+  
+- 1.无变量名元组的声明(获取值：Item'N'作为从左到右依次的参数，N从1开始) 
+- *(int, float,bool,string) yz = (1, 5.5f, true, "123");* 
+- *print(yz.Item1);* 
+- *print(yz.Item2);* 
+- *print(yz.Item3);* 
+- *print(yz.Item4);* 
+- 2.有变量名元组的声明 
+- *(int i, float f, bool b, string str) yz2 = (1, 5.5f, true, "123");* 
+- *print(yz2.i);* 
+- *print(yz2.f);* 
+- *print(yz2.b);* 
+- *print(yz2.str);* 
+  
+- 3.元组可以进行等于和不等于的判断 
+-   数量相同才比较，类型相同才比较，每一个参数的比较是通过\=\=比较 如果都是true 则认为两个元组相等 
+- *if (yz == yz2)* 
+- *print("相等");* 
+- *else* 
+- *print("不相等");* 
+  
+- 元组不仅可以作为临时变量 成员变量也是可以的 
+- *print(this.yz.Item1);* 
+-  元组的应用——函数返回值 
+- 无变量名函数返回值 
+- *var info = GetInfo();* 
+- *print(info.Item1);* 
+- *print(info.Item2);* 
+- *print(info.Item3);* 
+- 有变量名 
+- *print(info.f);* 
+- *print(info.i);* 
+- *print(info.str);* 
+  
+- 元组的解构赋值 
+- 相当于把多返回值元组拆分到不同的变量中 
+- *int myInt;* 
+- *string myStr;* 
+- *float myFloat;* 
+- *(myStr, myInt, myFloat) = GetInfo();* 
+- *(string myStr, int myInt, float myFloat) = GetInfo();* 
+- *print(myStr);* 
+- *print(myInt);* 
+- *print(myFloat);* 
+  
+- 丢弃参数 
+- 利用传入 下划线_ 达到丢弃该参数不使用的作用 
+- *(string ss, \_, \_) = GetInfo();* 
+- *print(ss);*
+
+###### 元组的应用——字典 
+- 字典中的键 需要用多个变量来控制 
+- *Dictionary<(int i, float f), string> dic = new Dictionary<(int i, float f), string>();* 
+- *dic.Add((1, 2.5f), "123");* 
+  
+- *if(dic.ContainsKey((1,2.5f)))* 
+- *{* 
+-     *print("存在相同的键");* 
+-     *print(dic\[(1, 2.5f)]);* 
+- *}*
+
+##### 知识点三 模式匹配 
+
+- ==基本概念==：模式匹配时一种语法元素，可以测试一个值是否满足某种条件，并可以从值中提取信息 
+-          在C#7中，模式匹配增强了两个现有的语言结构 
+-          1.is表达式，is表达式可以在右侧写一个模式语法，而不仅仅是一个类型 
+-          2.switch语句中的case 
+- ==主要作用==：节约代码量，提高编程效率 
+  
+- 1.常量模式(is 常量)：用于判断输入值是否等于某个值 
+- *object o = 1.5f;* 
+- *if(o is 1)* 
+- *{* 
+-     *print("o是1");* 
+- *}* 
+- *if(o is null)* 
+- *{* 
+-     *print("o是null");* 
+- *}* 
+
+- 2.类型模式(is 类型 变量名、case 类型 变量名)：用于判断输入值类型，如果类型相同，将输入值提取出来 
+- 判断某一个变量是否是某一个类型，如果满足会将该变量存入你申明的变量中 
+- 以前的写法 
+- *if (o is int)* 
+- *{* 
+-     *int i = (int)o;* 
+-     *print(i);* 
+- *}* 
+- *if (o is int i)* 
+- *{* 
+-     *print(i);* 
+- *}* 
+  
+- *switch (o)* 
+- *{* 
+-     *case int value:* 
+-         *print("int:" + value);* 
+-         *break;* 
+-     *case float value:* 
+-         *print("float:" + value);* 
+-         *break;* 
+-     *case null:* 
+-         *print("null");* 
+-         *break;* 
+-     *default:* 
+-         *break;* 
+- *}*
+  
+  
+- 3.var模式：用于将输入值放入与输入值相同类型的新变量中 
+-           相当于是将变量装入一个和自己类型一样的变量中 
+- *if(o is var v)* 
+- *{* 
+-     *print(o);* 
+- *}*
+
+##### 总结 
+
+- 元组和模式匹配知识点 是C# 7中引入的最重要的两个知识点 
+- 他们可以帮助我们更效率的完成一些功能需求 
+- 建议大家常用他们
+
+![](static/CSharp进阶知识补充_images_50.png)
+
+
+### ⑤ C#8 功能和语法
+
+#### 1.Using声明、空合并赋值、静态本地函数、解构函数
+
+##### 知识点一 C#8对应的Unity版本 
+
+- Unity 2020.3 —— C# 8 - 但是部分新内容还不在该版本Unity中被支持 
+- 我筛选了一些比较实用的内容给大家讲解
+
+##### 知识点二 C#8的新增功能和语法有哪些 
+
+- 1.Using 声明 
+- 2.静态本地函数 
+- 3.Null 合并赋值 
+- 4.解构函数Deconstruct 
+- 5.模式匹配增强功能
+
+##### 知识点三 静态本地函数 
+
+- 知识回顾： 
+- 在C#7的新语法中我们学习了本地函数 
+- 本地函数知识回顾 
+- 基本概念：在函数内部声明一个临时函数 
+- 注意： 
+- 本地函数只能在声明该函数的函数内部使用 
+- 本地函数可以使用声明自己的函数中的变量 
+- 作用：方便逻辑的封装 
+- 建议：把本地函数写在主要逻辑的后面，方便代码的查看 
+- print(CalcInfo(10)); 
+  ![](static/CSharp进阶知识补充_images_51.png)
+- 新知识点： 
+- 静态本地函数就是在本地函数前方加入静态关键字 
+- 它的作用就是让本地函数不能够使用访问封闭范围内（也就是上层方法中）的任何变量 
+- 作用 让本地函数只能处理逻辑，避免让它通过直接改变上层变量来处理逻辑造成逻辑混乱
+
+##### 知识点四 Using 声明 
+
+- 知识回顾： 
+- 在数据持久化xml相关知识当中 
+- 我们学习了using相关的知识点 
+- using(对象声明) 
+- { 
+-     使用对象，语句块结束后 对象将被释放掉 
+-     当语句块结束 会自动帮助我们调用 对象的 Dispose这个方法 让其进行销毁 
+-     using一般都是配合 内存占用比较大 或者 有读写操作时  进行使用的  
+- } 
+- 举例回顾： 
+- using(StreamWriter strem = new StreamWriter("文件路劲"))
+- { 
+-     对该变量进行逻辑处理 该变量只能在这个语句块中使用 
+-     strem.Write(true); 
+-     strem.Write(1.2f); 
+-     strem.Flush(); 
+-     strem.Close(); 
+- }
+- 语句块结束执行时 调用 声明对象的 Dispose方法 释放对象 
+  
+- ==新知识点==： 
+- Using 声明就是对using（）语法的简写 
+- 当函数执行完毕时 会调用 对象的 Dispose方法 释放对象 
+  
+- *using StreamWriter s2 = new StreamWriter("文件路径");* 
+- 对该对象进行逻辑操作 
+- *s2.Write(5);* 
+- *s2.Flush();* 
+- *s2.Close();* 
+- 利用这个写法 就会在上层语句块执行结束时释放该对象 
+  
+- 注意：在使用using语法时，声明的对象必须继承System.IDisposable接口 
+- 因为必须具备Dispose方法，所以当声明没有继承该接口的对象时会报错 
+- using TestUsing t = new TestUsing();
+
+##### 知识点五 Null 合并赋值 
+
+- ==知识回顾==： 
+- 在C#进阶的特殊语法知识点中我们学习了 ?? 空合并操作符 
+- 回顾空合并操作符知识点 
+-  左边值 ?? 右边值 
+-  如果左边值为null 就返回右边值 否则返回左边值 
+-  只要是可以为null的类型都能用 
+-  举例： 
+- *string str = null;* 
+- *string str2 = str ?? "234";* 
+- *print(str2);* 
+  
+- ==新知识点==： 
+- 空合并赋值是C#8.0新加的一个运算符 ??=  =
+- 类似复合运算符  =
+-  左边值 ??= 右边值  =
+-  当左侧为空时才会把右侧值赋值给变量  =
+-  举例：  =
+- *str ??= "4565";* 
+- *print(str);* 
+- *注意：由于*左侧为空才会讲右侧赋值给变量，所以不为空的变量不会改变 
+- *str ??= "1111";* 
+- *print(str);*
+
+##### 知识点六 解构函数Deconstruct 
+
+- ==知识回顾==： 
+- 我们之前学习过元组的解构，就是可以用单独的变量存储元组的值 
+- 相当于把多返回值元组拆分到不同的变量中 
+- 举例回顾： 
+- *int i;* 
+- *float f;* 
+- *string s;* 
+- *(i,f,\_,s) = GetInfo();* 
+  ![](static/CSharp进阶知识补充_images_52.png)
+- 新知识点：解构函数Deconstruct （C# 7就有了） 
+- 我们可以在自定义类当中声明解构函数 
+- 这样我们可以将该自定义类对象利用元组的写法对其进行变量的获取 
+- 语法： 
+- 在类的内部申明函数public void Deconstruct(out 变量类型 变量名, out 变量类型 变量名.....) 
+- 特点： 
+- 一个类中可以有多个Deconstruct，但是参数数量不能相同 
+- *Person p = new Person();* 
+- *p.name = "唐老狮";* 
+- *p.sex = false;* 
+- *p.email = "tpandme@163.com";* 
+- *p.number = "123123123123";* 
+  
+- 我们可以对该对象利用元组将其具体的变量值 解构出来 
+- 相当于把不同的成员变量拆分到不同的临时变量中 
+- *(string name, bool sex) = p;* 
+- *print(name);* 
+- *print(sex);* 
+- *string str3;* 
+- *(\_, \_, str3) = p;* 
+- *print(str3);*
+![](static/CSharp进阶知识补充_images_53.png)
+![](static/CSharp进阶知识补充_images_54.png)
+
+
+
+
+
+
+
+#### 2. 模式匹配、Switch表达式、属性、位置、元组模式
+
+##### 知识点一 模式匹配回顾 
+
+- 模式匹配（Pattern Matching） 
+- “模式匹配”是一种测试表达式是否具有特定特征的方法 
+- 在编程里指的是，把一个不知道具体数据信息的内容 
+- 通过一些固定的语法格式来确定模式数据的具体内容的过程 
+  
+- 我们目前学习过的模式匹配 
+- 1.常量模式(is 常量)：用于判断输入值是否等于某个值 
+- *object o = 1.5f;* 
+- *if (o is 1)* 
+- *{* 
+-     *print("o是1");* 
+- *}* 
+- *if (o is null)* 
+- *{*
+-     *print("o是null");* 
+- *}* 
+- 2.类型模式(is 类型 变量名、case 类型 变量名)：用于判断输入值类型，如果类型相同，将输入值提取出来 
+- 判断某一个变量是否是某一个类型，如果满足会将该变量存入你申明的变量中 
+- *if (o is int i)* 
+- *{* 
+-     *print(i);* 
+- *}* 
+- *switch (o)* 
+- *{* 
+-     *case int value:* 
+-         *print("int:" + value);* 
+-         *break;* 
+-     *case float value:* 
+-         *print("float:" + value);* 
+-         *break;* 
+-     *case null:* 
+-         *print("null");* 
+-         *break;* 
+-      *default:* 
+-         *break;* 
+- *}* 
+- 3.var模式：用于将输入值放入与输入值相同类型的新变量中 
+-           相当于是将变量装入一个和自己类型一样的变量中 
+- *if (o is var v)* 
+- *{* 
+-     *print(v);* 
+- *}* 
+- *int kk = GetInt();* 
+- *if(kk >= 0 && kk <= 10)* 
+- *{* 
+  
+- *}* 
+  
+- *if (GetInt() is var k && k >= 0 && k <= 10)* 
+- *{* 
+- *}*
+
+##### 知识点二 模式匹配增强功能——switch表达式 
+
+- switch表达式是对有返回值的switch语句的缩写 
+- 用=>表达式符号代替case:组合 
+- 用_弃元符号代替default 
+- 它的使用限制，主要是用于switch语句当中只有一句代码用于返回值时使用 
+- 语法： 
+-  函数声明 => 变量 switch 
+- { 
+-     常量=>返回值表达式, 
+-     常量=>返回值表达式, 
+-     常量=>返回值表达式, 
+-     ....
+-     _ => 返回值表达式, 
+- }
+![](static/CSharp进阶知识补充_images_55.png)
+##### 知识点三 模式匹配增强功能——属性模式 
+
+- 就是在常量模式的基础上判断对象上各属性 
+- 用法：变量 is {属性:值, 属性:值} 
+- *DiscountInfo info = new DiscountInfo("5折", true);* 
+- *if( info.discount == "6折" && info.isDiscount)* 
+- *if (info is { discount: "6折", isDiscount: true })* 
+-     *print("信息相同");* 
+
+- *print(GetMoney(info, 100));* 
+  
+- 它可以结合switch表达式使用 
+- 结合switch使用可以通过属性模式判断条件的组合
+![](static/CSharp进阶知识补充_images_56.png)
+##### 知识点四 模式匹配增强功能——元组模式 
+
+- 通过刚才学习的 属性模式我们可以在switch表达式中判断多个变量同时满足再返回什么 
+- 但是它必须是一个数据结构类对象，判断其中的变量 
+- 而元组模式可以更简单的完成这样的功能，我们不需要声明数据结构类，可以直接利用元组进行判断 
+- *int ii = 10;* 
+- *bool bb = true;* 
+- *if((ii, bb) is (11, true))* 
+- *{* 
+-     *print("元组的值相同");* 
+- *}* 
+- 举例说明 
+- *print(GetMoney("5折", true, 200));*
+
+##### 知识点五 模式匹配增强功能——位置模式 
+
+- 如果自定义类中实现了解构函数 
+- 那么我们可以直接用对应类对象与元组进行is判断 
+- *if(info is ("5折", true))* 
+- *{* 
+-     *print("位置模式 满足条件");* 
+- *}* 
+  
+- 同样我们也可以配合switch表达式来处理逻辑 
+- 举例说明 
+- *print(GetMoney2(info, 300));* 
+  ![](static/CSharp进阶知识补充_images_57.png)
+- 补充：配合when关键字进行逻辑处理
+
+
+![](static/CSharp进阶知识补充_images_58.png)
+
+
+## 六、C#其它知识点补充
+
+#### 日期和时间
+
+##### 知识点一 目前学习过和时间相关的内容 
+
+- 目前我们只在Unity当中学习过Time类 
+- 我们可以通过Time获取当前游戏相关的时间 
+- 比如帧间隔时间，游戏运行的时间和帧数等等内容 
+  
+- 但是我们并没有学习过和真实世界时间相关的内容 
+- 比如如何得知当前时间的 年、月、日、时、分、秒 
+- 这节课我们将要学习的就是真实时间相关的内容
+
+##### 知识点二 时间对于我们的作用 
+
+- 在游戏开发当中我们经常会有和时间打交道的内容
+- 比如每日签到、活动倒计时、建造时间、激活时间等等的功能 
+- 如果想要完成这些功能，仅仅用Unity提供给我们的Time类是远远不够用的 
+- 所以我们需要学习专门的日期和时间相关的知识 
+- 才能制作某些功能需求 
+- 而C#便提供了对应的结构方便我们处理时间相关逻辑 
+- 1.DateTime 日期结构体 
+- 2.TimeSpan 时间跨度结构体
+
+##### 知识点三 一些关于时间的名词说明 
+
+//1s秒 = 1000ms毫秒 
+//1ms毫秒 = 1000μs微妙 
+//1μs微妙 = 1000ns纳秒 
+  
+//格里高利历: 
+//格里高利历一般指公元 
+//公元，即公历纪年法 
+//目前我们所说公历，就是格里高利历 
+//比如2022年就是从公元元年开始算起的两千二十二年 
+  
+//格林尼治时间(GMT)： 
+//格林尼治标准时间 
+//是指位于英国伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线 
+//地球每天的自转是有些不规则的，而且正在缓慢减速 
+//所以，格林尼治时间已经不再被作为标准时间使用 
+//现在的标准时间──协调世界时（UTC） 
+  
+//协调世界时(UTC): 
+//又称世界统一时间、世界标准时间、国际协调时间 
+//UTC协调世界时即格林尼治平太阳时间，是指格林尼治所在地的标准时间， 
+//也是表示地球自转速率的一种形式 
+//UTC基于国际原子时间，通过不规则的加入闰秒来抵消地球自转变慢的影响，是世界上调节时钟和时间的主要时间标准  
+  
+//时间戳 
+//从1970年1月1日（UNIX时间戳的起点时间）到现在的时间 
+//计算机时间和众多的编程语言的时间都是从1970年1月1日开始算起 
+//是因为很多编程语言起源于UNIX系统，而UNIX系统认为1970年1月1日0点是时间纪元 
+//所以我们常说的UNIX时间戳是以1970年1月1日0点为计时起点时间的 
+//原因： 
+//最初计算机操作系统是32位，而时间也是用32位表示 
+//我们知道32位能代表的最大十进制数是2147483647 
+//1年是365天，总秒数是3153 6000 
+//那么2147483647/3153 6000=68.1年 
+//也就是说因为早期用32位来表示时间，最大的时间间隔是68年 
+//而最早出现的UNIX操作系统考虑到计算机产生的年代和应用的 
+//时限综合取了1970年1月1日作为UNIX TIME的纪元时间(开始时间)
+
+##### 知识点四 DateTime- 命名空间：System 
+
+- DateTime 是 C# 提供给我们处理日期和时间的结构体 
+- DateTime 对象的默认值和最小值是0001年1月1日00:00:00（午夜） 
+-          最大值可以是9999年12月31日晚上11:59:59 
+- ==初始化 ==
+- 主要参数： 
+- 年、月、日、时、分、秒、毫秒 
+- ticks：以格里高利历00:00:00.000年1月1日以来的100纳秒间隔数表示,一般是一个很大的数字 
+- 次要参数： 
+- DateTimeKind：日期时间种类 
+-   Local：本地时间 
+-   Utc：UTC时间 
+-   Unspecified：不指定 
+- Calendar:日历 
+- 使用哪个国家的日历，一般在Unity开发中不使用 
+- *DateTime dt = new DateTime(2022, 12, 1, 13, 30, 45, 500);* 
+- 年、月、日、时、分、秒、毫秒 
+- *print(dt.Year + "-" + dt.Month + "-" + dt.Day + "-" + dt.Hour + "-" + dt.Minute + "-" + dt.Second + "-" + dt.Millisecond);* 
+- 以格里高利历00:00:00.000年1月1日以来的100纳秒间隔数表示,一般是一个很大的数字 
+- *print(dt.Ticks);* 
+- 一年的第多少天 
+- *print(dt.DayOfYear);* 
+- 星期几 
+- *print(dt.DayOfWeek);*
+
+ - ==获取时间 ==
+
+- 当前日期和时间 
+- DateTime nowTime = DateTime.Now; 
+- print(nowTime.Minute); 
+- 返回今日日期 
+- DateTime nowTime2 = DateTime.Today; 
+- print(nowTime2.Year + "-" + nowTime2.Month + "-" + nowTime2.Day); 
+- 返回当前UTC日期和时间 
+- DateTime nowTimeUTC = DateTime.UtcNow;
+
+- ==计算时间 ==
+- 各种加时间 
+- DateTime nowTime3 = nowTime.AddDays(-1);  
+- print(nowTime3.Day);
+
+- 字符串输出 
+- *print(nowTime.ToString());* 
+- *print(nowTime.ToShortTimeString());* 
+- *print(nowTime.ToShortDateString());* 
+- *print(nowTime.ToLongTimeString());* 
+- *print(nowTime.ToLongDateString());* 
+  
+- *print(nowTime.ToString("D"));* 
+- *print(nowTime.ToString("yyyy-MM-dd-ddd/HH-mm-ss"));*
+
+- ==字符串转DateTime==
+- 字符串想要转回DateTime成功的话  
+- 那么这个字符串的格式是有要求的 一定是最基本的 toString的转换出来的字符串才能转回去 
+- 年/月/日 时:分:秒 
+- *string str = nowTime.ToString();* 
+- *str = "1988/5/4 18:00:08";* 
+- *print(str);* 
+- *DateTime dt3;* 
+- *if(DateTime.TryParse(str, out dt3))* 
+- *{* 
+-     *print(dt3);* 
+- *}* 
+- *else* 
+- *{* 
+-     *print("转换失败");* 
+- *}*
+
+- ==存储时间 ==
+- 存储时间 方式很多 
+- 1.以直接存字符串 
+- 2.可以直接存Ticks 
+- 3.可以直接存时间戳信息 
+  
+- 存储时间戳的形式 更加节约
+
+##### 知识点五 TimeSpan- 命名空间：System 
+- TimeSpan 是 C# 提供给我们的时间跨度结构体 
+- 用两个DateTime对象相减 可以得到该对象 
+- *TimeSpan ts = DateTime.Now - new DateTime(1970, 1, 1);* 
+- *print(ts.TotalMinutes);* 
+- *print(ts.TotalSeconds);* 
+- *print(ts.TotalDays);* 
+- *print(ts.TotalHours);* 
+- *print(ts.Ticks);* 
+  
+- *print(ts.Days + "-" + ts.Hours + "-" + ts.Minutes + "-" + ts.Seconds + "-" + ts.Milliseconds);*
+
+- ==初始化它来代表时间间隔 ==
+- *TimeSpan ts2 = new TimeSpan(1,0,0,0);* 
+- *DateTime timeNow = DateTime.Now + ts2;* 
+
+  
+ - 用它相互计算 
+- *TimeSpan ts3 = new TimeSpan(0, 1, 1, 1);* 
+- *TimeSpan ts4 = ts2 + ts3;* 
+- *print(ts4.Days + "-" + ts4.Hours);* 
+
+  
+ - ==自带常量方便用于和ticks进行计算 ==
+- *print(ts4.Ticks / TimeSpan.TicksPerSecond);*
+
+
+
+
+
+
+
+
+
+
 
 
 

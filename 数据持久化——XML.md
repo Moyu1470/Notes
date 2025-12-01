@@ -1,35 +1,35 @@
 ## 一、概述
 
-![](static/XML_images_1.png)
-![](static/XML_images_2.png)
-![](static/XML_images_3.png)
-![](static/XML_images_4.png)
-![](static/XML_images_5.png)
-![](static/XML_images_6.png)
-![](static/XML_images_7.png)
+![](static/数据持久化——XML_images_1.png)
+![](static/数据持久化——XML_images_2.png)
+![](static/数据持久化——XML_images_3.png)
+![](static/数据持久化——XML_images_4.png)
+![](static/数据持久化——XML_images_5.png)
+![](static/数据持久化——XML_images_6.png)
+![](static/数据持久化——XML_images_7.png)
 
 ## 二、XML文件格式
 
 ### ①.XML基础语法
 
-![](static/XML_images_8.png)
-![](static/XML_images_9.png)
-![](static/XML_images_10.png)
-![](static/XML_images_11.png)![](static/XML_images_12.png)![](static/XML_images_13.png)![](static/XML_images_14.png)![](static/XML_images_15.png)
+![](static/数据持久化——XML_images_8.png)
+![](static/数据持久化——XML_images_9.png)
+![](static/数据持久化——XML_images_10.png)
+![](static/数据持久化——XML_images_11.png)![](static/数据持久化——XML_images_12.png)![](static/数据持久化——XML_images_13.png)![](static/数据持久化——XML_images_14.png)![](static/数据持久化——XML_images_15.png)
 
 ### ②XML属性
 
-![](static/XML_images_16.png)![](static/XML_images_17.png)![](static/XML_images_18.png)
-![](static/XML_images_19.png)
+![](static/数据持久化——XML_images_16.png)![](static/数据持久化——XML_images_17.png)![](static/数据持久化——XML_images_18.png)
+![](static/数据持久化——XML_images_19.png)
 ##### 习题
 
-![](static/XML_images_20.png)
-![](static/XML_images_21.png)
+![](static/数据持久化——XML_images_20.png)
+![](static/数据持久化——XML_images_21.png)
 ## 三、C#读取存储xml
 
 ### ①.XML文件存放位置
 
-![](static/XML_images_22.png)
+![](static/数据持久化——XML_images_22.png)
 
 ### ②.C#读取XML文件
 
@@ -114,8 +114,8 @@
 
 
 ##### 练习题
-![](static/XML_images_23.png)
-![](static/XML_images_24.png)
+![](static/数据持久化——XML_images_23.png)
+![](static/数据持久化——XML_images_24.png)
 
 ### ③C#存储XML文件
 
@@ -233,9 +233,9 @@
 ##### 练习题
 
 
-![](static/XML_images_25.png)
+![](static/数据持久化——XML_images_25.png)
 
-![](static/XML_images_26.png)
+![](static/数据持久化——XML_images_26.png)
 
 
 ## 四、实践小项目
@@ -271,8 +271,8 @@
 -  using 的新用法 括号当中包裹的声明的对象 会在 大括号语句块结束后 自动释放掉 
 -  当语句块结束 会自动帮助我们调用 对象的 Dispose这个方法 让其进行销毁 
 -  using一般都是配合 内存占用比较大 或者 有读写操作时  进行使用的
-- using ( StreamWriter stream = new StreamWriter(path) ) 
-- { 
+- *using ( StreamWriter stream = new StreamWriter(path) )* 
+- *{* 
 - 第三步：进行xml文件序列化 
 - *XmlSerializer s = new XmlSerializer(typeof(Lesson1Test));* 
 - 这句代码的含义 就是通过序列化对象 对我们类对象进行翻译 将其翻译成我们的xml文件 写入到对应的文件中 
@@ -284,8 +284,8 @@
 ##### 知识点三 自定义节点名 或 设置属性 
 
 - 可以通过特性 设置节点或者设置属性 并且修改名字
-![](static/XML_images_27.png)
-![](static/XML_images_28.png)
+![](static/数据持久化——XML_images_27.png)
+![](static/数据持久化——XML_images_28.png)
 ##### 总结 
 
 - 序列化流程 
@@ -361,7 +361,7 @@
 -    *XmlSerializer s = new XmlSerializer(typeof(TestLesson3));* 
 -    *t = s.Deserialize(reader) as TestLesson3;* 
 - *}*
-![](static/XML_images_29.png)
+![](static/数据持久化——XML_images_29.png)
 
 
 #### 4.让Dictionary支持序列化反序列化
@@ -391,13 +391,13 @@
 -   *XmlSerializer s = new XmlSerializer(typeof(TestLesson4));* 
 -   *tl4 = s.Deserialize(reader) as TestLesson4;* 
 - *}*
-![](static/XML_images_30.png)
+![](static/数据持久化——XML_images_30.png)
 
 #### ②实践内容
 
-![](static/XML_images_31.png)
+![](static/数据持久化——XML_images_31.png)
 
-![](static/XML_images_32.png)
+![](static/数据持久化——XML_images_32.png)
 
 
 

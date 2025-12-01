@@ -163,6 +163,12 @@
 - 3.事件相当于对委托进行了一次封装 让其更加安全
 
 
+#### 4. EventHandler
+
+![](static/CSharp基础知识_images_23.png)
+#### 5.EventArgs
+
+![](static/CSharp基础知识_images_24.png)
 
 
 

@@ -1,41 +1,41 @@
 ## 一、Json概述
 
-![](static/Json_images_1.png)
-![](static/Json_images_2.png)
-![](static/Json_images_3.png)
-![](static/Json_images_4.png)
-![](static/Json_images_5.png)
+![](static/数据持久化——Json_images_1.png)
+![](static/数据持久化——Json_images_2.png)
+![](static/数据持久化——Json_images_3.png)
+![](static/数据持久化——Json_images_4.png)
+![](static/数据持久化——Json_images_5.png)
 ## 二、Json文件格式
 
 ### ①基本规则
 
 #### Json配置规则
 
-![](static/Json_images_6.png)
-![](static/Json_images_7.png)
-![](static/Json_images_8.png)
-![](static/Json_images_9.png)
-![](static/Json_images_10.png)
-![](static/Json_images_11.png)
-![](static/Json_images_12.png)
-![](static/Json_images_13.png)![](static/Json_images_14.png)
-![](static/Json_images_15.png)
+![](static/数据持久化——Json_images_6.png)
+![](static/数据持久化——Json_images_7.png)
+![](static/数据持久化——Json_images_8.png)
+![](static/数据持久化——Json_images_9.png)
+![](static/数据持久化——Json_images_10.png)
+![](static/数据持久化——Json_images_11.png)
+![](static/数据持久化——Json_images_12.png)
+![](static/数据持久化——Json_images_13.png)![](static/数据持久化——Json_images_14.png)
+![](static/数据持久化——Json_images_15.png)
 ##### 练习题解答 
 
-![](static/Json_images_16.png)
+![](static/数据持久化——Json_images_16.png)
 
 
 ### ②Excel转Json
 
-![](static/Json_images_17.png)
-![](static/Json_images_18.png)
-![](static/Json_images_19.png)
-![](static/Json_images_20.png)
-![](static/Json_images_21.png)
+![](static/数据持久化——Json_images_17.png)
+![](static/数据持久化——Json_images_18.png)
+![](static/数据持久化——Json_images_19.png)
+![](static/数据持久化——Json_images_20.png)
+![](static/数据持久化——Json_images_21.png)
 
 ##### 练习题解答
 
-![](static/Json_images_22.png)
+![](static/数据持久化——Json_images_22.png)
 
 ````ad-warning
 
@@ -45,7 +45,7 @@
 
 ````
 
-![](static/Json_images_23.png)
+![](static/数据持久化——Json_images_23.png)
 
 
 
@@ -54,7 +54,7 @@
 ### ①JsonUtility
 
 #### 1.JsonUtlity 序列化
-![](static/Json_images_24.png)
+![](static/数据持久化——Json_images_24.png)
 ##### 知识点一 JsonUtlity是什么？ 
 
 - JsonUtlity 是Unity自带的用于解析Json的公共类 
@@ -72,7 +72,7 @@
 - *print(Application.persistentDataPath);*
 
 ##### tip : 创建文件夹的方法
-![](static/Json_images_25.png)
+![](static/数据持久化——Json_images_25.png)
 
 - 2.在指定路径文件中读取字符串 
 - *string str = File.ReadAllText(Application.persistentDataPath + "/Test.json");* 
@@ -131,10 +131,10 @@
 - *RoleData data = JsonUtility.FromJson\<RoleData>(jsonStr);* 
   
 - 2.文本编码格式需要时UTF-8 不然无法加载
-![](static/Json_images_26.png)
-![](static/Json_images_27.png)
-![](static/Json_images_28.png)
-![](static/Json_images_29.png)
+![](static/数据持久化——Json_images_26.png)
+![](static/数据持久化——Json_images_27.png)
+![](static/数据持久化——Json_images_28.png)
+![](static/数据持久化——Json_images_29.png)
 ##### 总结 
 
 - 1.必备知识点 —— File存读字符串的方法 ReadAllText和WriteAllText 
@@ -233,8 +233,8 @@
 
 ##### 习题
 
-![](static/Json_images_30.png)
-![](static/Json_images_31.png)
+![](static/数据持久化——Json_images_30.png)
+![](static/数据持久化——Json_images_31.png)
 ### ③JsonUtlity和LitJson对比
 
 ##### 知识点一 JsonUtlity和LitJson相同点 
@@ -261,7 +261,7 @@
 
 # 存读参考代码
 
-![](static/Json_images_32.png)
+![](static/数据持久化——Json_images_32.png)
 
 
 
