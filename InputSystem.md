@@ -82,7 +82,7 @@
 - mouse.leftButton 
 - 鼠标右键 
 - mouse.rightButton 
-- 鼠标中键  
+- 鼠标中键 
 - mouse.middleButton 
 - 鼠标 向前向后键 
 - mouse.forwardButton; 
@@ -517,7 +517,7 @@
 -     *print("跳跃");* 
 - *}*
 
-### ⑥PlayerInput
+    ### ⑥PlayerInput
 
 #### 1.认识PlayerInput
 

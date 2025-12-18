@@ -948,7 +948,7 @@ Unity内置的右键Create->UI创建 一旦创建UI组件会自动创建Canvas�
 
 ## 一、组件核心
 
-**Canvas** 负责渲染所有的子UI，不在Canvas的UI渲染不了，场景上允许有多个Canvas以设置不同的渲染和分辨率适应，但是一般情况只有一个。参数如下：  
+**Canvas** 负责渲染所有的子UI，不在Canvas的UI渲染不了，场景上允许有多个Canvas以设置不同的渲染和分辨率适应，但是一般情况只有一个。参数如下：
 RenderMode渲染模式
 
 - 默认ScreenSpaceOverlay屏幕空间，UI始终在前。WorldSpace世界空间3D模式（VRAR常用，游戏不常用）
