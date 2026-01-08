@@ -357,7 +357,7 @@
 ##### 知识点三 创建有返回值的Task 
 
 - 1.通过new一个Task对象闯入委托函数并启动 
-- *t1 = new Task<\int>(() =>* 
+- *t1 = new Task</int>(() =>* 
 - *{* 
 -     *int i = 0;* 
 -     *while (isRuning)* 
@@ -371,7 +371,7 @@
 - *t1.Start();* 
   
 - - 2.通过Task中的Run静态方法传入委托函数 
-- *t2 = Task.Run<\string>(() =>* 
+- *t2 = Task.Run</string>(() =>* 
 - *{* 
 -     *int i = 0;* 
 -     *while (isRuning)* 
@@ -421,7 +421,7 @@
 -     *Thread.Sleep(1000);* 
 -     *print("哈哈哈");* 
 - *});* 
-- *- t.Start();*
+- *t.Start();*
 - *t.RunSynchronously();* 
 - *print("主线程执行");* 
 - 不Start 而是 RunSynchronously
