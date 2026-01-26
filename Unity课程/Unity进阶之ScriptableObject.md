@@ -1,12 +1,13 @@
 ## 一、ScriptableObject概述
 
-![](pic/Unity进阶之ScriptableObject_images_1.png)
-![](pic/Unity进阶之ScriptableObject_images_2.png)
-![](pic/Unity进阶之ScriptableObject_images_3.png)
-![](pic/Unity进阶之ScriptableObject_images_4.png)
-![](pic/Unity进阶之ScriptableObject_images_5.png)
-![](pic/Unity进阶之ScriptableObject_images_6.png)
-![](pic/Unity进阶之ScriptableObject_images_7.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124543145.png)
+
+![](static/Unity进阶之ScriptableObject_images_1.png)
+![](static/Unity进阶之ScriptableObject_images_2.png)
+![](static/Unity进阶之ScriptableObject_images_3.png)
+![](static/Unity进阶之ScriptableObject_images_4.png)
+![](static/Unity进阶之ScriptableObject_images_5.png)
+![](static/Unity进阶之ScriptableObject_images_6.png)
 ## 二、数据文件的创建
 
 #### 数据文件的创建
@@ -47,13 +48,13 @@
 - 1.继承它 
 - 2.声明需要的数据变量 
 - 3.添加对应的特性，让我们可以在Unity中真正的创建出数据资源文件
-![](pic/Unity进阶之ScriptableObject_images_8.png)
-![](pic/Unity进阶之ScriptableObject_images_9.png)
+![](static/Unity进阶之ScriptableObject_images_7.png)
+![](static/Unity进阶之ScriptableObject_images_8.png)
 
 ##### 练习题
-![](pic/Unity进阶之ScriptableObject_images_10.png)
+![](static/Unity进阶之ScriptableObject_images_9.png)
 
-![](pic/Unity进阶之ScriptableObject_images_11.png)
+![](static/Unity进阶之ScriptableObject_images_10.png)
 
 ## 三、ScriptableObject数据文件的使用
 
@@ -114,8 +115,8 @@
 
 ##### 练习题
 
-![](pic/Unity进阶之ScriptableObject_images_12.png)
-![](pic/Unity进阶之ScriptableObject_images_13.png)
+![](static/Unity进阶之ScriptableObject_images_11.png)
+![](static/Unity进阶之ScriptableObject_images_12.png)
 
 ## 四、ScriptableObject非持久数据
 
@@ -150,9 +151,9 @@
 
 ##### 练习题
 
-![](pic/Unity进阶之ScriptableObject_images_14.png)
+![](static/Unity进阶之ScriptableObject_images_13.png)
 
-![](pic/Unity进阶之ScriptableObject_images_15.png)
+![](static/Unity进阶之ScriptableObject_images_14.png)
 
 ## 五、ScriptableObject让其真正意义的持久
 
@@ -213,10 +214,10 @@
 
 ##### 练习题
 
-![](pic/Unity进阶之ScriptableObject_images_16.png)
+![](static/Unity进阶之ScriptableObject_images_15.png)
 
-![](pic/Unity进阶之ScriptableObject_images_17.png)
-![](pic/Unity进阶之ScriptableObject_images_18.png)
+![](static/Unity进阶之ScriptableObject_images_16.png)
+![](static/Unity进阶之ScriptableObject_images_17.png)
 
 ## 六、ScriptableObjcet的应用
 
@@ -250,7 +251,7 @@
 -       我们不需要把编辑器生成的数据生成别的数据文件，而是直接通过ScriptableObject进行存储 
 -       因为内置编辑器只会在编辑模式下运行，编辑模式下ScriptableObject具备数据持久化的特性
 
-![](pic/Unity进阶之ScriptableObject_images_19.png)
+![](static/Unity进阶之ScriptableObject_images_18.png)
 
 #### 2.复用数据
 
@@ -261,8 +262,8 @@
   
 - 我们以子弹对象为例
 
-![](pic/Unity进阶之ScriptableObject_images_20.png)
-![](pic/Unity进阶之ScriptableObject_images_21.png)
+![](static/Unity进阶之ScriptableObject_images_19.png)
+![](static/Unity进阶之ScriptableObject_images_20.png)
 ##### 知识点二 举例说明 利用ScriptableObject数据对象 更加节约内存
 
 ````ad-tip
@@ -300,19 +301,19 @@ ScriptableObject数据能够复用 多个不同对象 提取的都是里面的�
 
 ##### 知识点二 举例说明
 
-![](pic/Unity进阶之ScriptableObject_images_22.png)
+![](static/Unity进阶之ScriptableObject_images_21.png)
 
-![](pic/Unity进阶之ScriptableObject_images_23.png)
+![](static/Unity进阶之ScriptableObject_images_22.png)
 
-![](pic/Unity进阶之ScriptableObject_images_24.png)
+![](static/Unity进阶之ScriptableObject_images_23.png)
 
-![](pic/Unity进阶之ScriptableObject_images_25.png)
+![](static/Unity进阶之ScriptableObject_images_24.png)
 
-![](pic/Unity进阶之ScriptableObject_images_26.png)
+![](static/Unity进阶之ScriptableObject_images_25.png)
 
-![](pic/Unity进阶之ScriptableObject_images_27.png)
+![](static/Unity进阶之ScriptableObject_images_26.png)
 
-![](pic/Unity进阶之ScriptableObject_images_28.png)
+![](static/Unity进阶之ScriptableObject_images_27.png)
 
 #### 4.单例模式化的获取数据
 
@@ -351,8 +352,8 @@ ScriptableObject数据能够复用 多个不同对象 提取的都是里面的�
 - 但是不建议大家用ScriptableObject来制作数据持久化功能 
 - 除非你有这方面的特殊需求
 
-![](pic/Unity进阶之ScriptableObject_images_29.png)
+![](static/Unity进阶之ScriptableObject_images_28.png)
 
-![](pic/Unity进阶之ScriptableObject_images_30.png)
+![](static/Unity进阶之ScriptableObject_images_29.png)
 
-![](pic/Unity进阶之ScriptableObject_images_31.png)
+![](static/Unity进阶之ScriptableObject_images_30.png)

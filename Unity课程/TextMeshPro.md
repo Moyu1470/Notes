@@ -75,19 +75,20 @@
 
 #### 2.输入、字体相关
 
-![](pic/TextMeshPro_images_1.png)
+![Uploading file...l34m9]()
+
 
 #### 3.颜色、间距、对齐相关
 
-![](pic/TextMeshPro_images_2.png)
-![](pic/TextMeshPro_images_3.png)
+![](static/TextMeshPro_images_1.png)
+![](static/TextMeshPro_images_2.png)
 
 #### 4.包裹溢出、UV映射相关
-![](pic/TextMeshPro_images_4.png)
-![](pic/TextMeshPro_images_5.png)
+![](static/TextMeshPro_images_3.png)
+![](static/TextMeshPro_images_4.png)
 #### 5.额外设置相关
-![](pic/TextMeshPro_images_6.png)
-![](pic/TextMeshPro_images_7.png)
+![](static/TextMeshPro_images_5.png)
+![](static/TextMeshPro_images_6.png)
 #### 6.脚本控制
 
 ##### 知识点一 脚本获取TMP UI组件 
@@ -221,29 +222,29 @@
 - 8.字形调整表
 
 #### 2.基本信息设置
-![](pic/TextMeshPro_images_8.png)
-![](pic/TextMeshPro_images_9.png)
-![](pic/TextMeshPro_images_10.png)
-![](pic/TextMeshPro_images_11.png)
-![](pic/TextMeshPro_images_12.png)
-![](pic/TextMeshPro_images_13.png)
-![](pic/TextMeshPro_images_14.png)
-![](pic/TextMeshPro_images_15.png)
+![](static/TextMeshPro_images_7.png)
+![](static/TextMeshPro_images_8.png)
+![](static/TextMeshPro_images_9.png)
+![](static/TextMeshPro_images_10.png)
+![](static/TextMeshPro_images_11.png)
+![](static/TextMeshPro_images_12.png)
+![](static/TextMeshPro_images_13.png)
+![](static/TextMeshPro_images_14.png)
 
 #### 3.生成设置 和 图集纹理
 
-![](pic/TextMeshPro_images_16.png)
-![](pic/TextMeshPro_images_17.png)
-![](pic/TextMeshPro_images_18.png)
+![](static/TextMeshPro_images_15.png)
+![](static/TextMeshPro_images_16.png)
+![](static/TextMeshPro_images_17.png)
 
 
 #### 4.字体粗细
-![](pic/TextMeshPro_images_19.png)
+![](static/TextMeshPro_images_18.png)
 
 
 #### 5.其他相关设置
 
-![](pic/TextMeshPro_images_20.png)
+![](static/TextMeshPro_images_19.png)
 
 ### ⑤富文本标签
 
@@ -439,10 +440,10 @@
 
 ### ④TMP基础设置
 #### TMP基础设置
-![](pic/TextMeshPro_images_21.png)
-![](pic/TextMeshPro_images_22.png)
-![](pic/TextMeshPro_images_23.png)
-![](pic/TextMeshPro_images_24.png)
+![](static/TextMeshPro_images_20.png)
+![](static/TextMeshPro_images_21.png)
+![](static/TextMeshPro_images_22.png)
+![](static/TextMeshPro_images_23.png)
 
 
 ### ⑤材质球相关
@@ -485,25 +486,25 @@
 - 4.照明效果设置 
 - 5.发光效果设置
 
-![](pic/TextMeshPro_images_25.png)
+![](static/TextMeshPro_images_24.png)
 
 #### 2.边缘线(Outlint)和阴影(Underlay)
 
-![](pic/TextMeshPro_images_26.png)
+![](static/TextMeshPro_images_25.png)
 
 #### 3.照明(Lighting)
 
-![](pic/TextMeshPro_images_27.png)
-![](pic/TextMeshPro_images_28.png)
-![](pic/TextMeshPro_images_29.png)
-![](pic/TextMeshPro_images_30.png)
-![](pic/TextMeshPro_images_31.png)
+![](static/TextMeshPro_images_26.png)
+![](static/TextMeshPro_images_27.png)
+![](static/TextMeshPro_images_28.png)
+![](static/TextMeshPro_images_29.png)
+![](static/TextMeshPro_images_30.png)
 
 #### 4.发光（Glow）和 调试设置(Debug Settings)
 
-![](pic/TextMeshPro_images_32.png)
-![](pic/TextMeshPro_images_33.png)
-![](pic/TextMeshPro_images_34.png)
+![](static/TextMeshPro_images_31.png)
+![](static/TextMeshPro_images_32.png)
+![](static/TextMeshPro_images_33.png)
 
 ### ⑥工具类相关
 
@@ -566,7 +567,7 @@
 - 更多API： 
 - https:// docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/api/TMPro.TMP_TextUtilities.html
 
-![](pic/TextMeshPro_images_35.png)
+![](static/TextMeshPro_images_34.png)
 
 #### 3.其它工具类
 

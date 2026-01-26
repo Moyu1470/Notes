@@ -1,10 +1,11 @@
 ## InputSystem概述
 
-![](pic/InputSystem_images_1.png)
-![](pic/InputSystem_images_2.png)
-![](pic/InputSystem_images_3.png)
-![](pic/InputSystem_images_4.png)
-![](pic/InputSystem_images_5.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124207771.png)
+
+![](static/InputSystem_images_1.png)
+![](static/InputSystem_images_2.png)
+![](static/InputSystem_images_3.png)
+![](static/InputSystem_images_4.png)
 
 ## InputSystem
 
@@ -13,7 +14,7 @@
 ##### 知识点一 InputSystem包导入 
 
 - packageManager中导入Input System
-![](pic/InputSystem_images_6.png)
+![](static/InputSystem_images_5.png)
 
 ##### 知识点二 选择开启哪一种输入模式 
 
@@ -65,9 +66,9 @@
 
 ##### 练习题
 
-![](pic/InputSystem_images_7.png)
+![](static/InputSystem_images_6.png)
 
-![](pic/InputSystem_images_8.png)
+![](static/InputSystem_images_7.png)
 
 
 #### 2.鼠标输入
@@ -113,11 +114,11 @@
   
 - 鼠标中间 滚轮的方向向量 
 - mouse.scroll.ReadValue();
-![](pic/InputSystem_images_9.png)
+![](static/InputSystem_images_8.png)
 
 ##### 练习题 
-![](pic/InputSystem_images_10.png)
-![](pic/InputSystem_images_11.png)
+![](static/InputSystem_images_9.png)
+![](static/InputSystem_images_10.png)
 
 #### 3.触屏输入
 
@@ -314,7 +315,7 @@
 - wasPressedThisFrame 
 - wasReleasedThisFrame 
 - isPressed
-![](pic/InputSystem_images_12.png)
+![](static/InputSystem_images_11.png)
 
 #### 5.其它输入
 
@@ -377,16 +378,16 @@
 
 ##### 知识点二 InputAction参数相关
 
-![](pic/InputSystem_images_13.png)
-![](pic/InputSystem_images_14.png)
-![](pic/InputSystem_images_15.png)
-![](pic/InputSystem_images_16.png)
-![](pic/InputSystem_images_17.png)
-![](pic/InputSystem_images_18.png)
-![](pic/InputSystem_images_19.png)
-![](pic/InputSystem_images_20.png)
-![](pic/InputSystem_images_21.png)
-![](pic/InputSystem_images_22.png)
+![](static/InputSystem_images_12.png)
+![](static/InputSystem_images_13.png)
+![](static/InputSystem_images_14.png)
+![](static/InputSystem_images_15.png)
+![](static/InputSystem_images_16.png)
+![](static/InputSystem_images_17.png)
+![](static/InputSystem_images_18.png)
+![](static/InputSystem_images_19.png)
+![](static/InputSystem_images_20.png)
+![](static/InputSystem_images_21.png)
 
 ##### 知识点三 InputAction的使用 
 - 1.启用输入检测 
@@ -487,9 +488,9 @@
 
 ##### 知识点三 配置窗口参数相关
 
-![](pic/InputSystem_images_23.png)
-![](pic/InputSystem_images_24.png)
-![](pic/InputSystem_images_25.png)
+![](static/InputSystem_images_22.png)
+![](static/InputSystem_images_23.png)
+![](static/InputSystem_images_24.png)
 
 ### ⑤输入配置文件生成C#代码
 
@@ -542,7 +543,7 @@
 - 为其添加PlayerInput组件
 
 ##### 知识点三 PlayerInput参数相关
-![](pic/InputSystem_images_26.png)
+![](static/InputSystem_images_25.png)
 
 ````ad-tip
 Actions:行为
@@ -611,11 +612,11 @@ Actions:行为
 - value.Get<>
 
 
-![](pic/InputSystem_images_27.png)
+![](static/InputSystem_images_26.png)
 
 ##### 练习题
 
-![](pic/InputSystem_images_28.png)
+![](static/InputSystem_images_27.png)
 
 ### ⑦PlayerInputManager
 
@@ -628,7 +629,7 @@ Actions:行为
 
 ##### 知识点二 组件添加及参数相关
 
-![](pic/InputSystem_images_29.png)
+![](static/InputSystem_images_28.png)
 
 ##### 知识点三 PlayerInputManager使用 
 
@@ -644,7 +645,7 @@ Actions:行为
 - *{* 
 -     *print("离开了一个玩家");* 
 - *};*
-![](pic/InputSystem_images_30.png)
+![](static/InputSystem_images_29.png)
 
 ### ⑧UGUI配合使用
 
@@ -658,12 +659,12 @@ Actions:行为
 
 ##### 知识点二 UGUI中的新输入系统输入模块参数相关
 
-![](pic/InputSystem_images_31.png)
-![](pic/InputSystem_images_32.png)
-![](pic/InputSystem_images_33.jpeg)
-![](pic/InputSystem_images_34.jpeg)
-![](pic/InputSystem_images_35.jpeg)
-![](pic/InputSystem_images_36.jpeg)
+![](static/InputSystem_images_30.png)
+![](static/InputSystem_images_31.png)
+![](static/InputSystem_images_32.jpeg)
+![](static/InputSystem_images_33.jpeg)
+![](static/InputSystem_images_34.jpeg)
+![](static/InputSystem_images_35.jpeg)
 
 ##### 知识点三 VR相关中使用新输入系统注意事项 
 
@@ -707,14 +708,14 @@ Actions:行为
 ##### 知识点二 打开InputDebug窗口 
 
 - 1.Window(窗口)->Analysis(分析)->Input Debugger(输入调试器) 
-- 2.PlayerInput组件->Open Input Debugger
+- 2.![](static/InputSystem_images_36.png)
 
 ##### 知识点三 窗口上的信息
 
 ![](pic/InputSystem_images_37.png)
-![](pic/InputSystem_images_38.jpg)
-![](pic/InputSystem_images_39.png)
-![](pic/InputSystem_images_40.png)
+![](static/InputSystem_images_37.jpg)
+![](static/InputSystem_images_38.png)
+![](static/InputSystem_images_39.png)
 
 ## 综合练习题
 
@@ -750,21 +751,21 @@ Actions:行为
 
 #### 2.通过Json数据加载配置文件
 
-![](pic/InputSystem_images_41.png)
-![](pic/InputSystem_images_42.png)
+![](static/InputSystem_images_40.png)
+![](static/InputSystem_images_41.png)
 
 ### ②改建练习
 
 #### 1.记录改键
-![](pic/InputSystem_images_43.png)
+![](static/InputSystem_images_42.png)
 
 
 #### 2.实现改键功能
 
-![](pic/InputSystem_images_44.png)
-![](pic/InputSystem_images_45.png)
-![](pic/InputSystem_images_46.png)
-![](pic/InputSystem_images_47.png)
+![](static/InputSystem_images_43.png)
+![](static/InputSystem_images_44.png)
+![](static/InputSystem_images_45.png)
+![](static/InputSystem_images_46.png)
 
 
 

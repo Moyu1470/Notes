@@ -1,35 +1,36 @@
 ## 一、概述
 
-![](pic/数据持久化——XML_images_1.png)
-![](pic/数据持久化——XML_images_2.png)
-![](pic/数据持久化——XML_images_3.png)
-![](pic/数据持久化——XML_images_4.png)
-![](pic/数据持久化——XML_images_5.png)
-![](pic/数据持久化——XML_images_6.png)
-![](pic/数据持久化——XML_images_7.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126123946101.png)
+
+![](static/数据持久化——XML_images_1.png)
+![](static/数据持久化——XML_images_2.png)
+![](static/数据持久化——XML_images_3.png)
+![](static/数据持久化——XML_images_4.png)
+![](static/数据持久化——XML_images_5.png)
+![](static/数据持久化——XML_images_6.png)
 
 ## 二、XML文件格式
 
 ### ①.XML基础语法
 
-![](pic/数据持久化——XML_images_8.png)
-![](pic/数据持久化——XML_images_9.png)
-![](pic/数据持久化——XML_images_10.png)
-![](pic/数据持久化——XML_images_11.png)![](pic/数据持久化——XML_images_12.png)![](pic/数据持久化——XML_images_13.png)![](pic/数据持久化——XML_images_14.png)![](pic/数据持久化——XML_images_15.png)
+![](static/数据持久化——XML_images_7.png)
+![](static/数据持久化——XML_images_8.png)
+![](static/数据持久化——XML_images_9.png)
+![](static/数据持久化——XML_images_10.png)![](static/数据持久化——XML_images_11.png)![](static/数据持久化——XML_images_12.png)![](static/数据持久化——XML_images_13.png)![](static/数据持久化——XML_images_14.png)
 
 ### ②XML属性
 
-![](pic/数据持久化——XML_images_16.png)![](pic/数据持久化——XML_images_17.png)![](pic/数据持久化——XML_images_18.png)
-![](pic/数据持久化——XML_images_19.png)
+![](static/数据持久化——XML_images_15.png)![](static/数据持久化——XML_images_16.png)![](static/数据持久化——XML_images_17.png)
+![](static/数据持久化——XML_images_18.png)
 ##### 习题
 
-![](pic/数据持久化——XML_images_20.png)
-![](pic/数据持久化——XML_images_21.png)
+![](static/数据持久化——XML_images_19.png)
+![](static/数据持久化——XML_images_20.png)
 ## 三、C#读取存储xml
 
 ### ①.XML文件存放位置
 
-![](pic/数据持久化——XML_images_22.png)
+![](static/数据持久化——XML_images_21.png)
 
 ### ②.C#读取XML文件
 
@@ -114,8 +115,8 @@
 
 
 ##### 练习题
-![](pic/数据持久化——XML_images_23.png)
-![](pic/数据持久化——XML_images_24.png)
+![](static/数据持久化——XML_images_22.png)
+![](static/数据持久化——XML_images_23.png)
 
 ### ③C#存储XML文件
 
@@ -233,9 +234,9 @@
 ##### 练习题
 
 
-![](pic/数据持久化——XML_images_25.png)
+![](static/数据持久化——XML_images_24.png)
 
-![](pic/数据持久化——XML_images_26.png)
+![](static/数据持久化——XML_images_25.png)
 
 
 ## 四、实践小项目
@@ -284,8 +285,8 @@
 ##### 知识点三 自定义节点名 或 设置属性 
 
 - 可以通过特性 设置节点或者设置属性 并且修改名字
-![](pic/数据持久化——XML_images_27.png)
-![](pic/数据持久化——XML_images_28.png)
+![](static/数据持久化——XML_images_26.png)
+![](static/数据持久化——XML_images_27.png)
 ##### 总结 
 
 - 序列化流程 
@@ -361,7 +362,7 @@
 -    *XmlSerializer s = new XmlSerializer(typeof(TestLesson3));* 
 -    *t = s.Deserialize(reader) as TestLesson3;* 
 - *}*
-![](pic/数据持久化——XML_images_29.png)
+![](static/数据持久化——XML_images_28.png)
 
 
 #### 4.让Dictionary支持序列化反序列化
@@ -391,13 +392,13 @@
 -   *XmlSerializer s = new XmlSerializer(typeof(TestLesson4));* 
 -   *tl4 = s.Deserialize(reader) as TestLesson4;* 
 - *}*
-![](pic/数据持久化——XML_images_30.png)
+![](static/数据持久化——XML_images_29.png)
 
 #### ②实践内容
 
-![](pic/数据持久化——XML_images_31.png)
+![](static/数据持久化——XML_images_30.png)
 
-![](pic/数据持久化——XML_images_32.png)
+![](static/数据持久化——XML_images_31.png)
 
 
 

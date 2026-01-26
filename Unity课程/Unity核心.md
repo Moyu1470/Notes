@@ -1,9 +1,10 @@
 ## 一、Unity核心概述
-![](pic/Unity核心_images_1.png)
-![](pic/Unity核心_images_2.png)
-![](pic/Unity核心_images_3.png)
-![](pic/Unity核心_images_4.png)
-![](pic/Unity核心_images_5.png)
+![Uploading file...htyzf]()
+
+![](static/Unity核心_images_1.png)
+![](static/Unity核心_images_2.png)
+![](static/Unity核心_images_3.png)
+![](static/Unity核心_images_4.png)
 
 
 
@@ -13,15 +14,15 @@
 ### 模型制作流程
 
 #### 第一步：建模
-![](pic/Unity核心_images_6.png)
+![](static/Unity核心_images_5.png)
 #### 第二步：展UV
-![](pic/Unity核心_images_7.png)
+![](static/Unity核心_images_6.png)
 #### 第三步：材质和纹理贴图
-![](pic/Unity核心_images_8.png)
+![](static/Unity核心_images_7.png)
 #### 第四步：骨骼绑定
-![](pic/Unity核心_images_9.png)
+![](static/Unity核心_images_8.png)
 #### 第五步：动画制作
-![](pic/Unity核心_images_10.png)
+![](static/Unity核心_images_9.png)
 
 
 
@@ -71,7 +72,7 @@
 - 4.平铺拉伸 
 - 5.平台设置 
 - 6.预览窗口
-![](pic/Unity核心_images_11.png)
+![](static/Unity核心_images_10.png)
 
 #### 2.纹理类型设置
 
@@ -83,11 +84,11 @@
 
 ##### 知识点二 设置讲解
 
-![](pic/Unity核心_images_12.png)
-![](pic/Unity核心_images_13.png)
+![](static/Unity核心_images_11.png)
+![](static/Unity核心_images_12.png)
 
-![](pic/Unity核心_images_14.png)
-![](pic/Unity核心_images_15.png)
+![](static/Unity核心_images_13.png)
+![](static/Unity核心_images_14.png)
 #### 3. 参数设置——纹理形状
 
 ##### 知识点一 纹理形状主要是设置什么？ 
@@ -98,7 +99,7 @@
 
 ##### 知识点二 参数讲解
 
-![](pic/Unity核心_images_16.png)
+![](static/Unity核心_images_15.png)
 
 #### 4. 纹理高级设置
 
@@ -108,7 +109,7 @@
 
 ##### 知识点二 参数讲解
 
-![](pic/Unity核心_images_17.png)
+![](static/Unity核心_images_16.png)
 
 ##### 知识点三 MipMap是什么？ 
 - 在三维计算机图形的贴图渲染中有一个常用的技术被称为Mipmapping。 
@@ -139,7 +140,7 @@
 
 ##### 知识点二 参数讲解
 
-![](pic/Unity核心_images_18.png)
+![](static/Unity核心_images_17.png)
 
 #### 6. 纹理平台打包相关设置
 
@@ -149,13 +150,13 @@
 - 它非常的重要，因为它影响了你的包大小和读取性能方面的问题
 
 ##### 知识点二 参数相关
-![](pic/Unity核心_images_19.png)
+![](static/Unity核心_images_18.png)
 
 
-![](pic/Unity核心_images_20.png)
+![](static/Unity核心_images_19.png)
 
 
-![](pic/Unity核心_images_21.png)
+![](static/Unity核心_images_20.png)
 ### ②.Sprite
 
 #### 1. Sprite Editor——Single图片编辑
@@ -172,7 +173,7 @@
 ##### 知识点三 Single图片编辑 功能讲解 
 - Single图片编辑主要讲解的就是在设置图片时 
 - 将精灵图片模式（Sprite Mode）设置为Single的精灵图片在Sprite Editor窗口中如何编辑 
-  ![](pic/Unity核心_images_22.png)
+  ![](static/Unity核心_images_21.png)
 - 1.Sprite Editor 
 -   基础图片设置（右下角窗口） 
 -  主要用于设置单张图片的基础属性 
@@ -202,7 +203,7 @@
 
 ##### 知识点二 参数讲解
 
-![](pic/Unity核心_images_23.png)
+![](static/Unity核心_images_22.png)
 
 #### 3. Sprite Wditor——Polygon图片编辑
 
@@ -216,14 +217,14 @@
 
 ##### 知识点二 参数详解
 
-![](pic/Unity核心_images_24.png)
+![](static/Unity核心_images_23.png)
 
 ````ad-warning
 
 如果从多边形切换回Single，需要重新生成渲染范围
 
 ````
-![](pic/Unity核心_images_25.png)
+![](static/Unity核心_images_24.png)
 
 #### 4.SpriteRenderer精灵渲染器
 
@@ -241,7 +242,7 @@
 
 ##### 知识点三 参数讲解
 
-![](pic/Unity核心_images_26.png)
+![](static/Unity核心_images_25.png)
 ##### 知识点四 代码设置 
 
 - *GameObject obj = new GameObject();* 
@@ -303,7 +304,7 @@ public class MultipleMgr
     }
 }
 ```
-![](pic/Unity核心_images_27.png)
+![](static/Unity核心_images_26.png)
 
 ##### 练习题二
 
@@ -350,7 +351,7 @@ public class PlayerObject : MonoBehaviour
 ##### 知识点二 使用Sprite Creator 
 
 - 在Project窗口右键创建各种形状的Sprite精灵图片
-![](pic/Unity核心_images_28.png)
+![](static/Unity核心_images_27.png)
 
 
 #### 6. SpriteMask精灵遮罩
@@ -362,9 +363,9 @@ public class PlayerObject : MonoBehaviour
 - 制作一些特殊的功能，比如只显示图片的一部分让玩家看到
 
 ##### 知识点二 参数相关
-![](pic/Unity核心_images_29.png)
-![](pic/Unity核心_images_30.png)
-![](pic/Unity核心_images_31.png)
+![](static/Unity核心_images_28.png)
+![](static/Unity核心_images_29.png)
+![](static/Unity核心_images_30.png)
 
 #### 7. SortingGroup分组
 
@@ -377,15 +378,15 @@ public class PlayerObject : MonoBehaviour
 
 ##### 知识点二 SortingGroup的使用
 
-![](pic/Unity核心_images_32.png)
+![](static/Unity核心_images_31.png)
 
 ````ad-tip
 每层管自己 父对象优先子对象
 ````
 ##### 知识点三 注意事项 
 
-![](pic/Unity核心_images_33.png)
-![](pic/Unity核心_images_34.png)
+![](static/Unity核心_images_32.png)
+![](static/Unity核心_images_33.png)
 ````ad-tip
 SpriteRender层级中New Layer层级高于Default层
 ````
@@ -417,7 +418,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点三 打图集面板参数相关
 
-![](pic/Unity核心_images_35.png)
+![](static/Unity核心_images_34.png)
 
 
 ##### 知识点四 代码控制 
@@ -449,8 +450,8 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点二 参数相关
 
-![](pic/Unity核心_images_36.png)
-![](pic/Unity核心_images_37.png)
+![](static/Unity核心_images_35.png)
+![](static/Unity核心_images_36.png)
 ##### 知识点四 如何选择不同类型的刚体 
 
 - Dynamic动态刚体：受力的作用，要动要碰撞的对象 
@@ -482,12 +483,12 @@ SpriteRender层级中New Layer层级高于Default层
 - 4.边界碰撞器 
 - 5.胶囊碰撞器 
 - 6.复合碰撞器
-![](pic/Unity核心_images_38.png)
-![](pic/Unity核心_images_39.png)
+![](static/Unity核心_images_37.png)
+![](static/Unity核心_images_38.png)
 
 ##### 知识点三 碰撞检测函数
-![](pic/Unity核心_images_40.png)
-![](pic/Unity核心_images_41.png)
+![](static/Unity核心_images_39.png)
+![](static/Unity核心_images_40.png)
 
 #### 3. 物理材质
 
@@ -498,7 +499,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点二 参数讲解
 
-![](pic/Unity核心_images_42.png)
+![](static/Unity核心_images_41.png)
 
 #### 4.恒定力
 
@@ -513,7 +514,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点二 参数讲解
 
-![](pic/Unity核心_images_43.png)
+![](static/Unity核心_images_42.png)
 #### 5.表面效应器
 
 ##### 知识点一 2D效应器是什么？ 
@@ -526,16 +527,16 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点二 不同种类2D效应器的使用  
 - 1.区域效应器 
-![](pic/Unity核心_images_44.png)
+![](static/Unity核心_images_43.png)
 - 2.浮力效应器 
-![](pic/Unity核心_images_45.png)
+![](static/Unity核心_images_44.png)
 - 3.点效应器 
-![](pic/Unity核心_images_46.png)
+![](static/Unity核心_images_45.png)
 - 4.平台效应器 
-![](pic/Unity核心_images_47.png)
+![](static/Unity核心_images_46.png)
 - 5.表面效应器
 
-![](pic/Unity核心_images_48.png)
+![](static/Unity核心_images_47.png)
 
 
 ### ④. SpriteShape
@@ -565,7 +566,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点四 使用精灵形状概括资源创建地形
 
-![](pic/Unity核心_images_49.png)
+![](static/Unity核心_images_48.png)
 
 
 
@@ -575,26 +576,26 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点一 Sprite Shape Renderer参数相关
 
-![](pic/Unity核心_images_50.png)
+![](static/Unity核心_images_49.png)
 
 
-![](pic/Unity核心_images_51.png)
+![](static/Unity核心_images_50.png)
 
 
 
 ##### 知识点二 Sprite Shape Controller参数相关
 
-![](pic/Unity核心_images_52.png)
+![](static/Unity核心_images_51.png)
 
 
 ##### 知识点三 生成碰撞器
 
 - 1.使用边界碰撞器 
 
-![](pic/Unity核心_images_53.png)
+![](static/Unity核心_images_52.png)
 
 - 2.使用多边形 碰撞器 配合复合碰撞器
-![](pic/Unity核心_images_54.png)
+![](static/Unity核心_images_53.png)
 ````ad-tip
 
 勾选 Used By Composite 来生成复合碰撞器 否则会生成多边形组成的碰撞器
@@ -625,7 +626,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点二 从PackageManager中引入Tilemap包
 
-![](pic/Unity核心_images_55.png)
+![](static/Unity核心_images_54.png)
 
 ##### 知识点三 Tilemap的最小单位——"瓦片" 
 
@@ -638,19 +639,19 @@ SpriteRender层级中New Layer层级高于Default层
 - 在Tile Palette瓦片调色板窗口创建 
 - 1.首先新建一个瓦片地图编辑文件 
 - 2.将资源拖入到窗口中选择要保存的路径
-![](pic/Unity核心_images_56.png)
+![](static/Unity核心_images_55.png)
 #### 2.瓦片调色板
 
 ##### 知识点一 创建瓦片调色器相关参数
-![](pic/Unity核心_images_57.png)
+![](static/Unity核心_images_56.png)
 
 ##### 知识点二 TilePalette瓦片调色板窗口基本操作技巧
 
-![](pic/Unity核心_images_58.png)
+![](static/Unity核心_images_57.png)
 
 ##### 知识点三 TilePalette瓦片调色板窗口面板基本功能
 
-![](pic/Unity核心_images_59.png)
+![](static/Unity核心_images_58.png)
 
 ##### 知识点四 编辑瓦片地图 
 
@@ -682,7 +683,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 ##### 知识点一 瓦片地图关键脚本参数
 
-![](pic/Unity核心_images_60.png)
+![](static/Unity核心_images_59.png)
 ##### 知识点三 瓦片地图碰撞器 
 
 - 为挂载TilemapRenerer脚本的对象添加Tilemap Collider2D脚本 
@@ -712,8 +713,8 @@ SpriteRender层级中New Layer层级高于Default层
  - 定义不同方向是否存在连接图片的规则 
  - 让我们更加快捷的进行地图编辑 
 
-  ![](pic/Unity核心_images_61.png)
-  ![](pic/Unity核心_images_62.png)
+  ![](static/Unity核心_images_60.png)
+  ![](static/Unity核心_images_61.png)
   
 #####  知识点二 动画瓦片 AnimatedTile
  
@@ -724,29 +725,29 @@ SpriteRender层级中New Layer层级高于Default层
 ##### 知识点三 管道瓦片 PipelineTile
 
  - 根据自己相邻瓦片的数量更换显示的图片 
-![](pic/Unity核心_images_63.png)
+![](static/Unity核心_images_62.png)
   
 ##### 知识点四 随机瓦片 RandomTile
 
  - 根据你设置的图片，随机从中选一个进行绘制 
-![](pic/Unity核心_images_64.png)
+![](static/Unity核心_images_63.png)
   
 ##### 知识点五 地形瓦片 TerrainTile
 
  - 有点类似规则瓦片，只不过地形瓦片是帮助你定好的规则 
 
-  ![](pic/Unity核心_images_65.png)
+  ![](static/Unity核心_images_64.png)
 ##### 知识点六 权重随机瓦片 WeightedRandomTile
 
  - 可以不平均随机选择图片的瓦片 
 
-  ![](pic/Unity核心_images_66.png)
+  ![](static/Unity核心_images_65.png)
 ##### 知识点七 (高级)规则覆盖瓦片 (Advanced)Rule Override TileBase
 
  - 在规则瓦片的基础上 改变图片或者指定启用的规则 
-![](pic/Unity核心_images_67.png)
+![](static/Unity核心_images_66.png)
 
-![](pic/Unity核心_images_68.png)
+![](static/Unity核心_images_67.png)
 #### 6.瓦片地图拓展包——新增笔刷类型
 
 ##### 知识点一 获取Tilemap和TileBase和Grid 
@@ -782,7 +783,7 @@ SpriteRender层级中New Layer层级高于Default层
 - 传入的参数是世界坐标 
 - *grid.WorldToCell()*
 
-![](pic/Unity核心_images_69.png)
+![](static/Unity核心_images_68.png)
 
 
 
@@ -847,7 +848,7 @@ SpriteRender层级中New Layer层级高于Default层
 
 
 - **知识点四 认识Animaiton窗口功能**
-- ![](pic/Unity核心_images_70.png)![](pic/Unity核心_images_71.png)
+- ![](static/Unity核心_images_69.png)![](static/Unity核心_images_70.png)
 
 #### 2. 创建编辑Animation动画
 
@@ -857,7 +858,7 @@ SpriteRender层级中New Layer层级高于Default层
 - 3.选择动画文件将要保存到的位置
 
 ##### 知识点二 窗口上的变化
-- ![](pic/Unity核心_images_72.png)
+- ![](static/Unity核心_images_71.png)
 
 ````ad-tip
 
@@ -867,15 +868,15 @@ SpriteRender层级中New Layer层级高于Default层
 
 
 ##### 知识点三 关键帧模式下编辑动画
-![](pic/Unity核心_images_73.png)
+![](static/Unity核心_images_72.png)
 
 ##### 知识点四 曲线模式下编辑动画
-![](pic/Unity核心_images_74.png)
+![](static/Unity核心_images_73.png)
 
-![](pic/Unity核心_images_75.png)
+![](static/Unity核心_images_74.png)
 ##### 知识点五 动画文件界面参数
-- ![](pic/Unity核心_images_76.png)
-- ![](pic/Unity核心_images_77.png)
+- ![](static/Unity核心_images_75.png)
+- ![](static/Unity核心_images_76.png)
 
 #### 3.代码控制动画（老动画系统）
 
@@ -892,7 +893,7 @@ SpriteRender层级中New Layer层级高于Default层
 - 这时制作出的动画和之前的动画格式是有区别的 
   
 - Animation参数
-![](pic/Unity核心_images_78.png)
+![](static/Unity核心_images_77.png)
 
 ##### 知识点三 代码控制播放
 
@@ -947,7 +948,7 @@ SpriteRender层级中New Layer层级高于Default层
 ##### 知识点四 动画事件
 - 动画事件主要用于处理 当动画播放到某一时刻想要触发某些逻辑  
 - 比如进行伤害检测、发射子弹、特效播放等等
-![](pic/Unity核心_images_79.png)![](pic/Unity核心_images_79.png)g)![](pic/Unity核心_images_80.png)
+![](static/Unity核心_images_78.png)![](static/Unity核心_images_78.png)g)![](static/Unity核心_images_79.png)
 - *public void AnimationEvent()* 
 - *{* 
 -   *print("动画事件触发");* 
@@ -1013,26 +1014,26 @@ SpriteRender层级中New Layer层级高于Default层
 ##### 知识点一 创建动画状态机
 - 1.通过为场景中物体创建动画时自动创建 
 - 2.手动创建动画状态机文件
-- ![](pic/Unity核心_images_81.png)
+- ![](static/Unity核心_images_80.png)
 ##### 知识点二 基础使用——初识动画状态机窗口
- ![](pic/Unity核心_images_82.png)![](pic/Unity核心_images_83.png))
+ ![](static/Unity核心_images_81.png)![](static/Unity核心_images_82.png))
 
 
 ##### 知识点三 基础使用——添加动画
 - 自动添加——为对象创建动画后会自动将动画添加到状态机中 
 - 手动添加1——将动画文件拖入到状态机中（注意：老动画拖入会有警告） 
 - 手动添加2——右键创建状态，再关联动画
--![](pic/Unity核心_images_84.png)
+-![](static/Unity核心_images_83.png)
 
 ##### 知识点四 基础使用——添加切换连线
-![](pic/Unity核心_images_85.png)
+![](static/Unity核心_images_84.png)
 ##### 知识点五 基础使用——添加切换条件
 - 在左侧面板点击参数页签 
 - 可以在这里添加4中类型的切换条件
- ![](pic/Unity核心_images_86.png)
+ ![](static/Unity核心_images_85.png)
 ##### 知识点六 基础使用——设置动画间切换条件
 
-![](pic/Unity核心_images_86.png)![](pic/Unity核心_images_87.png)![](pic/Unity核心_images_88.png)
+![](static/Unity核心_images_85.png)![](static/Unity核心_images_86.png)![](static/Unity核心_images_87.png)
 ````ad-tip
 
 trigger在切换成功之后会自动变成不激活状态
@@ -1045,7 +1046,7 @@ trigger在切换成功之后会自动变成不激活状态
 
 ##### 知识点一 关键组件Animator
 
-![](pic/Unity核心_images_89.png)
+![](static/Unity核心_images_88.png)
 ##### 知识点二 Animator中的API
 - 我们用代码控制状态机切换主要使用的就是Animator提供给我们的API 
 - 我们知道一共有四种切换条件 int float bool trigger//所以对应的API也是和这四种类型有关系的 
@@ -1060,11 +1061,11 @@ trigger在切换成功之后会自动变成不激活状态
 - *animator.GetFloat("条件名");* 
 - *animator.GetInteger("条件名");* 
 - *animator.GetBool("条件名");* 
-  ![](pic/Unity核心_images_90.png)
+  ![](static/Unity核心_images_89.png)
 
 
 
-![](pic/Unity核心_images_91.png)
+![](static/Unity核心_images_90.png)
 ````ad-tip
 如果不取消勾选 会延迟到动画结束才切换状态
 ````
@@ -1122,13 +1123,13 @@ if( time >= 0.03f )
 - 2.创建一个动画 
 - 3.直接将某一个动作的序列帧拖入窗口中 
 
-![](pic/Unity核心_images_91.png)
+![](static/Unity核心_images_90.png)
 - 方法二： 
 - 直接将图片拖入Hierarchy层级窗口中 
 - 注意：需要修改动画帧率 来控制动画的播放速度
 
-![](pic/Unity核心_images_92.png)
-![](pic/Unity核心_images_93.png)
+![](static/Unity核心_images_91.png)
+![](static/Unity核心_images_92.png)
 ![](static/Unity核心_images_76![](static/Unity核心_images_77.png)6.png)
 ##### 知识点四 利用Animator进行动画控制
 ```C#
@@ -1139,7 +1140,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
     animator.SetBool("isDown", false);
     
 ```
-![](pic/Unity核心_images_94.png)
+![](static/Unity核心_images_93.png)
 
 ### ②. 骨骼动画——2D Animation
 #### 1..单张图片骨骼编辑
@@ -1162,15 +1163,15 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 
 ##### 知识点三 导入2D Animation工具
-- 在Package Manager窗口 搜索 2D Animation并![](pic/Unity核心_images_95.png)ng)
+- 在Package Manager窗口 搜索 2D Animation并![](static/Unity核心_images_94.png)ng)
 
 ##### 知识点四 面板讲解
 - 导入工具后 在Sprite Editor窗口会多一个选项 Skinning Editor
-- ![](pic/Unity核心_images_96.png)
+- ![](static/Unity核心_images_95.png)
 ![](static/tmp1762328995912_Unity核心_images_43.png![](static/tmp1762328996046_Unity核心_images_44.png)g)
-![](pic/Unity核心_images_97.png)
+![](static/Unity核心_images_96.png)
 
-![](pic/Unity核心_images_97.png)
+![](static/Unity核心_images_96.png)
 
 
 
@@ -1255,7 +1256,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 ![](static/tmp1762341158893_Unity核心_images_68.png)
 ##### 知识点四 为PSB文件编辑骨骼信息
 ![](static/tmp1762341158893_Unity核心_images_68.png)
-![](pic/Unity核心_images_98.png)
+![](static/Unity核心_images_97.png)
  ````ad-tip
  
 多出来的 sprite sheet用来切换 图集 和拼好的图
@@ -1304,7 +1305,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 ##### 知识点三 2D IK的使用
 
-![](pic/Unity核心_images_99.png)
+![](static/Unity核心_images_98.png)
 
 ````ad-tip
 
@@ -1323,9 +1324,9 @@ else if (Input.GetKeyUp(KeyCode.Space))
 ````
 ![](static/tmp1762340013990_Unity核心_images_70.png)
 ![](static/tmp1762346778203_Unity核心_images_93.png)
-![](pic/Unity核心_images_100.png)
+![](static/Unity核心_images_99.png)
 ![](static/tmp1762346103617_Unity核心_images_87.png)
-![](pic/Unity核心_images_101.png)
+![](static/Unity核心_images_100.png)
 
 
 
@@ -1366,7 +1367,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 - GetCategory() 获取当前部位默认的类别名  
 - SetCategoryAndLabel 设置当前部位想要切换的图片信息  
 - *sr.SetCategoryAndLabel(sr.GetCategory(), "CASK 1");*
--![](pic/Unity核心_images_101.png)
+-![](static/Unity核心_images_100.png)
 
 #### 6.换装——在不同文件中的换装
 
@@ -1394,10 +1395,10 @@ else if (Input.GetKeyUp(KeyCode.Space))
 ````ad-tip
 新版unity中的SpriteLibraryAsset需要自己配置图片类型和标签
 ````
-![](pic/Unity核心_images_101.png)
-![](pic/Unity核心_images_101.png)
-![](pic/Unity核心_images_101.png)
-![](pic/Unity核心_images_101.png)
+![](static/Unity核心_images_100.png)
+![](static/Unity核心_images_100.png)
+![](static/Unity核心_images_100.png)
+![](static/Unity核心_images_100.png)
 
 
 ##### 总结: 如何选择 同一文件和 不同文件 制作换装资源两种方案 
@@ -1462,17 +1463,17 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 ##### 知识点一 骨骼数据文件参数相关
 
-![](pic/Unity核心_images_102.png)
+![](static/Unity核心_images_101.png)
 
 ##### 知识点二 骨骼动画脚本参数相关
 
-![](pic/Unity核心_images_103.png)
-![](pic/Unity核心_images_104.png)
-![](pic/Unity核心_images_105.png)
+![](static/Unity核心_images_102.png)
+![](static/Unity核心_images_103.png)
+![](static/Unity核心_images_104.png)
 
 #### Spine——骨骼动画参数相关
 
-![](pic/Unity核心_images_106.png)
+![](static/Unity核心_images_105.png)
 
 
 ##### 知识点一 动画播放 
@@ -1485,7 +1486,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 - 马上播放 
 - *sa.AnimationState.SetAnimation(0, jumpName, false);* 
 - 0为动画轨道索引，Spine支持多轨道同时播放
-- ![](pic/Unity核心_images_107.png)
+- ![](static/Unity核心_images_106.png)
 - 排队播放 
 - *sa.AnimationState.AddAnimation(0, "walk", true, 0);*
 
@@ -1616,11 +1617,11 @@ else if (Input.GetKeyUp(KeyCode.Space))
 ##### 知识点二  参数详解
 
 
-![](pic/Unity核心_images_108.png)
+![](static/Unity核心_images_107.png)
 
-![](pic/Unity核心_images_109.png)
-![](pic/Unity核心_images_110.png)
-![](pic/Unity核心_images_111.png)
+![](static/Unity核心_images_108.png)
+![](static/Unity核心_images_109.png)
+![](static/Unity核心_images_110.png)
 
 
 ### ③.Rig操纵（骨骼）页签
@@ -1638,8 +1639,8 @@ else if (Input.GetKeyUp(KeyCode.Space))
 - 设置了他们，动画才能正常的播放
 
 ##### 知识点二 面板基础参数讲解
-![](pic/Unity核心_images_112.png)
-![](pic/Unity核心_images_113.png)
+![](static/Unity核心_images_111.png)
+![](static/Unity核心_images_112.png)
 
 
 
@@ -1665,9 +1666,9 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 ##### 知识点四 化身系统设置讲解
 
-![](pic/Unity核心_images_114.png)
+![](static/Unity核心_images_113.png)
 
-![](pic/Unity核心_images_115.png)
+![](static/Unity核心_images_114.png)
 
 ### ④.Animation动画页签
 
@@ -1699,31 +1700,31 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 #### 2.Animation动画页签 基础信息设置
 
-![](pic/Unity核心_images_116.png)
-![](pic/Unity核心_images_117.png)
+![](static/Unity核心_images_115.png)
+![](static/Unity核心_images_116.png)
 
 #### Animation动画页签 动画剪辑基础信息设置
 
-![](pic/Unity核心_images_118.png)
+![](static/Unity核心_images_117.png)
 
 #### 3. Animation动画剪辑属性基本设置 
 
-![](pic/Unity核心_images_119.png)
+![](static/Unity核心_images_118.png)
 
 #### 4. Animation动画页签 动画剪辑其它信息设置
 
-![](pic/Unity核心_images_120.png)
-![](pic/Unity核心_images_121.png)
+![](static/Unity核心_images_119.png)
+![](static/Unity核心_images_120.png)
 #### 5. Animation动画页签 预览窗口
 
-![](pic/Unity核心_images_122.png)
+![](static/Unity核心_images_121.png)
 
 
 ### ⑤. Materials材质纹理页签
 
 #### Materials材质纹理页签
 
-![](pic/Unity核心_images_123.png)
+![](static/Unity核心_images_122.png)
 
 ## 七.3D动画相关
 
@@ -1745,18 +1746,18 @@ else if (Input.GetKeyUp(KeyCode.Space))
 - 我们可以选中状态机窗口中的某一个状态为其设置相关参数 
 - 我们可以称之为动画状态设置 
 - 主要设置的是 当前状态的播放速度等等细节
-![](pic/Unity核心_images_124.png)
+![](static/Unity核心_images_123.png)
 
 
-![](pic/Unity核心_images_125.png)
+![](static/Unity核心_images_124.png)
 ##### 知识点三 连线设置相关参数 
 
 - 我们可以选中状态机窗口中的某一条箭头为其设置相关参数 
 - 我们可以称之为动画过渡设置 
 - 主要设置的是 从一个状态切换到另一个状态时 的表现效果和切换条件
-![](pic/Unity核心_images_126.png)
+![](static/Unity核心_images_125.png)
 
-![](pic/Unity核心_images_127.png)
+![](static/Unity核心_images_126.png)
 ##### 总结 
 
 - 注意点 
@@ -1779,9 +1780,9 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 ````
 
-![](pic/Unity核心_images_128.png)
-![](pic/Unity核心_images_129.png)
-![](pic/Unity核心_images_130.png)
+![](static/Unity核心_images_127.png)
+![](static/Unity核心_images_128.png)
+![](static/Unity核心_images_129.png)
 
 
 ### ②. 动画分层和遮罩
@@ -1823,7 +1824,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 - 4.根据需求创建动画遮罩 
 - *animator = this.GetComponent\<Animator>();* 
 - *animator.SetLayerWeight(animator.GetLayerIndex("MyLayer2"), 1);*
-![](pic/Unity核心_images_131.png)
+![](static/Unity核心_images_130.png)
 
 ### ③动画1D混合
 
@@ -1851,15 +1852,15 @@ else if (Input.GetKeyUp(KeyCode.Space))
 - 注意： 
 - 往混合树里面加入动作时需要找到动画文件进行关联
 
-![](pic/Unity核心_images_132.png)
+![](static/Unity核心_images_131.png)
 
 
 ##### 练习题思路
 
 
-![](pic/Unity核心_images_133.png)
+![](static/Unity核心_images_132.png)
 
-![](pic/Unity核心_images_134.png)
+![](static/Unity核心_images_133.png)
 ### ④.动画2D混合
 
 #### 动画2D混合
@@ -1888,9 +1889,9 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 ##### 练习题思路
 
-![](pic/Unity核心_images_135.png)
+![](static/Unity核心_images_134.png)
 
-![](pic/Unity核心_images_136.png)
+![](static/Unity核心_images_135.png)
 
 
 ### ⑤动画子状态机
@@ -1908,7 +1909,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 ##### 知识点二 创建子状态机 
 
 - 在Animator Controller窗口中右键->Create Sub-State Machine
-![[pic/Unity核心_images_137.svg]]
+![[static/Unity核心_images_136.svg]]
 ##### 知识点三 编辑子状态机 
 
 - 注意：子状态机和外部状态的相互连接方式
@@ -1924,9 +1925,9 @@ else if (Input.GetKeyUp(KeyCode.Space))
 
 ````
 
-![](pic/Unity核心_images_138.png)
+![](static/Unity核心_images_137.png)
 
-![](pic/Unity核心_images_139.png)
+![](static/Unity核心_images_138.png)
 
 ### ⑥ 动画IK控制
 
@@ -1996,7 +1997,7 @@ private void OnAnimatorMove()
 
 ##### 练习题 左右旋转鼠标通过IK控制角色的部分旋转
 
-![](pic/Unity核心_images_140.png)
+![](static/Unity核心_images_139.png)
 
 
 
@@ -2114,7 +2115,7 @@ private void MatchTarget()
 - 1.在Project窗口右键Create->Animator Override Controller 
 - 2.为Animator Override Controller文件在Inspector窗口关联基础的Animator Controller文件 
 - 3.关联需要的动画
-![](pic/Unity核心_images_141.png)
+![](static/Unity核心_images_140.png)
 
 
 ### ⑩角色控制器
@@ -2154,7 +2155,7 @@ private void MatchTarget()
 - *cc.SimpleMove(Vector3.forward * 10 * Time.deltaTime);* 
 - 不受重力作用的移动 
 - *cc.Move(Vector3.forward * 10 * Time.deltaTime);*
-![](pic/Unity核心_images_142.png)
+![](static/Unity核心_images_141.png)
 ## 八.导航寻路系统
 
 #### 1.导航寻路系统概述
@@ -2191,9 +2192,9 @@ private void MatchTarget()
 - 3.Areas页签——导航地区页签，设置对象的寻路消耗
 - 4.Agents页签——代理页签，设置寻路页签
 
-![](pic/Unity核心_images_143.png)
-![](pic/Unity核心_images_144.png)
-![](pic/Unity核心_images_145.png)
+![](static/Unity核心_images_142.png)
+![](static/Unity核心_images_143.png)
+![](static/Unity核心_images_144.png)
 
 
 
@@ -2215,7 +2216,7 @@ private void MatchTarget()
 
 - 导航网格寻路组件 
 - Nav Mesh Agent（导航网格代理人）
-![](pic/Unity核心_images_146.png)
+![](static/Unity核心_images_145.png)
 ##### 知识点三 寻路组件代码相关 
 
 - 使用网格相关脚本需要引用命名空间 
@@ -2292,10 +2293,10 @@ private void MatchTarget()
 *agent.Warp(Vector3.zero);*
 ````
 
-![](pic/Unity核心_images_147.png)
+![](static/Unity核心_images_146.png)
 ##### 练习题思路
 
-![](pic/Unity核心_images_148.png)
+![](static/Unity核心_images_147.png)
 
 
 
@@ -2318,7 +2319,7 @@ private void MatchTarget()
 - 1.使用两个对象作为两个平面之间的连接点（起点和终点） 
 - 2.添加Off Mesh Link脚本进行关联 
 - 3.设置参数
-![](pic/Unity核心_images_149.png)
+![](static/Unity核心_images_148.png)
 
 #### 5.导航网格动态障碍组件
 
@@ -2336,5 +2337,5 @@ private void MatchTarget()
 - 2.设置相关参数 
 - 3.代码逻辑控制其的移动或者显隐
 
-![](pic/Unity核心_images_150.png)
+![](static/Unity核心_images_149.png)
  

@@ -1,36 +1,37 @@
 ## 一、视频格式和解码器
 
-![](pic/Unity进阶之视频播放_images_1.png)
-![](pic/Unity进阶之视频播放_images_2.png)
-![](pic/Unity进阶之视频播放_images_3.png)
-![](pic/Unity进阶之视频播放_images_4.png)
-![](pic/Unity进阶之视频播放_images_5.png)
-![](pic/Unity进阶之视频播放_images_6.png)
-![](pic/Unity进阶之视频播放_images_7.png)
-![](pic/Unity进阶之视频播放_images_8.png)
-![](pic/Unity进阶之视频播放_images_9.png)
-![](pic/Unity进阶之视频播放_images_10.png)
-![](pic/Unity进阶之视频播放_images_11.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124517188.png)
+
+![](static/Unity进阶之视频播放_images_1.png)
+![](static/Unity进阶之视频播放_images_2.png)
+![](static/Unity进阶之视频播放_images_3.png)
+![](static/Unity进阶之视频播放_images_4.png)
+![](static/Unity进阶之视频播放_images_5.png)
+![](static/Unity进阶之视频播放_images_6.png)
+![](static/Unity进阶之视频播放_images_7.png)
+![](static/Unity进阶之视频播放_images_8.png)
+![](static/Unity进阶之视频播放_images_9.png)
+![](static/Unity进阶之视频播放_images_10.png)
 
 ## 二、Unity中的视频兼容性
 
 #### Unity中的视频兼容性
 
-![](pic/Unity进阶之视频播放_images_12.png)
-![](pic/Unity进阶之视频播放_images_13.png)
-![](pic/Unity进阶之视频播放_images_14.png)
-![](pic/Unity进阶之视频播放_images_15.png)
-![](pic/Unity进阶之视频播放_images_16.png)
-![](pic/Unity进阶之视频播放_images_17.png)
-![](pic/Unity进阶之视频播放_images_18.png)
-![](pic/Unity进阶之视频播放_images_19.png)
-![](pic/Unity进阶之视频播放_images_20.png)
-![](pic/Unity进阶之视频播放_images_21.png)
-![](pic/Unity进阶之视频播放_images_22.png)
-![](pic/Unity进阶之视频播放_images_23.png)
-![](pic/Unity进阶之视频播放_images_24.png)
-![](pic/Unity进阶之视频播放_images_25.png)
-![](pic/Unity进阶之视频播放_images_26.png)
+![](static/Unity进阶之视频播放_images_11.png)
+![](static/Unity进阶之视频播放_images_12.png)
+![](static/Unity进阶之视频播放_images_13.png)
+![](static/Unity进阶之视频播放_images_14.png)
+![](static/Unity进阶之视频播放_images_15.png)
+![](static/Unity进阶之视频播放_images_16.png)
+![](static/Unity进阶之视频播放_images_17.png)
+![](static/Unity进阶之视频播放_images_18.png)
+![](static/Unity进阶之视频播放_images_19.png)
+![](static/Unity进阶之视频播放_images_20.png)
+![](static/Unity进阶之视频播放_images_21.png)
+![](static/Unity进阶之视频播放_images_22.png)
+![](static/Unity进阶之视频播放_images_23.png)
+![](static/Unity进阶之视频播放_images_24.png)
+![](static/Unity进阶之视频播放_images_25.png)
 
 ## 三、视频剪辑设置相关
 
@@ -49,8 +50,8 @@
 
 ##### 知识点二 视频剪辑设置参数相关
 
-![](pic/Unity进阶之视频播放_images_27.png)
-![](pic/Unity进阶之视频播放_images_28.png)
+![](static/Unity进阶之视频播放_images_26.png)
+![](static/Unity进阶之视频播放_images_27.png)
 
 ##### 总结 
 
@@ -87,8 +88,8 @@
 
 ##### 知识点三 Video Player参数相关
 
-![](pic/Unity进阶之视频播放_images_29.png)
-![](pic/Unity进阶之视频播放_images_30.png)
+![](static/Unity进阶之视频播放_images_28.png)
+![](static/Unity进阶之视频播放_images_29.png)
 
 ##### 知识点四 Video Player代码相关
 
@@ -160,7 +161,7 @@ videoPlayer.loopPointReached += (v) =>
 - { 
 -     print("视频播放到结尾处时会调用的事件"); 
 - };
-![](pic/Unity进阶之视频播放_images_31.png)
+![](static/Unity进阶之视频播放_images_30.png)
 ##### 总结 
 
 - VideoPlayer是用于视频播放的组件 
@@ -175,7 +176,7 @@ videoPlayer.loopPointReached += (v) =>
 
 ##### 练习题
 
-![](pic/Unity进阶之视频播放_images_32.png)
+![](static/Unity进阶之视频播放_images_31.png)
 
 ## 五、全景视频
 

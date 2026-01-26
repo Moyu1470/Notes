@@ -1,7 +1,8 @@
-![](pic/A星算法_images_1.png)
-![](pic/A星算法_images_2.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124053114.png)
 
-![](pic/A星算法_images_3.png)
-![](pic/A星算法_images_4.png)
+![](static/A星算法_images_1.png)
+
+![](static/A星算法_images_2.png)
+![](static/A星算法_images_3.png)
 
 

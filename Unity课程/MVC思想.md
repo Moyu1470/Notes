@@ -2,66 +2,63 @@
 
 ### ①基本概念
 
-![](pic/MVC思想_images_1.png)
-![](pic/MVC思想_images_2.png)
-![](pic/MVC思想_images_3.png)
-![](pic/MVC思想_images_4.png)
-![](pic/MVC思想_images_5.png)
-![](pic/MVC思想_images_6.png)
-![](pic/MVC思想_images_7.png)
-![](pic/MVC思想_images_8.png)
-![](pic/MVC思想_images_9.png)
-![](pic/MVC思想_images_10.png)
-![](pic/MVC思想_images_11.png)
-![](pic/MVC思想_images_12.png)
-![](pic/MVC思想_images_13.png)
-![](pic/MVC思想_images_14.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124317922.png)
+
+![](static/MVC思想_images_1.png)
+![](static/MVC思想_images_2.png)
+![](static/MVC思想_images_3.png)
+![](static/MVC思想_images_4.png)
+![](static/MVC思想_images_5.png)
+![](static/MVC思想_images_6.png)
+![](static/MVC思想_images_7.png)
+![](static/MVC思想_images_8.png)
+![](static/MVC思想_images_9.png)
+![](static/MVC思想_images_10.png)
+![](static/MVC思想_images_11.png)
+![](static/MVC思想_images_12.png)
+![](static/MVC思想_images_13.png)
 
 ### ②不使用MVC思想制作UI逻辑
 
-![](pic/MVC思想_images_15.png)
-![](pic/MVC思想_images_16.png)
-![](pic/MVC思想_images_17.png)
+![](static/MVC思想_images_14.png)
+![](static/MVC思想_images_15.png)
+![](static/MVC思想_images_16.png)
 
 ### ③使用MVC思想制作UI逻辑
 
-![](pic/MVC思想_images_18.png)![](pic/MVC思想_images_19.png)
-![](pic/MVC思想_images_20.png)
-![](pic/MVC思想_images_21.png)
-![](pic/MVC思想_images_22.png)
-![](pic/MVC思想_images_23.png)
-
-### ④使用MVC和不使用的对比
-
-![](pic/MVC思想_images_24.png)
+![](static/MVC思想_images_17.png)![](static/MVC思想_images_18.png)
+![](static/MVC思想_images_19.png)
+![](static/MVC思想_images_20.png)
+![](static/MVC思想_images_21.png)
+![](static/MVC思想_images_22.pn![](static/MVC思想_images_24.png)tatic/MVC思想_images_23.png)
 ![](pic/MVC思想_images_25.png)
-![](pic/MVC思想_images_26.png)
-![](pic/MVC思想_images_27.png)
-![](pic/MVC思想_images_28.png)
-![](pic/MVC思想_images_29.png)
-![](pic/MVC思想_images_30.png)
+![](static/MVC思想_images_25.png)
+![](static/MVC思想_images_26.png)
+![](static/MVC思想_images_27.png)
+![](static/MVC思想_images_28.png)
+![](static/MVC思想_images_29.png)
 
 ## MVX
 
 ### ①MVX是什么
-![](pic/MVC思想_images_31.png)
-![](pic/MVC思想_images_32.png)
-![](pic/MVC思想_images_33.png)
-![](pic/MVC思想_images_34.png)
-![](pic/MVC思想_images_35.png)
+![](static/MVC思想_images_30.png)
+![](static/MVC思想_images_31.png)
+![](static/MVC思想_images_32.png)
+![](static/MVC思想_images_33.png)
+![](static/MVC思想_images_34.png)
 
 ### ②MVP
 
 #### 1.MVP的概念
 
-![](pic/MVC思想_images_36.png)
-![](pic/MVC思想_images_37.png)
-![](pic/MVC思想_images_38.png)
-![](pic/MVC思想_images_39.png)
+![](static/MVC思想_images_35.png)
+![](static/MVC思想_images_36.png)
+![](static/MVC思想_images_37.png)
+![](static/MVC思想_images_38.png)
 #### 2.MVP中的M和V
 
-![](pic/MVC思想_images_40.png)
-![](pic/MVC思想_images_41.png)
+![](static/MVC思想_images_39.png)
+![](static/MVC思想_images_40.png)
 
 ````ad-tip
 
@@ -76,8 +73,8 @@
 ````
 #### 3.MVP中的P
 
-![](pic/MVC思想_images_42.png)
-![](pic/MVC思想_images_43.png)
+![](static/MVC思想_images_41.png)
+![](static/MVC思想_images_42.png)
 
 ### ③MVVM
 
@@ -89,14 +86,14 @@
 
 #### 1.MVE概念
 
-![](pic/MVC思想_images_44.png)
-![](pic/MVC思想_images_45.png)
-![](pic/MVC思想_images_46.png)
-![](pic/MVC思想_images_47.png)
+![](static/MVC思想_images_43.png)
+![](static/MVC思想_images_44.png)
+![](static/MVC思想_images_45.png)
+![](static/MVC思想_images_46.png)
 #### 2.MVE的快速讲解
 
-![](pic/MVC思想_images_48.png)
-![](pic/MVC思想_images_49.png)
+![](static/MVC思想_images_47.png)
+![](static/MVC思想_images_48.png)
 
 
 

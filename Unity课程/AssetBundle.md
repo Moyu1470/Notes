@@ -1,22 +1,23 @@
 #### AssetBundle理论基础
 
-![](pic/小框架_images_83.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124123210.png)
 
-![](pic/小框架_images_84.png)
+
+![](static/AssetBundle_images_1.png)
 
 #### AB包资源加载
 
-![](pic/小框架_images_85.png)
+![](static/AssetBundle_images_2.png)
 
 #### AB包依赖
 
-![](pic/小框架_images_86.png)
+![](static/AssetBundle_images_3.png)
 
-![](pic/小框架_images_87.png)
+![](static/AssetBundle_images_4.png)
 
 #### AB包资源管理器
 
-![](pic/小框架_images_88.png)
+![](static/AssetBundle_images_5.png)
 
 
 

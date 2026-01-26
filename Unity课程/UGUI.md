@@ -42,7 +42,8 @@ Debug.Log("长按按钮被点击);
 ```
 ## 多选框和单选框
 ### 一、多选框
-![](pic/UGUI_images_1.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124358023.png)
+
 
 ```c#
 private bool isSel;    //私有申明一个siSel标志符 而不是直接写死bool值
@@ -98,7 +99,7 @@ inputPW = GUI.PasswordField(new Rect(0,50,100,30),inputPW,'*')
 ### 二、拖动条
 
 #### 水平拖动条
-![](pic/UGUI_images_2.png)
+![](static/UGUI_images_1.png)
 ``` C#
 private float nowValue = 0.5f;
 
@@ -109,7 +110,7 @@ nowValue = GUI.HorizontalSlider(new Rect)(0,100,100,50),nowValue，0,1)
 ```
 
 #### 竖直拖动条
-![](pic/UGUI_images_3.png)
+![](static/UGUI_images_2.png)
 ```C#
 
 nowValue = GUI.verticalSlider(new Rect)(0,150,50,100),nowValue，0,1)
@@ -283,7 +284,7 @@ private void DrawWindow
 
 ### 二、模态窗口 
 
-![](pic/UGUI_images_4.png)
+![](static/UGUI_images_3.png)
 
 ```C#
 //模态窗口 可以让其它控件不再有用
@@ -741,8 +742,8 @@ public class CustomGUIToggle : CustomGUIControl
 ```
 
 ### 七、自定义单选框控件
-![](pic/UGUI_images_5.png)
-![](pic/UGUI_images_6.png)
+![](static/UGUI_images_4.png)
+![](static/UGUI_images_5.png)
 ```C#
 public class CustomGUIToggleGroup :MonoBehaviour
 {

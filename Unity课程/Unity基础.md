@@ -63,7 +63,8 @@
     差值运算用法二：每帧改变t的值—— 变化速度匀速，位置每帧接近，当他>=1时，得到结果
     `time += Time.deltaTime;`
     `result = Mathf.Lerp(start, 10, time);`
-    ![](pic/Unity基础_images_1.png)
+    ![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124501320.png)
+
 ### 2. 三角函数
 角度和弧度的转换关系
 
@@ -85,8 +86,8 @@
     `print(rad);`
 - **知识点二**三角函数
     正弦函数
-    ![](pic/Unity基础_images_2.png)
-    ![](pic/Unity基础_images_3.png)
+    ![](static/Unity基础_images_1.png)
+    ![](static/Unity基础_images_2.png)
     ==Mathf中的三角函数相关函数，传入参数需要是弧度值==
     
     `print(Mathf.Sin(30 * Mathf.Deg2Rad));`
@@ -103,7 +104,7 @@
     `rad = Math.Acos(0.5f);`//得到0.5这么大的值对应的余弦弧度
     
     `print(rad * Mathf.Rad2Deg);`
-    ![](pic/Unity基础_images_4.png)
+    ![](static/Unity基础_images_3.png)
     
  
  
@@ -194,7 +195,7 @@
     `Vector3 AB = B - A;`
     `Vector3 BA = A - B;`
 
-![](pic/Unity基础_images_5.png)
+![](static/Unity基础_images_4.png)
 - **知识点三 零向量和负向量**
     零向量(0,0,0)
     零向量是==唯一==一个==大小为0==的向量
@@ -235,7 +236,7 @@
     ==normalized==
     `print(AB.normalized);`
     `print(AB/AB.magnitude);` 向量/模长 = 单位向量
-    ![](pic/Unity基础_images_6.png)
+    ![](static/Unity基础_images_5.png)
 
 
 ### 2. 向量点乘
@@ -257,7 +258,7 @@
 点乘结果 <0 两个向量夹角为钝角
 
 我们可以用这个规律判断敌方的大致方位
-![](pic/Unity基础_images_7.png)
+![](static/Unity基础_images_6.png)
 - **补充知识 调试划线**
     画线段      前两个参数分别是 起点 终点
     `Debug.DrawLine(this.transform.position,this.transform.position+this.transform.forward,Color.red);`
@@ -282,7 +283,7 @@
         print("它在我后方");
     }
     ```
-    ![](pic/Unity基础_images_8.png)
+    ![](static/Unity基础_images_7.png)
     
 - **知识点二 通过点乘退到公式算出夹角**
     
@@ -294,20 +295,20 @@
     
     print("角度2" + Vector3.Angle(this.transform.forward,target.position - this.transform.position));
 
-![](pic/Unity基础_images_9.png)
+![](static/Unity基础_images_8.png)
 ### 3. 向量叉乘
 -  ==叉乘计算公式==
 - 向量 X 向量 = 向量
-![](pic/Unity基础_images_10.png)
+![](static/Unity基础_images_9.png)
 - **知识点一 叉乘计算**
     print(Vector3.Cross(A.position,B.position));
-    ![](pic/Unity基础_images_11.png)
+    ![](static/Unity基础_images_10.png)
 - **知识点二 叉乘的几何意义**
     假设向量 A和B 都在 XZ平面上
     向量A 叉乘 向量B
     y大于0 证明 B在A右侧
     y小于0 证明 B在A左侧
-![](pic/Unity基础_images_12.png)
+![](static/Unity基础_images_11.png)
 
 ### 4. 向量差值运算
 
@@ -353,7 +354,7 @@ t的取值范围为0~1
 Vector3.Slerp(start,end,t);
 对两个向量进行差值运算；
 t的取值范围为0~1；
-![](pic/Unity基础_images_13.png)
+![](static/Unity基础_images_12.png)
 - **知识点二 球形差值**
 
 ```C#
@@ -450,7 +451,7 @@ C.position = Vector3.Slerp(Vector3.right * 10 , Vector3.forward * 10 , time)
 - 对于给定轴都会得到单位四元数
 
     [1,(0,0,0)]和[-1,(0,0,0)]都是单位四元数 表示没有旋转量
-![](pic/Unity基础_images_14.png)
+![](static/Unity基础_images_13.png)
 
 
 - # 四元数差值运算
@@ -524,7 +525,7 @@ Quaternion.LookRotation(面朝向量)
 
 3.函数名必须是该脚本上申明的函数
 ````
-![](pic/Unity基础_images_15.png)
+![](static/Unity基础_images_14.png)
 
 - #### 2.延迟重复执行函数
 - # InvokeRepeating
@@ -558,7 +559,7 @@ Quaternion.LookRotation(面朝向量)
 除非将对象销毁 或 将脚本移除
 ````
 
-![](pic/Unity基础_images_16.png)
+![](static/Unity基础_images_15.png)
 
 
 ### 2.协同程序
@@ -572,7 +573,7 @@ Unity中的多线程 要记住关闭(否则编辑器运行情况下 即使停止
 新线程无法访问Unity相关内容
 
 ````
-![](pic/Unity基础_images_17.png)
+![](static/Unity基础_images_16.png)
 
 - **知识点二 协同程序是什么？**
 - 简称"协程"  是"假"的多线程，不是多线程
@@ -597,7 +598,7 @@ Unity中的多线程 要记住关闭(否则编辑器运行情况下 即使停止
 - 第==一==步：==申明协程函数 ==
 - 2个关键点： 1-1 返回值为IEnumerator类型及其子类
              1-2 函数中通过yield return 返回值；进行返回
-![](pic/Unity基础_images_18.png)
+![](static/Unity基础_images_17.png)
 - 第==二==步：==开启协程函数==
 - ==协程函数不能直接执行==  MyCoroutine(1,"123"); 没有任何效果
 - ==常用开启方式==：
@@ -612,9 +613,9 @@ Unity中的多线程 要记住关闭(否则编辑器运行情况下 即使停止
 - 第==三==步： ==关闭协程==
 - #### 关闭所有： StopAllCoroutines();
 - #### 关闭指定协程： StopCoroutine(c1);
- ![](pic/Unity基础_images_19.png)
+ ![](static/Unity基础_images_18.png)
 
-![](pic/Unity基础_images_20.png)
+![](static/Unity基础_images_19.png)
 
 - **知识点六 协程受对象和组件失活销毁的影响**
 ````ad-warning
@@ -872,7 +873,7 @@ StartCoroutine(Load());
       
   }
   ```
-  ![](pic/Unity基础_images_21.png)
+  ![](static/Unity基础_images_20.png)
 
 ````ad-tip
 # 总结
@@ -892,9 +893,9 @@ StartCoroutine(Load());
    理解协程异步加载的原理
 ````
 
-![](pic/Unity基础_images_22.png)
+![](static/Unity基础_images_21.png)
 
-![](pic/Unity基础_images_23.png)
+![](static/Unity基础_images_22.png)
 
 ### 4.Resources卸载资源
 
@@ -946,7 +947,7 @@ GC.Collect();
 - `{`
 -   `print("LoadOver");`
 - `};`
-![](pic/Unity基础_images_24.png)
+![](static/Unity基础_images_23.png)
 
 - ```C#
   public void LoadScene(string name, UnityAction action)
@@ -997,7 +998,7 @@ GC.Collect();
 - 4、其它画线功能
 
 - **LineRenderer参数相关**
-- ![](pic/Unity基础_images_25.png)![](pic/Unity基础_images_26.png)![](pic/Unity基础_images_27.png)![](pic/Unity基础_images_28.png)
+- ![](static/Unity基础_images_24.png)![](static/Unity基础_images_25.png)![](static/Unity基础_images_26.png)![](static/Unity基础_images_27.png)
 
 - **知识点三 LineRenderer代码相关**
 - //==动态添加一个线段==

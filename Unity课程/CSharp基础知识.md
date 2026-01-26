@@ -5,39 +5,40 @@
 - #### 三种方法
 
 - ##### 一、 通过万物之父Object中的GetType()获取对象的Type
-![](pic/CSharp基础知识_images_1.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126124138378.png)
+
 
 - ##### 二、通过typeof关键字 传入类名
-![](pic/CSharp基础知识_images_2.png)
-![](pic/CSharp基础知识_images_3.png)
-![](pic/CSharp基础知识_images_4.png)
-![](pic/CSharp基础知识_images_5.png)
+![](static/CSharp基础知识_images_1.png)
+![](static/CSharp基础知识_images_2.png)
+![](static/CSharp基础知识_images_3.png)
+![](static/CSharp基础知识_images_4.png)
 - ##### 三、通过类名获取类型(必须包含命名空间)
-![](pic/CSharp基础知识_images_6.png)
-![](pic/CSharp基础知识_images_7.png)
-![](pic/CSharp基础知识_images_8.png)
+![](static/CSharp基础知识_images_5.png)
+![](static/CSharp基础知识_images_6.png)
+![](static/CSharp基础知识_images_7.png)
 ### 2.获取类的程序集信息
-![](pic/CSharp基础知识_images_9.png)
+![](static/CSharp基础知识_images_8.png)
 
 ### 3.获取类中所有公共成员
-![](pic/CSharp基础知识_images_10.png)
+![](static/CSharp基础知识_images_9.png)
 
 ### 4.获取类的公共构造函数并调用
-![](pic/CSharp基础知识_images_11.png)
-![](pic/CSharp基础知识_images_12.png)
+![](static/CSharp基础知识_images_10.png)
+![](static/CSharp基础知识_images_11.png)
 
 ### 5.获取公共成员变量
-![](pic/CSharp基础知识_images_13.png)
+![](static/CSharp基础知识_images_12.png)
 
 ### 6.获取类的公共成员方法
 
-![](pic/CSharp基础知识_images_14.png)
+![](static/CSharp基础知识_images_13.png)
 
 ### 其它
-![](pic/CSharp基础知识_images_15.png)
+![](static/CSharp基础知识_images_14.png)
 
 ### Assembly和Activator用法
-![](pic/CSharp基础知识_images_16.png)
+![](static/CSharp基础知识_images_15.png)
 
 # 2.委托/事件相关
 
@@ -45,11 +46,11 @@
 
 #### 1.委托是什么
 
-![](pic/CSharp基础知识_images_17.png)
+![](static/CSharp基础知识_images_16.png)
 
 #### 2.自定义委托
 
-![](pic/CSharp基础知识_images_18.png)
+![](static/CSharp基础知识_images_17.png)
 
 ````ad-warning
 
@@ -65,11 +66,11 @@
 ````
 
 #### 3. 使用委托
-![](pic/CSharp基础知识_images_19.png)
-![](pic/CSharp基础知识_images_20.png)
+![](static/CSharp基础知识_images_18.png)
+![](static/CSharp基础知识_images_19.png)
 
-![](pic/CSharp基础知识_images_21.png)
-![](pic/CSharp基础知识_images_22.png)
+![](static/CSharp基础知识_images_20.png)
+![](static/CSharp基础知识_images_21.png)
 ````ad-warning
 
 # 委托函数和要装载的函数 格式必须一致 
@@ -165,10 +166,10 @@
 
 #### 4. EventHandler
 
-![](pic/CSharp基础知识_images_23.png)
+![](static/CSharp基础知识_images_22.png)
 #### 5.EventArgs
 
-![](pic/CSharp基础知识_images_24.png)
+![](static/CSharp基础知识_images_23.png)
 
 
 

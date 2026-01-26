@@ -2,12 +2,13 @@
 
 ### ①概述
 
-![](pic/Addressable_images_1.png)
-![](pic/Addressable_images_2.png)
-![](pic/Addressable_images_3.png)
-![](pic/Addressable_images_4.png)
-![](pic/Addressable_images_5.png)
-![](pic/Addressable_images_6.png)
+![Uploading file...z1js4]()
+
+![](static/Addressable_images_1.png)
+![](static/Addressable_images_2.png)
+![](static/Addressable_images_3.png)
+![](static/Addressable_images_4.png)
+![](static/Addressable_images_5.png)
 
 ### ②导入Addressable
 
@@ -131,7 +132,7 @@
 - 我们可以按规则将资源进行分组 
 - 比如：角色、装备、怪物、UI等等
 
-![](pic/Addressable_images_7.png)
+![](static/Addressable_images_6.png)
 
 ### ②指定资源加载
 
@@ -208,7 +209,7 @@
 - *{* 
 -     使用音效 
 - *}*
-![](pic/Addressable_images_8.png)
+![](static/Addressable_images_7.png)
 
 #### 知识点四 加载场景 
 
