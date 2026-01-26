@@ -2,56 +2,61 @@
 
 ### ①.了解.Net相关知识
 
-![](pic/CSharp进阶知识补充_images_1.png)
-![](pic/CSharp进阶知识补充_images_2.png)
-![](pic/CSharp进阶知识补充_images_3.png)
-![](pic/CSharp进阶知识补充_images_4.png)
-![](pic/CSharp进阶知识补充_images_5.png)
-![](pic/CSharp进阶知识补充_images_6.png)
-![](pic/CSharp进阶知识补充_images_7.png)
-![](pic/CSharp进阶知识补充_images_8.png)
-![](pic/CSharp进阶知识补充_images_9.png)
-![](pic/CSharp进阶知识补充_images_10.png)
-![](pic/CSharp进阶知识补充_images_11.png)
-![](pic/CSharp进阶知识补充_images_12.png)![](pic/CSharp进阶知识补充_images_13.png)
-![](pic/CSharp进阶知识补充_images_14.png)
-![](pic/CSharp进阶知识补充_images_15.png)
-![](pic/CSharp进阶知识补充_images_16.png)
-![](pic/CSharp进阶知识补充_images_17.png)
-![](pic/CSharp进阶知识补充_images_18.png)
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126122219842.png)
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126122339092.png)
+
+![](static/CSharp进阶知识补充_images_1.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126122353236.png)
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126122414237.png)
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260126122432041.png)
+
+![](static/CSharp进阶知识补充_images_2.png)
+![](static/CSharp进阶知识补充_images_3.png)
+![](static/CSharp进阶知识补充_images_4.png)
+![](static/CSharp进阶知识补充_images_5.png)
+![](static/CSharp进阶知识补充_images_6.png)
+![](static/CSharp进阶知识补充_images_7.png)![](static/CSharp进阶知识补充_images_8.png)
+![](static/CSharp进阶知识补充_images_9.png)
+![](static/CSharp进阶知识补充_images_10.png)
+![](static/CSharp进阶知识补充_images_11.png)
+![](static/CSharp进阶知识补充_images_12.png)
+![](static/CSharp进阶知识补充_images_13.png)
 
 
 
 ### ②.Unity跨平台的基本原理
 
-![](pic/CSharp进阶知识补充_images_19.png)
-![](pic/CSharp进阶知识补充_images_20.png)
-![](pic/CSharp进阶知识补充_images_21.png)
-![](pic/CSharp进阶知识补充_images_22.png)
-![](pic/CSharp进阶知识补充_images_23.png)
+![](static/CSharp进阶知识补充_images_14.png)
+![](static/CSharp进阶知识补充_images_15.png)
+![](static/CSharp进阶知识补充_images_16.png)
+![](static/CSharp进阶知识补充_images_17.png)
+![](static/CSharp进阶知识补充_images_18.png)
 ![](pic/CSharp进阶知识补充_images_24.png)
-![](pic/CSharp进阶知识补充_images_25.png)
-![](pic/CSharp进阶知识补充_images_26.png)
-![](pic/CSharp进阶知识补充_images_27.png)
-![](pic/CSharp进阶知识补充_images_28.png)
+![](static/CSharp进阶知识补充_images_19.png)
+![](static/CSharp进阶知识补充_images_20.png)
+![](static/CSharp进阶知识补充_images_21.png)
+![](static/CSharp进阶知识补充_images_22.png)
 
 
 ### ③Unity跨平台的基本原理(IL2CPP)
 
 #### Unity跨平台的基本原理(IL2CPP)
 
-![](pic/CSharp进阶知识补充_images_29.png)
-![](pic/CSharp进阶知识补充_images_30.png)
-![](pic/CSharp进阶知识补充_images_31.png)
-![](pic/CSharp进阶知识补充_images_32.png)
-![](pic/CSharp进阶知识补充_images_33.png)
-![](pic/CSharp进阶知识补充_images_34.png)
-![](pic/CSharp进阶知识补充_images_35.png)
-![](pic/CSharp进阶知识补充_images_36.png)
-![](pic/CSharp进阶知识补充_images_37.png)
-![](pic/CSharp进阶知识补充_images_38.png)
-![](pic/CSharp进阶知识补充_images_39.png)
-![](pic/CSharp进阶知识补充_images_40.png)
+![](static/CSharp进阶知识补充_images_23.png)
+![](static/CSharp进阶知识补充![](static/CSharp进阶知识补充_images_29.png)充_images_28.png)
+![](static/CSharp进阶知识补充_images_24.png)
+![](static/CSharp进阶知识补充_images_24.png)
+![](static/CSharp进阶知识补充_images_25.png)
+![](static/CSharp进阶知识补充_images_26.png)
+![](static/CSharp进阶知识补充_images_27.png)
+![](static/CSharp进阶知识补充_images_28.png)
+![](static/CSharp进阶知识补充_images_29.png)
+![](static/CSharp进阶知识补充_images_29.png)
+![](static/CSharp进阶知识补充_images_29.png)
 
 ### ③IL2CPP模式可能存在的问题处理
 
@@ -60,8 +65,8 @@
 ##### 知识点一 ——安装Unity IL2CPP打包工具
 
 - 在Unityhub中下载 IL2CPP打包相关工具
-![](pic/CSharp进阶知识补充_images_41.png)
-![](pic/CSharp进阶知识补充_images_42.png)
+![](static/CSharp进阶知识补充_images_30.png)
+![](static/CSharp进阶知识补充_images_31.png)
 
 
 
@@ -75,7 +80,7 @@
 - 特别是通过反射等方式在编译时无法得知的函数调用，在运行时都很有可能遇到问题
 
 - ### 解决方案：
-![](pic/CSharp进阶知识补充_images_43.png)
+![](static/CSharp进阶知识补充_images_32.png)
 - 1.IL2CPP处理模式时，将PlayerSetting -> Other Setting -> Managed Stripping Level(代码剥离)设置为Low
 - Disable:Mono模式下才能设置为不删除任何代码
 - Low:默认低级别，保守的删除代码，删除大多数无法访问的代码，同时也最大程度减少剥离实际使用的代码的可能性
@@ -510,8 +515,8 @@
 - CancellationTokenSource对象可以达到延迟取消、取消回调等功能 
 
 - *CancellationTokenSource c = new CancellationTokenSource();* 
-- ![](pic/CSharp进阶知识补充_images_44.png)
-- ![](pic/CSharp进阶知识补充_images_45.png)
+- ![](static/CSharp进阶知识补充_images_33.png)
+- ![](static/CSharp进阶知识补充_images_34.png)
 - 延迟取消 
 - *c.CancelAfter(5000);* 
 - 取消回调 
@@ -531,7 +536,7 @@
 - *});*
   
 
-- ![](pic/CSharp进阶知识补充_images_46.png)
+- ![](static/CSharp进阶知识补充_images_35.png)
 ````ad-tip
 
 此处取消回调为  取消了Task的执行后
@@ -640,11 +645,11 @@
 - 用法：在引用命名空间时，在using关键字后面加入static关键词 
 - 作用：无需指定类型名称即可访问其静态成员和嵌套类型 
 - 好处：节约代码量，可以写出更简洁的代码 
-  ![](pic/CSharp进阶知识补充_images_47.png)
+  ![](static/CSharp进阶知识补充_images_36.png)
 - *Max(10, 20);* 
 - *TTT();* 
 - *Test4 t = new Test4()*
-![](pic/CSharp进阶知识补充_images_48.png)
+![](static/CSharp进阶知识补充_images_37.png)
 ##### 知识点三 补充讲解——异常筛选器 
 
 - 用法：在异常捕获语句块中的Catch语句后通过加入when关键词来筛选异常 
@@ -798,7 +803,7 @@
 - 可以给我们带来很多便捷性
 
 
-![](pic/CSharp进阶知识补充_images_49.png)
+![](static/CSharp进阶知识补充_images_38.png)
 
 #### 2.元组、模式匹配、抛出表达式
 
@@ -977,7 +982,7 @@ C#自带异常类
 - 他们可以帮助我们更效率的完成一些功能需求 
 - 建议大家常用他们
 
-![](pic/CSharp进阶知识补充_images_50.png)
+![](static/CSharp进阶知识补充_images_39.png)
 
 
 ### ⑤ C#8 功能和语法
@@ -1009,7 +1014,7 @@ C#自带异常类
 - 作用：方便逻辑的封装 
 - 建议：把本地函数写在主要逻辑的后面，方便代码的查看 
 - print(CalcInfo(10)); 
-  ![](pic/CSharp进阶知识补充_images_51.png)
+  ![](static/CSharp进阶知识补充_images_40.png)
 - 新知识点： 
 - 静态本地函数就是在本地函数前方加入静态关键字 
 - 它的作用就是让本地函数不能够使用访问封闭范围内（也就是上层方法中）的任何变量 
@@ -1087,7 +1092,7 @@ C#自带异常类
 - *float f;* 
 - *string s;* 
 - *(i,f,\_,s) = GetInfo();* 
-  ![](pic/CSharp进阶知识补充_images_52.png)
+  ![](static/CSharp进阶知识补充_images_41.png)
 - 新知识点：解构函数Deconstruct （C# 7就有了） 
 - 我们可以在自定义类当中声明解构函数 
 - 这样我们可以将该自定义类对象利用元组的写法对其进行变量的获取 
@@ -1109,8 +1114,8 @@ C#自带异常类
 - *string str3;* 
 - *(\_, \_, str3) = p;* 
 - *print(str3);*
-![](pic/CSharp进阶知识补充_images_53.png)
-![](pic/CSharp进阶知识补充_images_54.png)
+![](static/CSharp进阶知识补充_images_41.png)
+![](static/CSharp进阶知识补充_images_42.png)
 
 
 
@@ -1189,7 +1194,7 @@ C#自带异常类
 -     ....
 -     _ => 返回值表达式, 
 - }
-![](pic/CSharp进阶知识补充_images_55.png)
+![](static/CSharp进阶知识补充_images_50.png)
 ##### 知识点三 模式匹配增强功能——属性模式 
 
 - 就是在常量模式的基础上判断对象上各属性 
@@ -1203,7 +1208,7 @@ C#自带异常类
   
 - 它可以结合switch表达式使用 
 - 结合switch使用可以通过属性模式判断条件的组合
-![](pic/CSharp进阶知识补充_images_56.png)
+![](static/CSharp进阶知识补充_images_43.png)
 ##### 知识点四 模式匹配增强功能——元组模式 
 
 - 通过刚才学习的 属性模式我们可以在switch表达式中判断多个变量同时满足再返回什么 
@@ -1230,11 +1235,11 @@ C#自带异常类
 - 同样我们也可以配合switch表达式来处理逻辑 
 - 举例说明 
 - *print(GetMoney2(info, 300));* 
-  ![](pic/CSharp进阶知识补充_images_57.png)
+  ![](static/CSharp进阶知识补充_images_44.png)
 - 补充：配合when关键字进行逻辑处理
 
 
-![](pic/CSharp进阶知识补充_images_58.png)
+![](static/CSharp进阶知识补充_images_45.png)
 
 
 ## 六、C#其它知识点补充
