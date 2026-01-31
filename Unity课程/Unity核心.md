@@ -1257,7 +1257,7 @@ else if (Input.GetKeyUp(KeyCode.Space))
 ##### 知识点四 为PSB文件编辑骨骼信息
 ![](static/tmp1762341158893_Unity核心_images_68.png)
 ![](static/Unity核心_images_97.png)
- ````ad-tip
+ 
  
 多出来的 sprite sheet用来切换 图集 和拼好的图
 
