@@ -108,8 +108,36 @@ XXXX.CachedRectTransform.rect.height为预制体高度
 ![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260314200224110.png)
 
 
+## 8.CurSnapNearestItemIndex
+````ad-tip
+用于获取当前缓动状态下最靠近viewport视口的索引
+````
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316002000706.png)
 
 
+
+
+
+
+## 无限滚动背包
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260315125650335.png)
+
+## 海报
+
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316003724755.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316003757301.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316003804360.png)
+
+## 无限滚动海报
+````ad-tip
+可以用InvokeRepeating来制作类似滚动公告
+````
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316003917220.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316004946760.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316005119092.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260316005529020.png)
 
 
 

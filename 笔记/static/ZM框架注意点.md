@@ -1,4 +1,24 @@
+ZMGC 的GC指GameLogic 游戏框架  DMVC中的V 表示view层  被拆成了ZMUI框架
+
+D指 Data数据层 M是Message消息层 C是Logic逻辑层
+
 ![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260306192318868.png)
+## 导入ZMUGUIPRO须知
+````ad-tip
+导入ZMUGUIPRO 需要声明命名空间 
+
+这时候需要打开ZMUIFrameWork下的Editor文件下的GeneratorBindComponentTool和GeneratorFindComponentTool文件
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260317163928707.png)
+
+添加该命名空间
+
+另外如果要用描边功能  需要修改读取shader的路径
+
+![](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260317164503732.png)
+````
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260317163731111.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260317164046453.png)
+![image.png](https://cdn.jsdelivr.net/gh/Moyu1470/Notes/img/20260317164503732.png)
 
 
 
